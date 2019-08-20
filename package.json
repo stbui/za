@@ -1,0 +1,11 @@
+{
+  "name": "za",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "stbui <w431106@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lerna": "^3.16.4",
+    "styled-components": "^4.3.2"
+  }
+}
