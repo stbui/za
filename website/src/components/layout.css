@@ -1,0 +1,14 @@
+:root {
+  --header-height: 60px;
+}
+
+html,
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: rgb(33, 33, 33);
+}
