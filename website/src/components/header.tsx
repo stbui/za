@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import Anchor from "./Anchor"
 
@@ -19,10 +20,14 @@ const StyledHeader = styled.header`
   transition: transform 250ms ease-in-out;
   box-shadow: 0 1px 2px rgba(33, 33, 33, 0.15000000000000002);
 `
+const StyledBrand = styled(Link)`
+  font-size: 22px;
+  text-decoration: none;
+`
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-    {siteTitle}
+    <StyledBrand to="#">{siteTitle}</StyledBrand>
     <div style={{ flex: 1 }}></div>
     <Anchor to="/standard">组件规范</Anchor>
     <Anchor to="/standard">基础组件</Anchor>

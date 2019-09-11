@@ -24,7 +24,6 @@ const StyledAside = styled.div`
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   height: calc(100vh - var(--header-height, 60px));
-  padding: 16px;
   padding-bottom: 100px;
   box-sizing: border-box;
   @media (max-width: 768px) {
