@@ -3,40 +3,15 @@
 //  *
 //  * See: https://www.gatsbyjs.org/docs/node-apis/
 //  */
+const path = require(`path`)
 
 // // You can delete this file if you're not using it
-// exports.createPages = ({ actions, graphql }) => {
-//   return graphql(`
-//     {
-//       allMarkdownRemark {
-//         edges {
-//           node {
-//             fileAbsolutePath
-//             tableOfContents(pathToSlugField: "frontmatter.path")
-//             frontmatter {
-//               path
-//               redirect_from
-//             }
-//           }
-//         }
-//       }
-//       allDocsYaml {
-//         edges {
-//           node {
-//             section
-//             paths
-//           }
-//         }
-//       }
-//     }
-//   `).then(result => {
-//     if (result.errors) {
-//       return Promise.reject(result.errors)
-//     }
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+  const template = path.resolve(`src/pages/template.tsx`)
 
-//     const flatArray = []
-//     result.data.allDocsYaml.edges.forEach(async ({ node }) => {
-//       node.paths.forEach(path => flatArray.push(path))
-//     })
-//   })
-// }
+  return createPage({
+    path: "/test",
+    component: template,
+  })
+}
