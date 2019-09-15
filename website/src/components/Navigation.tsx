@@ -33,7 +33,7 @@ const MenuItem = styled.div`
   white-space: nowrap;
   padding-left: 40px;
 
-  ${({ active }) =>
+  ${({ active }: any) =>
     active &&
     `background: #E9E5FC;
   border-right: 2px solid #6a50ee;`}
@@ -44,7 +44,7 @@ const MenuItem = styled.div`
     padding-left: 10px;
     outline: none;
 
-    ${({ active }) => active && `color: #6a50ee;`}
+    ${({ active }: any) => active && `color: #6a50ee;`}
 
     &:hover {
       color: #6a50ee;
@@ -65,7 +65,6 @@ const query = graphql`
         title
         frontmatter {
           path
-          experimental
         }
       }
     }
@@ -73,14 +72,19 @@ const query = graphql`
 `
 
 export default () => {
+  const data = useStaticQuery(query)
+  console.log(data)
   return (
     <Sidebar>
       <Meun>
-        <MenuGroup>
-          <MenuItem active>
-            <Link to="/summarize">概述</Link>
-          </MenuItem>
-        </MenuGroup>
+        {data.allMarkdownRemark.nodes.map((d, key) => (
+          <MenuGroup key={key}>
+            <MenuItem>
+              <Link to={d.frontmatter.path}>{d.title}</Link>
+            </MenuItem>
+          </MenuGroup>
+        ))}
+
         <MenuGroup>
           <MenuItem>
             <Link to="/quickStart">快速开始</Link>

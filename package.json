@@ -1,43 +1,44 @@
 {
-  "name": "za",
-  "version": "1.0.0",
-  "description": "",
-  "author": "stbui <w431106@163.com>",
-  "homepage": "https://github.com/stbui/za",
-  "license": "ISC",
-  "main": "lib/index",
-  "module": "esm/index.js",
-  "types": "esm/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stbui/za.git"
-  },
-  "bugs": {
-    "url": "https://github.com/stbui/za/issues"
-  },
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "website"
-  ],
-  "scripts": {
-    "build": "lerna run build",
-    "release": "yarn run build && lerna publish --exact --conventional-commits",
-    "demo": "cd examples/demo && yarn run start",
-    "start": "cd examples/starter && yarn run start",
-    "docs": "cd docs && gitbook build",
-    "prettier": "prettier --config ./.prettierrc.js --write --list-different \"packages/*/src/**/*.{js,json,ts,tsx}\"",
-    "start:docs": "cd docs && gitbook serve",
-    "publish:github": "gh-pages -d docs/_book",
-    "website": "cd ./website && yarn start",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
-  },
-  "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "gitbook-cli": "^2.3.2",
-    "lerna": "^3.16.4",
-    "prettier": "^1.18.2",
-    "typescript": "^3.5.3",
-    "conventional-changelog-cli": "^2.0.21"
-  }
+    "name": "za",
+    "version": "1.0.0",
+    "description": "",
+    "author": "stbui <w431106@163.com>",
+    "homepage": "https://github.com/stbui/za",
+    "license": "ISC",
+    "main": "lib/index",
+    "module": "esm/index.js",
+    "types": "esm/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stbui/za.git"
+    },
+    "bugs": {
+        "url": "https://github.com/stbui/za/issues"
+    },
+    "private": true,
+    "workspaces": [
+        "packages/*",
+        "website"
+    ],
+    "scripts": {
+        "build": "lerna run build",
+        "release": "yarn run build && lerna publish --exact --conventional-commits",
+        "demo": "cd examples/demo && yarn run start",
+        "start": "cd examples/starter && yarn run start",
+        "docs": "cd docs && gitbook build",
+        "prettier": "prettier --config ./.prettierrc.js --write --list-different \"packages/*/src/**/*.{js,json,ts,tsx}\"",
+        "start:docs": "cd docs && gitbook serve",
+        "publish:github": "gh-pages -d docs/_book",
+        "website": "cd ./website && yarn start",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    },
+    "devDependencies": {
+        "@types/styled-components": "^4.1.19",
+        "gh-pages": "^2.0.1",
+        "gitbook-cli": "^2.3.2",
+        "lerna": "^3.16.4",
+        "prettier": "^1.18.2",
+        "typescript": "^3.5.3",
+        "conventional-changelog-cli": "^2.0.21"
+    }
 }

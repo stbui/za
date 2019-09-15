@@ -3,67 +3,99 @@
 //  *
 //  * See: https://www.gatsbyjs.org/docs/node-apis/
 //  */
-const path = require(`path`)
+const { resolve, relative, dirname } = require("path")
+const rehype = require("rehype")
+const { repository } = require("./package.json")
+
+function getAdjacentPaths(arr, index) {
+  return {
+    nextPagePath: arr[index + 1] ? arr[index + 1] : null,
+    prevPagePath: arr[index - 1] ? arr[index - 1] : null,
+  }
+}
 
 // // You can delete this file if you're not using it
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
-  const template = path.resolve(`src/pages/template.tsx`)
+  const { createPage, createRedirect } = actions
+  const template = resolve(`src/pages/template.tsx`)
 
-  // return graphql(`
-  //   {
-  //     allMarkdownRemark {
-  //       edges {
-  //         node {
-  //           fileAbsolutePath
-  //           tableOfContents(pathToSlugField: "frontmatter.path")
-  //           frontmatter {
-  //             path
-  //             redirect_from
-  //           }
-  //         }
-  //       }
-  //     }
-  //     allDocsYaml {
-  //       edges {
-  //         node {
-  //           section
-  //           paths
-  //         }
-  //       }
-  //     }
-  //   }
-  // `).then(result => {
-  //   if (result.errors) {
-  //     return Promise.reject(result.errors)
-  //   }
+  return graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            fileAbsolutePath
+            tableOfContents(pathToSlugField: "frontmatter.path")
+            frontmatter {
+              path
+              redirect_from
+            }
+          }
+        }
+      }
+      allDocsYaml {
+        edges {
+          node {
+            section
+            paths
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
 
-  //   console.log(result)
-  // })
+    const flatArray = []
+    result.data.allDocsYaml.edges.forEach(async ({ node }) => {
+      node.paths.forEach(path => flatArray.push(path))
+    })
 
-  createPage({
-    path: "/summarize",
-    component: template,
-  })
+    return result.data.allMarkdownRemark.edges.forEach(async ({ node }) => {
+      const { frontmatter, fileAbsolutePath, tableOfContents } = node
+      const { path, redirect_from } = frontmatter
 
-  createPage({
-    path: "/quickStart",
-    component: template,
-  })
-  createPage({
-    path: "/project",
-    component: template,
-  })
-  createPage({
-    path: "/attention",
-    component: template,
-  })
-  createPage({
-    path: "/participation",
-    component: template,
-  })
-  createPage({
-    path: "/changelog",
-    component: template,
+      const currentIndexInFlatArray = flatArray.findIndex(el => el === path)
+      const { nextPagePath, prevPagePath } = getAdjacentPaths(
+        flatArray,
+        currentIndexInFlatArray
+      )
+
+      const root = `${__dirname}/../..`
+      const repo = `${repository.replace(/(\/tree.+|\/)$/, "")}/tree/master/`
+      const sourceUrl = `${repo}${relative(root, dirname(fileAbsolutePath))}`
+      const readmeUrl = `${repo}${relative(root, fileAbsolutePath)}`
+      const tableOfContentsAst = await rehype()
+        .data("settings", { fragment: true })
+        .parse(tableOfContents)
+
+      createPage({
+        path,
+        component: template,
+        context: {
+          sourceUrl,
+          readmeUrl,
+          tableOfContentsAst,
+          nextPagePath,
+          prevPagePath,
+        },
+      })
+
+      if (redirect_from) {
+        const redirects = Array.isArray(redirect_from)
+          ? redirect_from
+          : [redirect_from]
+
+        redirects.forEach(redirectPath => {
+          createRedirect({
+            fromPath: redirectPath,
+            toPath: path,
+            isPermanent: true,
+            redirectInBrowser: true,
+          })
+        })
+      }
+    })
   })
 }

@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import styled from 'styled-components';
+
+const Root = styled.div``;
 
 export const Table = props => {
-  const { prefixCls, className } = props;
-  const classes = classNames({}, className);
+    const { ...other } = props;
+
+    return <Root {...other} />;
 };
 
-Table.defaultProps = {
-  prefixCls: 'za-table'
-};
+Table.defaultProps = {};
 
 export default Table;

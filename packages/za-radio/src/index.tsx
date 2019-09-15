@@ -1,16 +1,14 @@
 import React from 'react';
-import classNames from 'classnames';
 import styled from 'styled-components';
 
+const Root = styled.div``;
+
 export const Radio = props => {
-  const { prefixCls, className } = props;
-  const classes = classNames({}, className);
+    const { ...other } = props;
 
-  return <div classNames={classes} prefixCls={prefixCls} {...props} />;
+    return <Root {...other} />;
 };
 
-Radio.defaultProps = {
-  prefixCls: 'za-radio'
-};
+Radio.defaultProps = {};
 
 export default Radio;

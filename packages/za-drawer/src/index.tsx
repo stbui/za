@@ -1,17 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import styled from 'styled-components';
 import RcDrawer from 'rc-drawer';
 
-export const Drawer = (props) => {
-  const { prefixCls, className } = props;
-  const classes = classNames({}, className);
+const Drawer: any = styled(RcDrawer)``;
 
-  return <RcDrawer classNames={classes} {...props} />;
-};
-
-Drawer.defaultProps = {
-  prefixCls: 'za-drawer',
-};
+Drawer.defaultProps = {};
 
 export default Drawer;

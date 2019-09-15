@@ -1,16 +1,14 @@
 import React from 'react';
-import classNames from 'classnames';
 import styled from 'styled-components';
 
+const Root = styled.div``;
+
 export const Menu = props => {
-  const { prefixCls, className } = props;
-  const classes = classNames({}, className);
+    const { ...other } = props;
 
-  return <div classNames={classes} prefixCls={prefixCls} {...props} />;
+    return <Root {...other} />;
 };
 
-Menu.defaultProps = {
-  prefixCls: 'za-menu'
-};
+Menu.defaultProps = {};
 
 export default Menu;

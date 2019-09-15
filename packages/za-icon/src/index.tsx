@@ -1,48 +1,14 @@
-// import React from 'react';
-// import { Icon } from 'antd';
-// import styled from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
-// const IconFont = Icon.createFromIconfontCN({
-//   scriptUrl: '//at.alicdn.com/t/font_913775_goovrerojv7.js'
-// });
+const Root = styled.div``;
 
-// export default props => {
-//   const {
-//     width,
-//     height,
-//     fill,
-//     className,
-//     style,
-//     size = 12,
-//     type: iconType,
-//     mode,
-//     ...rest
-//   } = props;
+export const Icon = props => {
+    const { ...other } = props;
 
-//   const type = `icon-${iconType}`;
+    return <Root {...other} />;
+};
 
-//   //
-//   if (mode === 'font') {
-//     return (
-//       <IconFont
-//         type={type}
-//         width={width}
-//         height={height}
-//         fill={fill}
-//         style={{ ...style, fontSize: size }}
-//         {...rest}
-//       />
-//     );
-//   }
+Icon.defaultProps = {};
 
-//   return (
-//     <Icon
-//       type={type}
-//       width={width}
-//       height={height}
-//       fill={fill}
-//       style={{ ...style, fontSize: size }}
-//       {...rest}
-//     />
-//   );
-// };
+export default Icon;

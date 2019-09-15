@@ -1,16 +1,14 @@
 import React from 'react';
-import classNames from 'classnames';
 import styled from 'styled-components';
 
+const Root = styled.div``;
+
 export const Message = props => {
-  const { prefixCls, className } = props;
-  const classes = classNames({}, className);
+    const { ...other } = props;
 
-  return <div classNames={classes} prefixCls={prefixCls} {...props} />;
+    return <Root {...other} />;
 };
 
-Message.defaultProps = {
-  prefixCls: 'za-message'
-};
+Message.defaultProps = {};
 
 export default Message;

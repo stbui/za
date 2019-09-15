@@ -1,17 +1,14 @@
 import React from 'react';
-import classNames from 'classnames';
 import styled from 'styled-components';
-import RcTooltip from 'rc-tooltip';
 
-export const tooltip = props => {
-  const { prefixCls, className } = props;
-  const classes = classNames({}, className);
+const Root = styled.div``;
 
-  return <div classNames={classes} prefixCls={prefixCls} {...props} />;
+export const Tooltip = props => {
+    const { ...other } = props;
+
+    return <Root {...other} />;
 };
 
-tooltip.defaultProps = {
-  prefixCls: 'za-tooltip'
-};
+Tooltip.defaultProps = {};
 
-export default tooltip;
+export default Tooltip;
