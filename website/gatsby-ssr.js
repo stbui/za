@@ -16,8 +16,14 @@ const sheet = new ServerStyleSheet()
 
 
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-  const html = renderToString(sheet.collectStyles(bodyComponent))
-  replaceBodyHTMLString(html)
+  try {
+    const html = renderToString(sheet.collectStyles(bodyComponent))
+    replaceBodyHTMLString(html)
+  } catch (error) {
+    console.error(error)
+  } finally {
+    sheet.seal()
+  }
 }
 
 export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>

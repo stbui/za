@@ -76,10 +76,10 @@ export default () => {
   console.log(data)
   return (
     <Sidebar>
-      {data.allDocsYaml.nodes.map((d, key) => (
+      {/* {data.allDocsYaml.nodes.map((d, key) => (
         <Meun key={key}>
           <MenuItem>{d.section}</MenuItem>
-          {/* <Meun>
+          <Meun>
             {d.paths.map((path, i) => (
               <MenuGroup key={i}>
                 <MenuItem>
@@ -87,9 +87,9 @@ export default () => {
                 </MenuItem>
               </MenuGroup>
             ))}
-          </Meun> */}
+          </Meun>
         </Meun>
-      ))}
+      ))} */}
 
       <Meun>
         {data.allMarkdownRemark.nodes.map((d, key) => (

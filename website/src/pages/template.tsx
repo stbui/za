@@ -97,7 +97,7 @@ export default function Docs({ data, pageContext }) {
 
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} description={excerpt} />
       {renderAst(htmlAst)}
     </>
   )
