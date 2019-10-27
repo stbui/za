@@ -1,4 +1,4 @@
-- section: Guide
+- section: 入门指南
   paths:
     - /docs/get-started/
     - /docs/basic-concepts/
@@ -6,8 +6,8 @@
     - /docs/accessibility/
     - /docs/styling/
     - /docs/managing-state/
-    - /docs/bundle-size/
-- section: Components
+    - /docs/attention/
+- section: 组件
   paths:
     - /docs/button/
     - /docs/elevation//
@@ -23,7 +23,7 @@
     - /docs/toolbar/
     - /docs/tooltip/
     - /docs/visually-hidden/
-- section: Abstract components
+- section: 其他
   paths:
     - /docs/box/
     - /docs/hidden/

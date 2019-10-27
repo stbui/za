@@ -7,12 +7,16 @@
 // You can delete this file if you're not using it
 import React from "react"
 import { renderToString } from "react-dom/server"
+import { ServerStyleSheet } from 'styled-components'
 
 import Provider from "./src/components/Provider"
 import CoreLayout from "./src/components/layout"
 
+const sheet = new ServerStyleSheet()
+
+
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-  const html = renderToString(bodyComponent)
+  const html = renderToString(sheet.collectStyles(bodyComponent))
   replaceBodyHTMLString(html)
 }
 

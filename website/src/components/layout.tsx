@@ -14,6 +14,7 @@ import Header from "./header"
 import Navigation from "./Navigation"
 import "./layout.css"
 
+
 const StyledAside = styled.div`
   position: fixed;
   background: #fff;

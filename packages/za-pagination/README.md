@@ -9,7 +9,7 @@ redirect_from:
 ## Installation
 
 ```sh
-npm install za-pagination
+npm install @stbui/za-pagination
 ```
 
 Learn more in [Get started](/docs/get-started/).
@@ -17,7 +17,7 @@ Learn more in [Get started](/docs/get-started/).
 ## Usage
 
 ```jsx
-import Pagination from 'za-pagination';
+import Pagination from '@stbui/za-pagination';
 
 function Example() {
     return <Pagination>Pagination</Pagination>;

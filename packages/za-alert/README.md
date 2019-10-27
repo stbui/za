@@ -11,13 +11,13 @@ redirect_from:
 ## Installation
 
 ```sh
-npm install za-alert
+npm install @stbui/za-alert
 ```
 
 ## Usage
 
 ```jsx
-import Alert from 'za-alert';
+import Alert from '@stbui/za-alert';
 
 function Example() {
     return (

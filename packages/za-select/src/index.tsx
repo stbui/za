@@ -465,7 +465,7 @@ li.rc-select-dropdown-menu-item-divider {
 
 const Container = styled(RcSelect)``;
 
-export const Select = (props) => {
+export const Select:any = (props) => {
   return (
         <React.Fragment>
             <GlobalStyle />

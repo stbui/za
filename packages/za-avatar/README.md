@@ -17,7 +17,7 @@ npm install za-avatar
 ## Usage
 
 ```jsx
-import Avatar from 'za-avatar';
+import Avatar from '@stbui/za-avatar';
 
 function Example() {
     return (

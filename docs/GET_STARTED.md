@@ -5,7 +5,7 @@ redirect_from:
     - /guide/get-started/
 ---
 
-# Get started
+# 快速开始
 
 stbui 是一个低级组件库，用于构建可访问的高级 ui 库、设计系统和带有 react 的应用程序。
 

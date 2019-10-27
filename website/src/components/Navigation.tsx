@@ -76,6 +76,21 @@ export default () => {
   console.log(data)
   return (
     <Sidebar>
+      {data.allDocsYaml.nodes.map((d, key) => (
+        <Meun key={key}>
+          <MenuItem>{d.section}</MenuItem>
+          {/* <Meun>
+            {d.paths.map((path, i) => (
+              <MenuGroup key={i}>
+                <MenuItem>
+                  <Link to={path}>{path}</Link>
+                </MenuItem>
+              </MenuGroup>
+            ))}
+          </Meun> */}
+        </Meun>
+      ))}
+
       <Meun>
         {data.allMarkdownRemark.nodes.map((d, key) => (
           <MenuGroup key={key}>
@@ -84,37 +99,6 @@ export default () => {
             </MenuItem>
           </MenuGroup>
         ))}
-
-        <MenuGroup>
-          <MenuItem>
-            <Link to="/quickStart">快速开始</Link>
-          </MenuItem>
-        </MenuGroup>
-        <MenuGroup>
-          <MenuItem>
-            <Link to="/project">项目实战</Link>
-          </MenuItem>
-        </MenuGroup>
-        <MenuGroup>
-          <MenuItem>
-            <Link to="/attention">使用注意</Link>
-          </MenuItem>
-        </MenuGroup>
-        <MenuGroup>
-          <MenuItem>
-            <Link to="/participation">参与贡献</Link>
-          </MenuItem>
-        </MenuGroup>
-        <MenuGroup>
-          <MenuItem>
-            <Link to="/changelog">更新日志</Link>
-          </MenuItem>
-        </MenuGroup>
-        <MenuGroup>
-          <MenuItem>
-            <Link to="#">组件</Link>
-          </MenuItem>
-        </MenuGroup>
       </Meun>
     </Sidebar>
   )

@@ -2,23 +2,22 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { compileComponent } from './compileComponent';
 import styled from 'styled-components';
+import { ErrorBoundary } from './ErrorBoundary';
 
 const StyledPreview = styled.div`
     margin: 2em 0 -1.5em 0;
-    padding: 1em;
-    border: 1px solid rgba(33, 33, 33, 0.15000000000000002);
-    border-radius: 0.25em;
+    padding: 12px;
+    border: 1px solid rgba(33, 33, 33, 0.15);
 `;
 
-export function PlaygroundPreview({
-    code,
-    modules,
-    update,
-    componentName,
-    ...htmlProps
-}: any) {
-    const ref = useRef(null);
+const Context = React.createContext('');
 
+const Provider = ({ children }) => (
+    <Context.Provider value="1">{children}</Context.Provider>
+);
+
+export function PlaygroundPreview({ code, modules, componentName }: any) {
+    const ref = useRef(null);
     const [error, setError] = useState(null);
 
     const handleError = useCallback(e => {
@@ -44,7 +43,7 @@ export function PlaygroundPreview({
     }, []);
 
     const renderChildren = useCallback(
-        (children: React.ReactNode) => <div>{children}</div>,
+        (children: React.ReactNode) => <Provider>{children}</Provider>,
         []
     );
 
@@ -63,16 +62,16 @@ export function PlaygroundPreview({
         return () => clearTimeout(timer);
     }, [code, modules, componentName, renderChildren, handleError, unmount]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         return () => unmount();
     }, [unmount]);
 
     return (
-        <StyledPreview>
-            <div {...htmlProps}>
+        <ErrorBoundary>
+            <StyledPreview>
                 {error}
                 <div ref={ref}>{renderChildren(rendered)}</div>
-            </div>
-        </StyledPreview>
+            </StyledPreview>
+        </ErrorBoundary>
     );
 }

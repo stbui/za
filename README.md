@@ -1,8 +1,12 @@
 # za
 
-yarn
+za 是一个低级组件库，用于构建可访问的高级 ui 库、设计系统和带有 react 的应用程序。
+
+```
+yarn install
 yarn build
+```
 
-#
+# 参考
 
-http://react-component.github.io/badgeboard/
+-   http://react-component.github.io/badgeboard/

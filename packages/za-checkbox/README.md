@@ -11,13 +11,13 @@ redirect_from:
 ## Installation
 
 ```sh
-npm install za-checkbox
+npm install @stbui/za-checkbox
 ```
 
 ## Usage
 
 ```jsx
-import Checkbox from 'za-checkbox';
+import Checkbox from '@stbui/za-checkbox';
 
 function Example() {
     return (

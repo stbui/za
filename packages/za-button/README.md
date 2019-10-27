@@ -13,13 +13,13 @@ redirect_from:
 ## Installation
 
 ```sh
-npm install za-button
+npm install @stbui/za-button
 ```
 
 ## Usage
 
 ```jsx
-import Button from 'za-button';
+import Button from '@stbui/za-button';
 
 function Example() {
     return <Button>Button</Button>;
@@ -27,7 +27,7 @@ function Example() {
 ```
 
 ```jsx
-import Button from 'za-button';
+import Button from '@stbui/za-button';
 
 function Example() {
     return (

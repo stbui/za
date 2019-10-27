@@ -1,13 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import RehypeReact from "rehype-react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
-import { PlaygroundEditor, PlaygroundPreview } from "za-playground"
-import elevation from "za-elevation"
-import Switch from "za-switch"
-import checkbox from "za-checkbox"
-import alert from "za-alert"
-import avatar from "za-avatar"
+import { PlaygroundEditor, PlaygroundPreview } from "@stbui/za-playground"
 import Heading from "../components/Heading"
 import Anchor from "../components/Anchor"
 import Paragraph from "../components/Paragraph"
@@ -52,26 +46,27 @@ const { Compiler: renderAst } = new RehypeReact({
         const isDynamic =
           !isStatic && ["js", "jsx", "ts", "tsx"].indexOf(mode) !== -1
         const [code] = codeElement.props.children
+        const [state, setstate] = useState(code)
 
         if (isDynamic) {
           return (
             <div>
               <PlaygroundPreview
-                code={code}
+                code={state}
                 modules={{
-                  "styled-components": styled,
-                  "za-elevation": elevation,
-                  "za-switch": Switch,
-                  "za-checkbox": checkbox,
-                  "za-alert": alert,
-                  "za-avatar": avatar,
+                  "styled-components": require('styled-components'),
+                  "@stbui/za-elevation": require('@stbui/za-elevation'),
+                  "@stbui/za-switch": require('@stbui/za-switch'),
+                  "@stbui/za-checkbox": require('@stbui/za-checkbox'),
+                  "@stbui/za-alert": require('@stbui/za-alert'),
+                  "@stbui/za-avatar": require('@stbui/za-avatar'),
                 }}
               />
               <PlaygroundEditor
-                readOnly
                 mode={mode}
                 maxHeight={maxHeight}
-                code={code}
+                code={state}
+                update={setstate}
               />
             </div>
           )
@@ -82,7 +77,9 @@ const { Compiler: renderAst } = new RehypeReact({
             readOnly
             mode={mode}
             maxHeight={maxHeight}
-            code={code}
+            code={state}
+            update={setstate}
+            {...props}
           />
         )
       }

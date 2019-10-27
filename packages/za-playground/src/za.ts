@@ -1,3 +1,4 @@
+// 默认导入组件
 export default {
-    'za-button': require('za-button'),
+    '@stbui/za-button': require('@stbui/za-button'),
 };

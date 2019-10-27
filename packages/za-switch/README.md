@@ -11,13 +11,13 @@ redirect_from:
 ## Installation
 
 ```sh
-npm install za-switch
+npm install @stbui/za-switch
 ```
 
 ## Usage
 
 ```jsx
-import Switch from 'za-switch';
+import Switch from '@stbui/za-switch';
 
 function Example() {
     return (

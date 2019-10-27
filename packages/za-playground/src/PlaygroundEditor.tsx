@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import styled, { css } from 'styled-components';
+import { GlobalStyle } from './GlobalStyle';
 
 if (typeof navigator !== 'undefined') {
     require('codemirror/mode/javascript/javascript');
@@ -62,6 +63,8 @@ export function PlaygroundEditor({
     const [enabled, setEnabled] = useState(false);
     const [ready, setReady] = useState(false);
 
+    const value = readOnly ? code.trim() : code;
+
     const _readOnly = typeof readOnly !== 'undefined' ? readOnly : !enabled;
     const className = [other.className, !enabled && !readOnly && 'disabled']
         .filter(Boolean)
@@ -72,8 +75,6 @@ export function PlaygroundEditor({
         return () => cancelAnimationFrame(id);
     }, []);
 
-    const value = readOnly ? code.trim() : code;
-
     if (typeof window === 'undefined' || !ready) {
         return (
             <pre className={className}>{readOnly ? value : `${value}\n`}</pre>
@@ -81,39 +82,51 @@ export function PlaygroundEditor({
     }
 
     return (
-        <StyledCodeMirror
-            {...other}
-            className={className}
-            maxHeight={maxHeight}
-            value={value}
-            options={{
-                mode,
-                readOnly: _readOnly,
-                cursorBlinkRate: _readOnly ? -1 : 530,
-                styleActiveLine: !_readOnly,
-                smartIndent: !_readOnly,
-                matchBrackets: !_readOnly,
-                autoCloseBrackets: !_readOnly,
-                autoCloseTags: !_readOnly,
-                matchTags: !_readOnly,
-                lineWrapping: lineWrapping,
-                autoRefresh: autoRefresh,
-                extraKeys: enabled
-                    ? {}
-                    : {
-                          Tab: false,
-                          'Shift-Tab': false,
-                      },
-                tabSize: 2,
-                scrollbarStyle: 'overlay',
-                theme: 'reakit',
-                lineNumbers: true,
-            }}
-            onBeforeChange={(_, __, val) => update(val)}
-            onMouseDown={() => setEnabled(true)}
-            onTouchStart={() => setEnabled(true)}
-            onBlur={() => setEnabled(false)}
-            onFocus={() => {}}
-        ></StyledCodeMirror>
+        <>
+            <GlobalStyle theme="stbui"></GlobalStyle>
+            <StyledCodeMirror
+                value={value}
+                className={className}
+                maxHeight={maxHeight}
+                options={{
+                    mode,
+                    theme: 'stbui',
+                    lineNumbers: true,
+                    tabSize: 2,
+                    scrollbarStyle: 'overlay',
+                    readOnly: _readOnly,
+
+                    cursorBlinkRate: _readOnly ? -1 : 530,
+                    styleActiveLine: !_readOnly,
+                    smartIndent: !_readOnly,
+                    matchBrackets: !_readOnly,
+                    autoCloseBrackets: !_readOnly,
+                    autoCloseTags: !_readOnly,
+                    matchTags: !_readOnly,
+                    lineWrapping: lineWrapping,
+                    autoRefresh: autoRefresh,
+                    extraKeys: enabled
+                        ? {}
+                        : {
+                              Tab: false,
+                              'Shift-Tab': false,
+                          },
+                }}
+                onBeforeChange={(_, __, val) => update(val)}
+                onMouseDown={() => setEnabled(true)}
+                onTouchStart={() => setEnabled(true)}
+                onBlur={() => setEnabled(false)}
+                onFocus={() => {}}
+                onKeyDown={(_, event: KeyboardEvent) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        setEnabled(true);
+                    } else if (event.key === 'Escape') {
+                        event.preventDefault();
+                        setEnabled(false);
+                    }
+                }}
+            />
+        </>
     );
 }

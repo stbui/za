@@ -13,13 +13,13 @@ Elevation is the relative distance between two surfaces along the z-axis.
 ## Installation
 
 ```sh
-npm install za-elevation
+npm install @stbui/za-elevation
 ```
 
 ## Usage
 
 ```jsx
-import Elevation from 'za-elevation';
+import Elevation from '@stbui/za-elevation';
 import styled from 'styled-components';
 
 const DemoElevation = styled(Elevation)`

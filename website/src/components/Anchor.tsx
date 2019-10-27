@@ -23,5 +23,9 @@ const StyledLink = styled(Link)`
 `
 
 export default ({ to, children }) => {
-  return <StyledLink to={to}>{children}</StyledLink>
+  if(to) {
+    return <StyledLink to={to}>{children}</StyledLink>
+  }
+
+  return children
 }

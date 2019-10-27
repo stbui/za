@@ -23,8 +23,6 @@
     "scripts": {
         "build": "lerna run build",
         "release": "yarn run build && lerna publish --exact --conventional-commits",
-        "demo": "cd examples/demo && yarn run start",
-        "start": "cd examples/starter && yarn run start",
         "docs": "cd docs && gitbook build",
         "prettier": "prettier --config ./.prettierrc.js --write --list-different \"packages/*/src/**/*.{js,json,ts,tsx}\"",
         "start:docs": "cd docs && gitbook serve",

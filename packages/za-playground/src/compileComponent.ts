@@ -21,7 +21,6 @@ if (typeof ${componentName} !== "undefined") {
 }`;
 
     const req = path => {
-        console.log(path);
         if (path in deps) {
             return deps[path];
         }

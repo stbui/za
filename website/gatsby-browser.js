@@ -10,8 +10,6 @@ import React from "react"
 import Provider from "./src/components/Provider"
 import CoreLayout from "./src/components/layout"
 
-import "codemirror/lib/codemirror.css"
-
 export const wrapRootElement = ({ element }) => <Provider>{element}</Provider>
 
 export const wrapPageElement = ({ element, props }) => {
