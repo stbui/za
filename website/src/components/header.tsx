@@ -29,8 +29,9 @@ const Header = ({ siteTitle }) => (
   <StyledHeader>
     <StyledBrand to="#">{siteTitle}</StyledBrand>
     <div style={{ flex: 1 }}></div>
-    <Anchor to="/standard">组件规范</Anchor>
-    <Anchor to="/standard">基础组件</Anchor>
+    <Anchor to="/guides">组件规范</Anchor>
+    <Anchor to="/BaseComponents">基础组件</Anchor>
+    <Anchor to="/BizComponents">业务组件</Anchor>
     <Anchor to="/standard">中台组件</Anchor>
   </StyledHeader>
 )
