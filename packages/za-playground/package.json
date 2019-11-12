@@ -28,9 +28,9 @@
         "react": "^16.11.0"
     },
     "dependencies": {
+        "styled-components": "^4.4.1",
         "codemirror": "5.49.2",
         "react-codemirror2": "6.0.0",
-        "styled-components": "^4.4.0",
         "buble": "^0.19.8"
     },
     "devDependencies": {

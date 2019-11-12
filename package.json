@@ -31,12 +31,12 @@
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
     },
     "devDependencies": {
-        "@types/styled-components": "^4.1.19",
-        "gh-pages": "^2.0.1",
+        "@types/styled-components": "^4.4.0",
+        "gh-pages": "^2.1.1",
         "gitbook-cli": "^2.3.2",
-        "lerna": "^3.16.4",
-        "prettier": "^1.18.2",
-        "typescript": "^3.5.3",
-        "conventional-changelog-cli": "^2.0.21"
+        "lerna": "^3.18.4",
+        "prettier": "^1.19.1",
+        "typescript": "^3.7.2",
+        "conventional-changelog-cli": "^2.0.27"
     }
 }
