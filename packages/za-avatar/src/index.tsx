@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
 const sizeMap = {
@@ -8,34 +8,6 @@ const sizeMap = {
     large: 2.25,
     xlarge: 3,
 };
-
-const Root: any = styled.span`
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    font-size: 1.5rem;
-    font-family: inherit;
-    border-radius: 50%;
-    background: #fff;
-    color: rgba(0, 0, 0, 0.38);
-
-    font-size: ${({ size }: any) => size && sizeMap[size]};
-`;
-
-const Image: any = styled.div`
-    border-radius: inherit;
-    width: 100%;
-    height: 100%;
-    background: transparent none no-repeat 50% / cover;
-    opacity: 0;
-    transition: opacity 0.2s;
-    position: absolute;
-    opacity: 1;
-    font-size: 1em;
-
-    background-image: ${({ src }: any) => src && css`url(${src})`};
-    background-size: ${({ contain }: any) => (contain ? 'contain' : 'cover')};
-`;
 
 export interface AvatarProps {
     theme?: any;
@@ -47,7 +19,35 @@ export interface AvatarProps {
     src?: string;
 }
 
-export const Avatar = (props: AvatarProps) => {
+const Root: any = styled.span<AvatarProps>`
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    font-size: 1.5rem;
+    font-family: inherit;
+    border-radius: 50%;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.38);
+
+    font-size: ${({ size }) => size && sizeMap[size]};
+`;
+
+const Image: any = styled.div<AvatarProps>`
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    background: transparent none no-repeat 50% / cover;
+    opacity: 0;
+    transition: opacity 0.2s;
+    position: absolute;
+    opacity: 1;
+    font-size: 1em;
+
+    background-image: ${({ src }) => src && css`url(${src})`};
+    background-size: ${({ contain }) => (contain ? 'contain' : 'cover')};
+`;
+
+export const Avatar: FC<AvatarProps> = props => {
     const { src, contain, square, size, ...other } = props;
 
     return (
@@ -57,7 +57,5 @@ export const Avatar = (props: AvatarProps) => {
         </Root>
     );
 };
-
-Avatar.defaultProps = {};
 
 export default Avatar;

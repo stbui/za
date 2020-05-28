@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+
+export interface ElevationProps {
+    children: any;
+    theme?: any;
+    z: number;
+}
 
 const umbraMap = {
     0: '0px 0px 0px 0px',
@@ -85,8 +91,8 @@ const ambientMap = {
     24: '0px 9px 46px 8px',
 };
 
-const Container: any = styled.div`
-    box-shadow: ${({ z }: any) => {
+const Container = styled.div<ElevationProps>`
+    box-shadow: ${({ z }) => {
         return `${umbraMap[z]} rgba(0, 0, 0, 0.2),
         ${penumbraMap[z]} rgba(0, 0, 0, 0.14), ${ambientMap[z]} rgba(0, 0, 0, 0.12);`;
     }};
@@ -96,13 +102,7 @@ Container.defaultProps = {
     theme: { primary: '#00bc70' },
 };
 
-export interface ElevationProps {
-    children: any;
-    theme: any;
-    z?: string;
-}
-
-export const Elevation = (props: ElevationProps) => {
+export const Elevation: FC<ElevationProps> = props => {
     const { children, theme, z, ...other } = props;
 
     return (

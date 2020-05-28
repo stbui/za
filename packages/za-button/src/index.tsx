@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
+
+export interface ButtonProps {
+    children: any;
+    theme: any;
+    disabled?: boolean;
+    bordered?: boolean;
+    color?: string;
+    shape?: string;
+}
 
 const disabledStyle = css`
     &[disabled] {
@@ -7,7 +16,7 @@ const disabledStyle = css`
     }
 `;
 
-const Container: any = styled.button`
+const Container = styled.button<ButtonProps>`
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: #fff;
@@ -23,11 +32,11 @@ const Container: any = styled.button`
     cursor: pointer;
     white-space: nowrap;
     font-size: 100%;
-    background-color: ${({ theme }: any) => theme.primary};
+    background-color: ${({ theme }) => theme.primary};
 
     ${({ disabled }) => disabled && disabledStyle}
 
-    border-radius: ${({ shape }: any) => {
+    border-radius: ${({ shape }) => {
         if (shape === 'round') {
             return '1000px';
         }
@@ -39,16 +48,7 @@ Container.defaultProps = {
     theme: { primary: '#00bc70' },
 };
 
-export interface ButtonProps {
-    children: any;
-    theme: any;
-    disabled?: boolean;
-    bordered?: boolean;
-    color?: string;
-    shape?: string;
-}
-
-export const Button = (props: ButtonProps) => {
+export const Button: FC<ButtonProps> = props => {
     const { children, theme, disabled, bordered, color, shape } = props;
 
     return (

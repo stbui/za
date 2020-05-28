@@ -25,17 +25,17 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.11.0"
+        "react": "^16.13.1"
     },
     "dependencies": {
-        "styled-components": "^4.4.1",
-        "codemirror": "5.49.2",
-        "react-codemirror2": "6.0.0",
-        "buble": "^0.19.8"
+        "styled-components": "^5.1.1",
+        "codemirror": "5.54.0",
+        "react-codemirror2": "7.2.0",
+        "buble": "^0.20.0"
     },
     "devDependencies": {
-        "@types/react": "16.9.11",
-        "react": "^16.11.0",
+        "@types/react": "16.9.35",
+        "react": "^16.13.1",
         "raw.macro": "0.3.0",
         "rimraf": "^3.0.0"
     }
