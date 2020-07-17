@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-export interface SwitchProps {
+export interface TabProps {
     children: any;
     theme?: any;
 }
 
 const Root = styled.div``;
 
-export const Switch: FC<SwitchProps> = props => {
+export const Tab: FC<TabProps> = props => {
     const { ...other } = props;
 
     return <Root {...other} />;
 };
 
-Switch.defaultProps = {};
+Tab.defaultProps = {};
 
-export default Switch;
+export default Tab;

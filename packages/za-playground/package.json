@@ -1,5 +1,6 @@
 {
     "name": "@stbui/za-playground",
+    "private": true,
     "version": "0.0.1",
     "description": "",
     "author": "stbui <w431106@163.com>",
