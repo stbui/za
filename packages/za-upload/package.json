@@ -1,0 +1,38 @@
+{
+    "name": "@stbui/za-upload",
+    "version": "0.0.1",
+    "description": "",
+    "author": "stbui <w431106@163.com>",
+    "homepage": "https://github.com/stbui/za",
+    "license": "ISC",
+    "main": "lib/index",
+    "module": "esm/index.js",
+    "types": "esm/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stbui/za.git"
+    },
+    "scripts": {
+        "build": "yarn run build-cjs && yarn run build-esm",
+        "build-cjs": "rimraf ./lib && tsc",
+        "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
+        "watch": "rimraf ./lib && tsc --watch"
+    },
+    "bugs": {
+        "url": "https://github.com/stbui/za/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.13.1"
+    },
+    "dependencies": {
+        "styled-components": "^5.1.1"
+    },
+    "devDependencies": {
+        "@types/react": "16.9.35",
+        "react": "^16.13.1",
+        "rimraf": "^3.0.0"
+    }
+}
