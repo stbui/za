@@ -106,7 +106,7 @@ const shape: any = ({ shape }) => {
     }
 };
 
-const Container = styled.button<ButtonProps>`
+const ButtonRoot = styled.button<ButtonProps>`
     display: inline-flex;
     align-items: stretch;
     justify-content: center;
@@ -144,8 +144,8 @@ const Container = styled.button<ButtonProps>`
     ${shape}
 `;
 
-Container.defaultProps = {
+ButtonRoot.defaultProps = {
     variant: 'default',
 };
 
-export default Container;
+export default ButtonRoot;
