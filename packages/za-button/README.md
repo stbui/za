@@ -1,7 +1,8 @@
 ---
-path: /docs/button/
-redirect_from:
-    - /components/button/
+title: button
+nav:
+    title: 组件
+    order: 1
 ---
 
 # Button
@@ -18,29 +19,29 @@ npm install @stbui/za-button
 
 ## Usage
 
-```jsx
+```tsx
+import React from 'react';
 import Button from '@stbui/za-button';
 
-function Example() {
-    return <Button>Button</Button>;
-}
+export default () => (
+    <Button style={{ color: 'white', background: 'red' }}>Button</Button>
+);
 ```
 
-```jsx
+```tsx
+import React from 'react';
 import Button from '@stbui/za-button';
 
-function Example() {
-    return (
-        <div>
-            <Button colors="primary" isSubmit={true}>
-                Default
-            </Button>
-            <Button disabled>disabled</Button>
-            <Button bordered>border</Button>
-            <Button colors="primary" shape="round">
-                round
-            </Button>
-        </div>
-    );
-}
+export default () => (
+    <div>
+        <Button colors="primary" isSubmit={true}>
+            Default
+        </Button>
+        <Button disabled>disabled</Button>
+        <Button bordered>border</Button>
+        <Button colors="primary" shape="round">
+            round
+        </Button>
+    </div>
+);
 ```

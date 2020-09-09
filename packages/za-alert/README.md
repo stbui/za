@@ -1,12 +1,11 @@
 ---
-path: /docs/alert/
-redirect_from:
-    - /components/alert/
+title: button
+nav:
+    title: 组件
+    order: 2
 ---
 
 # Alert
-
-<carbon-ad></carbon-ad>
 
 ## Installation
 
@@ -17,13 +16,8 @@ npm install @stbui/za-alert
 ## Usage
 
 ```jsx
+import React from 'react';
 import Alert from '@stbui/za-alert';
 
-function Example() {
-    return (
-        <>
-            <Alert>Alert</Alert>
-        </>
-    );
-}
+export default () => <Alert>Alert</Alert>;
 ```

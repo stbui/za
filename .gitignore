@@ -127,3 +127,5 @@ esm
 lib
 *.tgz
 examples/**
+dist
+.umi

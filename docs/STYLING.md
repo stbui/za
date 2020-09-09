@@ -12,13 +12,12 @@ redirect_from:
 Just use the `style` prop.
 
 ```jsx
+import React from 'react';
 import Button from '@stbui/za-button';
 
-function Example() {
-    return (
-        <Button style={{ color: 'white', background: 'red' }}>Button</Button>
-    );
-}
+export default () => (
+    <Button style={{ color: 'white', background: 'red' }}>Button</Button>
+);
 ```
 
 ## CSS in JS
@@ -26,8 +25,9 @@ function Example() {
 Example with styled-components
 
 ```jsx
-import Button from '@stbui/za-button';
+import React from 'react';
 import styled from 'styled-components';
+import Button from '@stbui/za-button';
 
 const StyledButton = styled(Button)`
     color: white;
@@ -41,7 +41,5 @@ const StyledButton = styled(Button)`
     }
 `;
 
-function Example() {
-    return <StyledButton>Button</StyledButton>;
-}
+export default () => <StyledButton>Button</StyledButton>;
 ```
