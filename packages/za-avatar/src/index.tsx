@@ -19,7 +19,7 @@ export interface AvatarProps {
     src?: string;
 }
 
-const Root: any = styled.span<AvatarProps>`
+export const AvatarRoot: any = styled.span<AvatarProps>`
     display: inline-block;
     vertical-align: middle;
     position: relative;
@@ -51,10 +51,10 @@ export const Avatar: FC<AvatarProps> = props => {
     const { src, contain, square, size, ...other } = props;
 
     return (
-        <Root square={square} size={size} {...other}>
+        <AvatarRoot square={square} size={size} {...other}>
             <Image src={src} contain={contain}></Image>
             {/* <div>{name}</div> */}
-        </Root>
+        </AvatarRoot>
     );
 };
 

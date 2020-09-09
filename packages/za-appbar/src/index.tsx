@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
 const Fixed = css`
@@ -13,7 +12,7 @@ export interface AppBarProps {
     color?: string;
 }
 
-const Root = styled.header<AppBarProps>`
+const AppBarRoot = styled.header<AppBarProps>`
     width: 100%;
     display: flex;
     z-index: 1000;
@@ -28,12 +27,4 @@ const Root = styled.header<AppBarProps>`
     ${props => (props.position === 'fixed' ? Fixed : null)}
 `;
 
-const AppBar: FC<AppBarProps> = ({ position, color, children, ...other }) => {
-    return (
-        <Root position={position} color={color} {...other}>
-            {children}
-        </Root>
-    );
-};
-
-export default AppBar;
+export default AppBarRoot;

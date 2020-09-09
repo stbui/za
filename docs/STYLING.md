@@ -1,11 +1,11 @@
 ---
-path: /docs/styling/
-redirect_from:
-    - /guide/styling/
-    - /guide/theming/
+title: 编码规范
+nav:
+    title: 编码规范
+    order: 2
 ---
 
-# Styling
+# 编码规范
 
 ## Inline styles
 
