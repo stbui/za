@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Root = styled.ul`
+const PaginationRoot = styled.ul`
     font-size: 12px;
     user-select: none;
     padding: 0;
@@ -26,16 +26,14 @@ export const Pagination = props => {
     const { ...other } = props;
 
     return (
-        <Root {...other}>
+        <PaginationRoot {...other}>
             <Prev></Prev>
             <Item>1</Item>
             <Item>2</Item>
             <Item>3</Item>
             <Next></Next>
-        </Root>
+        </PaginationRoot>
     );
 };
-
-Pagination.defaultProps = {};
 
 export default Pagination;

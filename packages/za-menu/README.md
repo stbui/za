@@ -1,7 +1,16 @@
----
-path: /docs/menu/
-redirect_from:
-    - /components/menu/
----
+# Checkbox
 
-# menu
+## Installation
+
+```sh
+npm install @stbui/za-checkbox
+```
+
+## Usage
+
+```jsx
+import React from 'react';
+import Checkbox from '@stbui/za-checkbox';
+
+export default () => <Checkbox>Checkbox</Checkbox>;
+```

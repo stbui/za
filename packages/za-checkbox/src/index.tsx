@@ -1,24 +1,52 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+export interface CheckboxProps {
+    defaultChecked?: boolean;
+    checked?: boolean;
+    id?: any;
+    disabled?: boolean;
+    onChange?: any;
+}
+
+export const CheckboxRoot = styled.label`
     display: inline-flex;
     align-items: center;
+    font-family: var(--rb-input-font-family);
+    font-size: var(--rb-input-font-size-medium);
+    font-weight: var(--rb-input-font-weight);
+    color: var(--rb-input-color);
     vertical-align: middle;
+
     font-size: 0.875rem;
-    line-height: 1.25rem;
 `;
 
-const StyledInput = styled.input`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    cursor: inherit;
+export const CheckboxControl = styled.span`
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--rb-toggle-size);
+    height: var(--rb-toggle-size);
+    border: solid var(--rb-input-border-width) var(--rb-input-border-color);
+    border-radius: 2px;
+    background-color: var(--rb-input-background-color);
+    color: var(--rb-color-white);
+    transition: var(--rb-transition-fast) border-color,
+        var(--rb-transition-fast) background-color,
+        var(--rb-transition-fast) color, var(--rb-transition-fast) box-shadow;
+
+    width: 18px;
+    height: 18px;
+
+    input[type='checkbox'] {
+        position: absolute;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        pointer-events: none;
+        -webkit-appearance: none;
+    }
 `;
 
 const StyledLabel = styled.label`
@@ -27,90 +55,57 @@ const StyledLabel = styled.label`
     padding-left: 4px;
 `;
 
-const Background = styled.div`
+const Icon = styled.span`
     display: inline-flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 18px;
-    height: 18px;
-    border: 2px solid;
-    border-radius: 2px;
-    background-color: initial;
-    pointer-events: none;
-    will-change: background-color, border-color;
-    transition: background-color 90ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
-        border-color 90ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
-`;
+    width: var(--rb-toggle-size);
+    height: var(--rb-toggle-size);
 
-const Checkmark = styled.svg`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-
-    path {
-        stroke: currentColor;
-        stroke-width: 3.12px;
-        stroke-dashoffset: 29.7833385;
-        stroke-dasharray: 29.7833385;
+    svg {
+        width: 100%;
+        height: 100%;
     }
 `;
 
-const Mixedmark = styled.div`
-    width: 100%;
-    height: 0;
-    -webkit-transform: scaleX(0) rotate(0deg);
-    transform: scaleX(0) rotate(0deg);
-    border-width: 1px;
-    border-style: solid;
-`;
+export const CheckboxIcon = ({ checked }) => (
+    <Icon>
+        <svg viewBox="0 0 16 16">
+            <g
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+            >
+                <g stroke="currentColor" stroke-width="2">
+                    {checked ? (
+                        <g transform="translate(3.428571, 3.428571)">
+                            <path d="M0,5.71428571 L3.42857143,9.14285714"></path>
+                            <path d="M9.14285714,0 L3.42857143,9.14285714"></path>
+                        </g>
+                    ) : (
+                        <g transform="translate(2.285714, 6.857143)">
+                            <path d="M10.2857143,1.14285714 L1.14285714,1.14285714"></path>
+                        </g>
+                    )}
+                </g>
+            </g>
+        </svg>
+    </Icon>
+);
 
-const Box = styled.div`
-    display: inline-block;
-    position: relative;
-    flex: 0 0 18px;
-    box-sizing: initial;
-    width: 18px;
-    height: 18px;
-    line-height: 0;
-    white-space: nowrap;
-    cursor: pointer;
-    vertical-align: bottom;
-`;
-
-Container.defaultProps = {
-    theme: { primary: '#00bc70' },
-};
-
-export const CheckBox = props => {
-    const { children, ...other } = props;
+export const Checkbox: FC<CheckboxProps> = props => {
+    const { children, id, checked, disabled, ...other } = props;
 
     return (
-        <Container {...other}>
-            <Box>
-                <StyledInput type="checkbox" />
-                <Background>
-                    <Checkmark viewBox="0 0 24 24">
-                        <path
-                            fill="none"
-                            stroke="white"
-                            d="M1.73,12.91 8.1,19.28 22.79,4.59"
-                        ></path>
-                    </Checkmark>
-                    <Mixedmark></Mixedmark>
-                </Background>
-            </Box>
+        <CheckboxRoot htmlFor={id} {...other}>
+            <CheckboxControl>
+                <CheckboxIcon checked={checked} />
+                <input type="checkbox" id={id} />
+            </CheckboxControl>
+
             <StyledLabel>{children}</StyledLabel>
-        </Container>
+        </CheckboxRoot>
     );
 };
 
-CheckBox.defaultProps = {
-    prefixCls: 'za-checkbox',
-};
-
-export default CheckBox;
+export default Checkbox;

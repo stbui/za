@@ -1,29 +1,16 @@
----
-path: /docs/alert/
-redirect_from:
-    - /components/alert/
----
-
-# Alert
-
-<carbon-ad></carbon-ad>
+# Checkbox
 
 ## Installation
 
 ```sh
-npm install @stbui/za-alert
+npm install @stbui/za-checkbox
 ```
 
 ## Usage
 
 ```jsx
-import Alert from '@stbui/za-alert';
+import React from 'react';
+import Checkbox from '@stbui/za-checkbox';
 
-function Example() {
-    return (
-        <>
-            <Alert>Alert</Alert>
-        </>
-    );
-}
+export default () => <Checkbox>Checkbox</Checkbox>;
 ```

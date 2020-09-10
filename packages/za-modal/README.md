@@ -1,7 +1,16 @@
----
-path: /docs/modal/
-redirect_from:
-    - /components/modal/
----
+# Checkbox
 
-# modal
+## Installation
+
+```sh
+npm install @stbui/za-checkbox
+```
+
+## Usage
+
+```jsx
+import React from 'react';
+import Checkbox from '@stbui/za-checkbox';
+
+export default () => <Checkbox>Checkbox</Checkbox>;
+```

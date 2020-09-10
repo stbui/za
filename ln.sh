@@ -5,4 +5,9 @@ ln -f packages/za-appbar/README.md docs/components/za-appbar.md
 ln -f packages/za-audio-player/README.md docs/components/za-audio-player.md
 ln -f packages/za-autocomplete/README.md docs/components/za-autocomplete.md
 ln -f packages/za-avatar/README.md docs/components/za-avatar.md
+
+ln -f packages/za-checkbox/README.md docs/components/za-checkbox.md
+ln -f packages/za-elevation/README.md docs/components/za-elevation.md
+
 ln -f packages/za-button/README.md docs/components/za-button.md
+

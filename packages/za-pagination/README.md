@@ -1,10 +1,6 @@
----
-path: /docs/pagination/
-redirect_from:
-    - /components/pagination/
----
-
 # Pagination
+
+当数据量较多时，使用分页可以快速进行数据切换。
 
 ## Installation
 
@@ -12,20 +8,10 @@ redirect_from:
 npm install @stbui/za-pagination
 ```
 
-Learn more in [Get started](/docs/get-started/).
-
 ## Usage
 
 ```jsx
 import Pagination from '@stbui/za-pagination';
 
-function Example() {
-    return <Pagination>Pagination</Pagination>;
-}
+export default () => <Pagination>Pagination</Pagination>;
 ```
-
-## Accessibility
-
-## Composition
-
-## Props

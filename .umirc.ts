@@ -15,58 +15,28 @@ export default {
                 title: '布局',
                 children: [
                     'components/za-affix',
-                    'components/za-alert',
                     'components/za-anchor',
-                    'components/za-appbar',
                     'components/za-audio-player',
-                    'components/za-avatar',
                     'components/za-button',
+                    'components/za-elevation',
                 ],
             },
-            // {
-            //     title: '导航',
-            //     children: [
-            //         'components/za-affix',
-            //         'components/za-alert',
-            //         'components/za-anchor',
-            //         'components/za-appbar',
-            //         'components/za-avatar',
-            //         'components/za-button',
-            //     ],
-            // },
-            // {
-            //     title: '数据录入',
-            //     children: [
-            //         'components/za-affix',
-            //         'components/za-alert',
-            //         'components/za-anchor',
-            //         'components/za-appbar',
-            //         'components/za-avatar',
-            //         'components/za-button',
-            //     ],
-            // },
-            // {
-            //     title: '数据展示',
-            //     children: [
-            //         'components/za-affix',
-            //         'components/za-alert',
-            //         'components/za-anchor',
-            //         'components/za-appbar',
-            //         'components/za-avatar',
-            //         'components/za-button',
-            //     ],
-            // },
-            // {
-            //     title: '反馈',
-            //     children: [
-            //         'components/za-affix',
-            //         'components/za-alert',
-            //         'components/za-anchor',
-            //         'components/za-appbar',
-            //         'components/za-avatar',
-            //         'components/za-button',
-            //     ],
-            // },
+            {
+                title: '导航',
+                children: ['components/za-appbar'],
+            },
+            {
+                title: '数据录入',
+                children: ['components/za-checkbox'],
+            },
+            {
+                title: '数据展示',
+                children: ['components/za-avatar'],
+            },
+            {
+                title: '反馈',
+                children: ['components/za-alert'],
+            },
             // {
             //     title: '其他',
             //     children: [

@@ -1,12 +1,4 @@
----
-path: /docs/checkbox/
-redirect_from:
-    - /components/checkbox/
----
-
 # Checkbox
-
-<carbon-ad></carbon-ad>
 
 ## Installation
 
@@ -17,13 +9,8 @@ npm install @stbui/za-checkbox
 ## Usage
 
 ```jsx
+import React from 'react';
 import Checkbox from '@stbui/za-checkbox';
 
-function Example() {
-    return (
-        <>
-            <Checkbox>Checkbox</Checkbox>
-        </>
-    );
-}
+export default () => <Checkbox>Checkbox</Checkbox>;
 ```

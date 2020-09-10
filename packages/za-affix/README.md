@@ -1,5 +1,5 @@
 ---
-title: affix 固钉
+title: 固钉 affix
 nav:
     title: 基础组件
     order: 1

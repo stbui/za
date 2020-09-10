@@ -1,7 +1,16 @@
----
-path: /docs/message/
-redirect_from:
-    - /components/message/
----
+# Checkbox
 
-# message
+## Installation
+
+```sh
+npm install @stbui/za-checkbox
+```
+
+## Usage
+
+```jsx
+import React from 'react';
+import Checkbox from '@stbui/za-checkbox';
+
+export default () => <Checkbox>Checkbox</Checkbox>;
+```

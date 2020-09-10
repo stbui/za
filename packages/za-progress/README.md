@@ -1,12 +1,4 @@
----
-title: progress
-nav:
-    title: progress
-    order: 1
----
-
 # Progress
-
 
 ## Installation
 
@@ -20,7 +12,5 @@ npm install @stbui/za-progress
 import React from 'react';
 import Progress from '@stbui/za-progress';
 
-export default () => (
-    <Progress value={20}>20</Progress>
-);
+export default () => <Progress value={20}>20</Progress>;
 ```
