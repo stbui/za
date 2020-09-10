@@ -17,7 +17,7 @@ const Provider = ({ children }) => (
 );
 
 export function PlaygroundPreview({ code, modules, componentName }: any) {
-    const ref = useRef(null);
+    const ref: any = useRef(null);
     const [error, setError] = useState(null);
 
     const handleError = useCallback(e => {
