@@ -27,11 +27,16 @@ export default {
             },
             {
                 title: '数据录入',
-                children: ['components/za-checkbox'],
+                children: [
+                    'components/za-input',
+                    'components/za-checkbox',
+                    'components/za-radio',
+                    'components/za-switch',
+                ],
             },
             {
                 title: '数据展示',
-                children: ['components/za-avatar'],
+                children: ['components/za-avatar', 'components/za-menu'],
             },
             {
                 title: '反馈',

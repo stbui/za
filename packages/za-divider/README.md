@@ -1,16 +1,16 @@
-# Checkbox
+# Divider
 
 ## Installation
 
 ```sh
-npm install @stbui/za-checkbox
+npm install @stbui/za-divider
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+import Divider from '@stbui/za-divider';
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+export default () => <Divider>Divider</Divider>;
 ```

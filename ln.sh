@@ -3,11 +3,46 @@ ln -f packages/za-alert/README.md docs/components/za-alert.md
 ln -f packages/za-anchor/README.md docs/components/za-anchor.md
 ln -f packages/za-appbar/README.md docs/components/za-appbar.md
 ln -f packages/za-audio-player/README.md docs/components/za-audio-player.md
-ln -f packages/za-autocomplete/README.md docs/components/za-autocomplete.md
+ln -f packages/za-/README.md docs/components/za-.md
 ln -f packages/za-avatar/README.md docs/components/za-avatar.md
 
 ln -f packages/za-checkbox/README.md docs/components/za-checkbox.md
 ln -f packages/za-elevation/README.md docs/components/za-elevation.md
 
 ln -f packages/za-button/README.md docs/components/za-button.md
+ln -f packages/za-menu/README.md docs/components/za-menu.md
+ln -f packages/za-input/README.md docs/components/za-input.md
+ln -f packages/za-radio/README.md docs/components/za-radio.md
+ln -f packages/za-switch/README.md docs/components/za-switch.md
+ln -f packages/za-tag/README.md docs/components/za-tag.md
+ln -f packages/za-select/README.md docs/components/za-select.md
+ln -f packages/za-spin/README.md docs/components/za-spin.md
+ln -f packages/za-tab/README.md docs/components/za-tab.md
+ln -f packages/za-table/README.md docs/components/za-table.md
+ln -f packages/za-text/README.md docs/components/za-text.md
 
+ln -f packages/za-toolbar/README.md docs/components/za-toolbar.md
+ln -f packages/za-tooltip/README.md docs/components/za-tooltip.md
+ln -f packages/za-tree/README.md docs/components/za-tree.md
+ln -f packages/za-tree-select/README.md docs/components/za-tree-select.md
+ln -f packages/za-trend/README.md docs/components/za-trend.md
+ln -f packages/za-upload/README.md docs/components/za-upload.md
+ln -f packages/za-progress/README.md docs/components/za-progress.md
+ln -f packages/za-popover/README.md docs/components/za-popover.md
+ln -f packages/za-pagination/README.md docs/components/za-pagination.md
+ln -f packages/za-notification/README.md docs/components/za-notification.md
+ln -f packages/za-modal/README.md docs/components/za-modal.md
+ln -f packages/za-message/README.md docs/components/za-message.md
+ln -f packages/za-loadmore/README.md docs/components/za-loadmore.md
+ln -f packages/za-heading/README.md docs/components/za-heading.md
+ln -f packages/za-guide/README.md docs/components/za-guide.md
+ln -f packages/za-flexbox/README.md docs/components/za-flexbox.md
+ln -f packages/za-ellipsis/README.md docs/components/za-ellipsis.md
+ln -f packages/za-dropdown/README.md docs/components/za-dropdown.md
+ln -f packages/za-drawer/README.md docs/components/za-drawer.md
+ln -f packages/za-collapse/README.md docs/components/za-collapse.md
+ln -f packages/za-cascader/README.md docs/components/za-cascader.md
+ln -f packages/za-carousel/README.md docs/components/za-carousel.md
+ln -f packages/za-breadcrumb/README.md docs/components/za-breadcrumb.md
+ln -f packages/za-badge/README.md docs/components/za-badge.md
+ln -f packages/za-backtop/README.md docs/components/za-backtop.md

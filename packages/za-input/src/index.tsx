@@ -1,27 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Input = styled.input`
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-variant: tabular-nums;
-    font-feature-settings: 'tnum', 'tnum';
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 32px;
-    padding: 6px 12px;
-    color: #343434;
-    font-size: 14px;
-    line-height: 1.5;
-    background-color: #fafafa;
-    background-image: none;
-    border: 1px solid #fafafa;
-    transition: all 0.3s;
-    outline: 0;
-`;
-
 const Addon = styled.span`
     white-space: nowrap;
     vertical-align: middle;
@@ -37,7 +16,7 @@ const Addon = styled.span`
     transition: all 0.3s;
 `;
 
-const Root = styled.span`
+const InputRoot = styled.span`
     margin: 0;
     padding: 0;
     color: #343434;
@@ -51,14 +30,35 @@ const Root = styled.span`
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+
+    input {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-variant: tabular-nums;
+        font-feature-settings: 'tnum', 'tnum';
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 32px;
+        padding: 6px 12px;
+        color: #343434;
+        font-size: 14px;
+        line-height: 1.5;
+        background-color: #fafafa;
+        background-image: none;
+        border: 1px solid #fafafa;
+        transition: all 0.3s;
+        outline: 0;
+    }
 `;
 
-export default ({ addonBefore, addonAfter, ...other }) => {
+export default ({ addonBefore, addonAfter, value, onChange, ...other }) => {
     return (
-        <Root>
+        <InputRoot>
             {addonBefore ? <Addon>{addonBefore}</Addon> : null}
-            <Input placeholder="请输入" {...other} />
+            <input placeholder="请输入" value={value} onChange={onChange} />
             {addonAfter ? <Addon>{addonAfter}</Addon> : null}
-        </Root>
+        </InputRoot>
     );
 };

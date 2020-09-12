@@ -1,14 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Root = styled.div``;
+const DividerRoot = styled.div`
+    border-top: solid 1px #e3e6e8;
+    margin: 0.5rem 0;
+`;
 
-export const Divider = props => {
-    const { ...other } = props;
-
-    return <Root {...other} />;
-};
-
-Divider.defaultProps = {};
-
-export default Divider;
+export default DividerRoot;
