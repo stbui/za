@@ -15,10 +15,10 @@ import React from 'react';
 import Avatar from '@stbui/za-avatar';
 
 export default () => (
-    <Avatar
-        src="images/avatars/blackwidow.png"
-        size="xsmall"
-        name="Natalia Alianovna Romanova"
-    />
+    <>
+        <Avatar src="images/avatars/blackwidow.png" />
+        <Avatar src="images/avatars/blackwidow.png" size="large" />
+        <Avatar src="images/avatars/blackwidow.png" size="xlarge" />
+    </>
 );
 ```
