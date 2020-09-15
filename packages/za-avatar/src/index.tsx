@@ -11,9 +11,9 @@ const sizeMap = {
 
 export interface AvatarProps {
     theme?: any;
-    contain?: false | true;
-    interactive?: false | true;
-    square?: false | true;
+    contain?: boolean;
+    interactive?: boolean;
+    square?: boolean;
     name?: string;
     size?: string;
     src?: string;
