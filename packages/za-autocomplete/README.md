@@ -6,24 +6,222 @@
 
 需要自动完成时。
 
-## Installation
-
-```sh
-npm install @stbui/za-autocomplete
-```
-
 ## 基本使用
 
-```jsx
-import React from 'react';
-import Autocomplete from '@stbui/za-autocomplete';
+:::demo 通过 dataSource 设置自动完成的数据源。
 
-export default () => <Autocomplete>Autocomplete</Autocomplete>;
+```js
+
+  constructor() {
+    super();
+
+    this.state = {
+      dataSource: [],
+    }
+  }
+
+  onSelect = (value) => {
+    console.log('onSelect', value);
+  }
+
+  handleSearch = (value) => {
+    const Option = AutoComplete.Option;
+    let newValue = !value ? [] : [
+      {
+        value: value,
+        more: ''
+      },
+      {
+        value: value,
+        more: '456'
+      },
+      {
+        value: value,
+        more: '456789'
+      },
+    ];
+    this.setState({
+      dataSource: newValue.map((item) => {
+        return (
+          <Option key={item.value + item.more} text={item.value + item.more}>
+            <span style={{fontWeight: 600}}>
+              {item.value}
+            </span>
+            {item.more}
+          </Option>
+        );
+      })
+    });
+  }
+
+  render() {
+    const { dataSource } = this.state;
+    return (
+      <div>
+        <AutoComplete
+          allowClear
+          dataSource={dataSource}
+          style={{ width: 300 }}
+          onSelect={this.onSelect}
+          onSearch={this.handleSearch}
+          placeholder="input here"
+          optionLabelProp="text"
+        />
+        <br/>
+        <AutoComplete
+          allowClear
+          disabled
+          dataSource={dataSource}
+          style={{ width: 300, marginTop: 10 }}
+          onSelect={this.onSelect}
+          onSearch={this.handleSearch}
+          placeholder="input here"
+          optionLabelProp="text"
+        />
+      </div>
+    );
+  }
 ```
+
+:::
 
 ## 自定义选项
 
+:::demo 也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `dataSource`。
+
+```js
+  state = {
+    result: [],
+  }
+
+  handleSearch = (value) => {
+    let result;
+    if (!value || value.indexOf('@') >= 0) {
+      result = [];
+    } else {
+      result = ['gmail.com', '163.com', 'qq.com'].map(domain => {
+        return {
+          'value': value,
+          'suffix': `@${domain}`
+        };
+      });
+    }
+    this.setState({ result });
+  }
+
+  onSelect = (value) => {
+    console.log('onSelect', value);
+  }
+
+  render() {
+    const { result } = this.state;
+    const children = result.map((item) => {
+      return (
+        <AutoComplete.Option key={item.value + item.suffix} text={item.value + item.suffix}>
+          <span style={{fontWeight: 600}}>
+            {item.value}
+          </span>
+          {item.suffix}
+        </AutoComplete.Option>
+      );
+    });
+    return (
+      <AutoComplete
+        style={{ width: 300 }}
+        onSelect={this.onSelect}
+        onSearch={this.handleSearch}
+        placeholder="input here"
+        optionLabelProp="text"
+      >
+        {children}
+      </AutoComplete>
+    );
+  }
+```
+
+:::
+
 ## 查询模式
+
+:::demo 查询模式。
+
+```js
+
+  constructor() {
+    super();
+
+    this.state = {
+      dataSource: [],
+    }
+  }
+
+  onSelect = (value) => {
+    console.log('onSelect', value);
+  };
+
+  getRandomInt = (max, min = 0) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
+  }
+
+  searchResult = (query) => {
+    return (new Array(this.getRandomInt(5))).join('.').split('.')
+      .map((item, idx) => ({
+        query,
+        category: `${query}${idx}`,
+        count: this.getRandomInt(200, 100),
+      })
+    );
+  }
+
+  renderOption = (item) => {
+    const Option = AutoComplete.Option;
+    return (
+      <Option key={item.category} text={item.category}>
+        <span style={{fontWeight: 600}}>
+          {item.query}
+        </span>
+        在
+        <a
+          href={`https://www.baidu.com/s?wd=${item.query}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {item.category}
+        </a>
+        中
+        <span className="global-search-item-count">约 {item.count} 个结果</span>
+      </Option>
+    );
+  }
+
+  handleSearch = (value) => {
+    this.setState({
+      dataSource: value ? this.searchResult(value) : [],
+    });
+  }
+
+  render() {
+    const { dataSource } = this.state;
+    return (
+      <div className="global-search-wrapper" style={{ width: 300 }}>
+        <AutoComplete
+          className="global-search"
+          style={{ width: '100%' }}
+          highlightSelected={false}
+          dataSource={dataSource.map(this.renderOption)}
+          onSelect={this.onSelect}
+          onSearch={this.props.debounce(this.handleSearch, 300)}
+          placeholder="input here"
+          optionLabelProp="text"
+        >
+          <Input.Search enterButton maxLength={20} />
+        </AutoComplete>
+      </div>
+    );
+  }
+```
+
+:::
 
 ## API
 
@@ -32,10 +230,10 @@ export default () => <Autocomplete>Autocomplete</Autocomplete>;
 | allowClear               | 支持清除, 单选模式有效                                                                                                                              | Boolean                                                                                                                                      | false               |
 | autoFocus                | 自动获取焦点                                                                                                                                        | Boolean                                                                                                                                      | false               |
 | backfill                 | 使用键盘选择选项的时候把选中项回填到输入框中                                                                                                        | Boolean                                                                                                                                      | false               |
-| children (数据源)        | 自动完成的数据源。<br>AutoComplete.Option：选择项<br>AutoComplete.OptGroup：选择组                                                                  |                                                                                                                                              | -                   |
+| children (数据源)        | 自动完成的数据源。<br>AutoComplete.Option：选择项<br>AutoComplete.OptGroup：选择组                                                                  | ReactNode< > \|<br> Array< ReactNode< > > \|<br> ReactNode< > \|<br> Array< ReactNode< > >                                                   | -                   |
 | children (自定义输入框)  | 自定义输入框                                                                                                                                        | HTMLInputElement \|<br> HTMLTextAreaElement \|<br> ReactNode< InputProps >                                                                   | `<Input />`         |
 | className                | 容器类名                                                                                                                                            | String                                                                                                                                       | -                   |
-| dataSource               | 自动完成的数据源                                                                                                                                    | Array< DataSourceItemType>                                                                                                                   | -                   |
+| dataSource               | 自动完成的数据源                                                                                                                                    |                                                                                                                                              | -                   |
 | defaultActiveFirstOption | 是否默认高亮第一个选项                                                                                                                              | Boolean                                                                                                                                      | true                |
 | defaultValue             | 指定默认选中的条目                                                                                                                                  | String \|<br> Array< String > \|<br> { key: String, label: String \| ReactNode } \|<br> Array< { key: String, label: String \| ReactNode} >  | -                   |
 | disabled                 | 是否禁用                                                                                                                                            | Boolean                                                                                                                                      | false               |
