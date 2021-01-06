@@ -1,13 +1,34 @@
 import styled, { css } from 'styled-components';
 import { themes } from '@stbui/za-theme';
+
+export type ButtonType =
+    | 'default'
+    | 'primary'
+    | 'ghost'
+    | 'dashed'
+    | 'danger'
+    | 'link'
+    | 'text';
+export type ButtonShape = 'circle' | 'circle-outline';
+export type ButtonSize = 'small' | 'default' | 'large';
+export type ButtonHTMLType = 'submit' | 'button' | 'reset';
+
+export interface BaseButtonProps {
+    type?: ButtonType;
+    icon?: string;
+    shape?: ButtonShape;
+    size?: ButtonSize;
+    loading?: boolean | { delay?: number };
+    className?: string;
+    ghost?: boolean;
+}
+
 export interface ButtonProps {
     children: any;
     disabled?: boolean;
     shape?: 'circle' | 'round' | 'normal';
-    type?: any;
-    ghost?: boolean;
+    type?: ButtonType;
 }
-
 
 const types: any = ({ theme, type }) => {
     const mode = theme[type];
