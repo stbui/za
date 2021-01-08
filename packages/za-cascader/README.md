@@ -8,46 +8,592 @@
 -   从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。
 -   比起 Select 组件，可以在同一个浮层中完成选择，有较好的体验。
 
-## Installation
-
-```sh
-npm install @stbui/za-checkbox
-```
-
 ## 基本
 
-```jsx
-/**
- * title: 我是标题
- * desc: 我是简介，我可以用 `Markdown` 来编写
- */
-import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+:::demo 省市区级联。
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+```js
+onChange = (value) => {
+  console.log(value);
+}
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(<Cascader options={options} onChange={this.onChange} />)
+}
 ```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
 
 ## 默认值
 
+:::demo 默认值通过数组的方式指定。
+
+```js
+onChange = (value) => {
+  console.log(value);
+}
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(
+  <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={this.onChange} />);
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
+
 ## 可以自定义显示
+
+:::demo 切换按钮和结果分开。
+
+```js
+  state = {
+    text: 'Unselect',
+  };
+
+  onChange = (value, selectedOptions) => {
+    this.setState({
+      text: selectedOptions.map(o => o.label).join(', '),
+    });
+  };
+
+  render() {
+    const options = [{
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [{
+        value: 'hangzhou',
+        label: 'Hangzhou',
+      }],
+    }, {
+      value: 'jiangsu',
+      label: 'Jiangsu',
+      children: [{
+        value: 'nanjing',
+        label: 'Nanjing',
+      }],
+    }];
+    return (
+      <span>
+        {this.state.text}
+        &nbsp;
+        <Cascader options={options} onChange={this.onChange}>
+          <a href="#">Change city</a>
+        </Cascader>
+      </span>
+    );
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
 
 ## 移入展开
 
+:::demo 通过移入展开下级菜单，点击完成选择。
+
+```js
+onChange = (value) => {
+  console.log(value);
+};
+
+// Just show the latest item.
+displayRender=(label) => {
+  return label[label.length - 1];
+};
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(
+    <Cascader
+      options={options}
+      expandTrigger="hover"
+      displayRender={this.displayRender}
+      onChange={this.onChange}
+    />);
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
+
 ## 禁用选项
+
+:::demo 通过指定 options 里的 `disabled` 字段。
+
+```js
+
+onChange=(value) => {
+  console.log(value);
+};
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    disabled: true,
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(
+    <Cascader options={options} onChange={this.onChange} />);
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
 
 ## 选择即改变
 
+:::demo 这种交互允许只选中父级选项。
+
+```js
+onChange = (value) => {
+  console.log(value);
+};
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hanzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(
+    <Cascader options={options} onChange={this.onChange} changeOnSelect />)
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
+
 ## 大小
+
+:::demo 不同大小的级联选择器。
+
+```js
+onChange=(value) => {
+  console.log(value);
+}
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(
+    <div>
+      <Cascader size="large" options={options} onChange={this.onChange} /><br /><br />
+      <Cascader options={options} onChange={this.onChange} /><br /><br />
+      <Cascader size="small" options={options} onChange={this.onChange} /><br /><br />
+    </div>)
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
 
 ## 自定义已选项
 
+:::demo 例如给最后一项加上邮编链接。
+
+```js
+handleAreaClick=(e, label, option) => {
+  e.stopPropagation();
+  console.log('clicked', label, option);
+}
+
+displayRender = (labels, selectedOptions) => labels.map((label, i) => {
+  const option = selectedOptions[i];
+  if (i === labels.length - 1) {
+    return (
+      <span key={option.value}>
+        {label} (<a onClick={e => this.handleAreaClick(e, label, option)}>{option.code}</a>)
+      </span>
+    );
+  }
+  return <span key={option.value}>{label} / </span>;
+});
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+        code: 752100,
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua Men',
+        code: 453400,
+      }],
+    }],
+  }];
+  return(
+  <Cascader
+    options={options}
+    defaultValue={['zhejiang', 'hangzhou', 'xihu']}
+    displayRender={this.displayRender}
+    style={{ width: '100%' }}
+  />)
+}
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
+
 ## 搜索
+
+:::demo 可以直接搜索选项并选择。
+
+> `Cascader[showSearch]` 暂不支持服务端搜索，更多信息见 [#5547](https://github.com/ant-design/ant-design/issues/5547)
+
+```js
+
+onChange=(value, selectedOptions) => {
+  console.log(value, selectedOptions);
+}
+
+filter=(inputValue, path) => {
+  return (path.some(option => (option.label).toLowerCase().indexOf(inputValue.toLowerCase()) > -1));
+}
+
+render(){
+  const options = [{
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{
+      value: 'hangzhou',
+      label: 'Hangzhou',
+      children: [{
+        value: 'xihu',
+        label: 'West Lake',
+      }, {
+        value: 'xiasha',
+        label: 'Xia Sha',
+        disabled: true,
+      }],
+    }],
+  }, {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{
+      value: 'nanjing',
+      label: 'Nanjing',
+      children: [{
+        value: 'zhonghuamen',
+        label: 'Zhong Hua men',
+      }],
+    }],
+  }];
+  return(
+  <Cascader
+    options={options}
+    onChange={this.onChange}
+    showSearch={{
+      filter:this.filter
+    }}
+  />)
+}
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
 
 ## 动态加载选项
 
+:::demo 使用 `loadData` 实现动态加载选项。
+
+> 注意：`loadData` 与 `showSearch` 无法一起使用。
+
+```js
+  state = {
+    options:[{
+              value: 'zhejiang',
+              label: 'Zhejiang',
+              isLeaf: false,
+            }, {
+              value: 'jiangsu',
+              label: 'Jiangsu',
+              isLeaf: false,
+            }],
+  };
+
+  onChange = (value, selectedOptions) => {
+    console.log(value, selectedOptions);
+  }
+
+  loadData = (selectedOptions) => {
+    const targetOption = selectedOptions[selectedOptions.length - 1];
+    targetOption.loading = true;
+
+    // load options lazily
+    setTimeout(() => {
+      targetOption.loading = false;
+      targetOption.children = [{
+        label: `${targetOption.label} Dynamic 1`,
+        value: 'dynamic1',
+      }, {
+        label: `${targetOption.label} Dynamic 2`,
+        value: 'dynamic2',
+      }];
+      this.setState({
+        options: [...this.state.options],
+      });
+    }, 1000);
+  }
+
+  render() {
+    return (
+      <Cascader
+        options={this.state.options}
+        loadData={this.loadData}
+        onChange={this.onChange}
+        changeOnSelect
+      />
+    );
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
+
 ## 自定义字段名
 
+:::demo 自定义字段名。
+
+```js
+
+onChange=(value) => {
+  console.log(value);
+};
+
+render(){
+  const options = [{
+    code: 'zhejiang',
+    name: 'Zhejiang',
+    items: [{
+      code: 'hangzhou',
+      name: 'Hangzhou',
+      items: [{
+        code: 'xihu',
+        name: 'West Lake',
+      }],
+    }],
+  }, {
+    code: 'jiangsu',
+    name: 'Jiangsu',
+    items: [{
+      code: 'nanjing',
+      name: 'Nanjing',
+      items: [{
+        code: 'zhonghuamen',
+        name: 'Zhong Hua Men',
+      }],
+    }],
+  }];
+  return(
+  <Cascader fieldNames={{ label: 'name', value: 'code', children: 'items' }} options={options} onChange={this.onChange} />);
+  }
+```
+
+```less
+.fishd-cascader-picker {
+    width: 300px;
+}
+```
+
+:::
+
 ## API
+
+```html
+<Cascader options="{options}" onChange="{onChange}" />
+```
 
 | 参数              | 说明                                                                                                                                                          | 类型                                                                              | 默认值                                                   |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------- |
