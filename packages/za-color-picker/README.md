@@ -4,20 +4,77 @@
 
 用于颜色选择。
 
-## Installation
+## 基本用法
 
-```sh
-npm install @stbui/za-checkbox
+:::demo 使用`onChange`回调获取`alpha`以及`color`值
+
+```js
+onChangeColor=({color,alpha}) => {
+  console.log(`color:${color}`,`alpha:${alpha}`);
+};
+
+render(){
+  return(
+    <div>
+      <h3>默认设置</h3>
+      <ColorPicker onChange={this.onChangeColor} className="demo-color-picker"/>
+      <h3>开启透明度设置</h3>
+      <ColorPicker enableAlpha onChange={this.onChangeColor}/>
+    </div>
+)
+}
 ```
 
-## Usage
-
-```jsx
-import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
-
-export default () => <Checkbox>Checkbox</Checkbox>;
+```less
+.demo-color-picker {
+    margin-bottom: 30px;
+}
 ```
+
+:::
+
+## 快速选择
+
+:::demo 弹出层快捷选择颜色，使用`onChange`回调获取 color`值
+
+```js
+onChangeColor=({color,alpha}) => {
+  console.log(`color:${color}`);
+};
+
+render(){
+  return(<ColorPicker quickMode onChange={this.onChangeColor}/>)
+}
+```
+
+:::
+
+## 面板选择
+
+:::demo 颜色选择面板组件、可选择默认配置颜色以及自定义颜色
+
+```js
+
+state={
+  color:'#33bbff',
+}
+
+onChangeColor=({color}) => {
+  console.log(`color:${color}`);
+  this.setState({
+    color
+  })
+};
+
+render(){
+  return(<div>
+  <ColorPicker.QuickPanel color={this.state.color} colorHistory={['#33bbff']} onChange={this.onChangeColor}/>
+  <div style={{width:100,height:100,color:'#fff',lineHeight:'100px',textAlign:'center',margin:'10px 0',background:this.state.color}}>已选中颜色</div>
+</div>)
+}
+```
+
+:::
 
 ## API
 
