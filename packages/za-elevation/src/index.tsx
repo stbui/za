@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface ElevationProps {
     children: any;
@@ -91,10 +91,10 @@ const ambientMap = {
 };
 
 export const ElevationRoot = styled.div<ElevationProps>`
-    box-shadow: ${({ z }) => {
-        return `${umbraMap[z]} rgba(0, 0, 0, 0.2),
-        ${penumbraMap[z]} rgba(0, 0, 0, 0.14), ${ambientMap[z]} rgba(0, 0, 0, 0.12);`;
-    }};
+    ${({ z }) => css`
+        box-shadow: ${umbraMap[z]} rgba(0, 0, 0, 0.2), ${penumbraMap[z]} rgba(0, 0, 0, 0.14), , ${ambientMap[z]} rgba(0, 0, 0, 0.12);
+        }};
+    `}
 `;
 
 ElevationRoot.defaultProps = {
