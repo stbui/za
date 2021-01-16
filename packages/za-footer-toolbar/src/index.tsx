@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.div``;
 
 export const FooterToolbar = props => {
-    const { ...other } = props;
+    const { children, ...other } = props;
+    const [offset, setOffset] = React.useState(0);
 
-    return <Root {...other} />;
+    return (
+        <div>
+            <div className={`footer-toolbar-inner`}>{children}</div>
+        </div>
+    );
 };
 
 FooterToolbar.defaultProps = {};
