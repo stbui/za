@@ -1,79 +1,69 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
 import { themes } from '@stbui/za-theme';
+import { ProgressStyle } from './style';
+import { CircleProgress } from './circle';
+
+export type ProgressType = 'line' | 'circle' | 'dashboard';
+export type ProgressSize = 'default' | 'small';
 
 export interface ProgressProps {
-    width?: number | string;
-    variant?: 'success' | 'info' | 'warning' | 'danger';
-    textAlign?: 'left' | 'center' | 'right';
-    square?: boolean;
-    autoChangeColor?: boolean;
-    value?: number | string;
+    prefixCls?: string;
+    className?: string;
+    message?: string;
+    extraContent?: React.ReactNode | null;
+    operation?: React.ReactNode | null;
+    type?: ProgressType;
+    percent?: number;
+    successPercent?: number;
+    format?: (percent?: number, successPercent?: number) => string;
+    status?: 'success' | 'active' | 'exception';
+    showInfo?: boolean;
+    strokeWidth?: number;
+    strokeLinecap?: string;
+    strokeColor?: string;
+    trailColor?: string;
+    width?: number;
+    style?: React.CSSProperties;
+    gapDegree?: number;
+    gapPosition?: 'top' | 'bottom' | 'left' | 'right';
+    size?: ProgressSize;
 }
 
-export const ProgressStyle = styled.div<ProgressProps>`
-    ${({ theme }) => css`
-        display: block;
+const validProgress = (progress: number | undefined) => {
+    if (!progress || progress < 0) {
+        return 0;
+    } else if (progress > 100) {
+        return 100;
+    }
 
-        .progress-container {
-            overflow: hidden;
-            border-radius: 0.25rem;
+    return progress;
+};
 
-            height: 1.375rem;
+export const Progress: React.FC<ProgressProps> = props => {
+    const { percent } = props;
 
-            background-color: rgb(237, 241, 247);
-        }
-
-        .progress-value {
-            height: 100%;
-            width: 20%;
-            text-align: center;
-            overflow: hidden;
-            display: flex;
-            -webkit-box-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            justify-content: center;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-                'Segoe UI Emoji', 'Segoe UI Symbol';
-            transition-duration: 400ms;
-            transition-property: width, background-color;
-
-            font-size: 0.9375rem;
-            font-weight: 600;
-            line-height: 1.5rem;
-
-            background-color: rgb(0, 149, 255);
-            color: rgb(255, 255, 255);
-        }
-    `}
-`;
-
-export const Progress = props => {
-    const { children, value, displayValue } = props;
+    const width = validProgress(percent);
 
     return (
-        <ProgressStyle {...props}>
-            <div className="progress-container">
-                <div className="progress-value">
-                    {displayValue && <span>{value}%</span>}
-                    {children}
+        <ProgressStyle width={width} {...props}>
+            <div className="progress-line-ctner">
+                <div className="progress-basic">
+                    <div className="progress-outer">
+                        <div className="progress-inner">
+                            <div className="progress-bg"></div>
+                        </div>
+                    </div>
+                    <span className="progress-text">{percent}%</span>
                 </div>
             </div>
         </ProgressStyle>
     );
 };
 
-Progress.defalutProps = {
-    value: 0,
-    variant: 'info',
-    maxValue: 100,
-    square: true,
-
-    size: 'normal',
-
+Progress.defaultProps = {
     theme: themes.default,
 };
+
+export { CircleProgress };
 
 export default Progress;
