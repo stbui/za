@@ -28,6 +28,7 @@
         "react": "^16.13.1"
     },
     "dependencies": {
+        "@stbui/za-mask": "0.0.1",
         "styled-components": "^5.1.1"
     },
     "devDependencies": {
