@@ -1,5 +1,5 @@
 {
-    "name": "@stbui/za-modal",
+    "name": "@stbui/za-waterMark",
     "version": "0.0.1",
     "description": "",
     "author": "stbui <w431106@163.com>",
@@ -24,12 +24,11 @@
     "publishConfig": {
         "access": "public"
     },
-   "peerDependencies": {
+    "peerDependencies": {
         "react": "^17.0.1"
     },
     "dependencies": {
-        "@stbui/za-mask": "0.0.1",
-        "styled-components": "^5.1.1"
+        "styled-components": "^5.2.1"
     },
     "devDependencies": {
         "react": "^17.0.1",
