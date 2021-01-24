@@ -1,19 +1,15 @@
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 export interface TabProps {
-    children: any;
-    theme?: any;
+    show?: boolean;
 }
 
-const Root = styled.div``;
+const TabRoot = styled.div<TabProps>`
+    display: ${props => (props.show ? 'block' : 'none')};
+`;
 
-export const Tab: FC<TabProps> = props => {
-    const { ...other } = props;
-
-    return <Root {...other} />;
+TabRoot.defaultProps = {
+    show: true,
 };
 
-Tab.defaultProps = {};
-
-export default Tab;
+export default TabRoot;

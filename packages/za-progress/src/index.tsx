@@ -2,18 +2,35 @@ import React from 'react';
 import styled from 'styled-components';
 
 export interface ProgressProps {
-    width: number;
+    width?: number | string;
     variant?: 'success' | 'info' | 'warning' | 'danger';
     textAlign?: 'left' | 'center' | 'right';
+    square?: boolean;
+    autoChangeColor?: boolean;
+    value?: number | string;
 }
 
-export const ProgressRoot = styled.div`
+export const getFromValueColor = (value: any) => {
+    let color = '#84e19a';
+    if (value >= 60 && value < 80) {
+        color = '#ffd966';
+    } else if (value >= 80) {
+        color = '#e87d88';
+    } else {
+        color = '#84e19a';
+    }
+
+    return color;
+};
+
+export const ProgressRoot = styled.div<ProgressProps>`
+    position: relative;
     display: flex;
     height: 1rem;
     line-height: 0;
     font-size: 0.75rem;
     background-color: #e9ecef;
-    border-radius: 0.25rem;
+    border-radius: ${({ square }) => (square ? 0 : '0.25rem')};
 `;
 
 export const ProgressBar = styled.div<ProgressProps>`
@@ -24,43 +41,37 @@ export const ProgressBar = styled.div<ProgressProps>`
     white-space: nowrap;
     transition: width 0.6s ease;
     color: #fff;
-    padding-left: 8px;
-
-    background-color: #007bff;
 
     text-align: ${props => props.textAlign};
     width: ${props => props.width}%;
+
+    background-color: ${props => getFromValueColor(props.value)};
 `;
 
-export const getFromValueColor = (value: number) => {
-    let color = '#28a745';
-    if (value >= 60 && value < 80) {
-        color = '#ffc107';
-    } else if (value >= 80) {
-        color = '#dc3545';
-    } else {
-        color = '#28a745';
-    }
+export const ProgressText = styled.div`
+    position: absolute;
+    padding-left: 4px;
+    height: 1rem;
+    line-height: 1rem;
+`;
 
-    return color;
-};
-
-export const Progress = ({ children, variant, value, textAlign }) => (
-    <ProgressRoot>
+export const Progress = ({ children, variant, value, textAlign, square }) => (
+    <ProgressRoot square={square}>
         <ProgressBar
             variant={variant}
             width={value}
+            value={value}
             textAlign={textAlign}
-            style={{ background: getFromValueColor(value) }}
-        >
-            {children}
-        </ProgressBar>
+        ></ProgressBar>
+        <ProgressText>{children}</ProgressText>
     </ProgressRoot>
 );
 
 Progress.defalutProps = {
-    width: 0,
+    value: 0,
     variant: 'info',
+    maxValue: 100,
+    square: true,
 };
 
 export default Progress;

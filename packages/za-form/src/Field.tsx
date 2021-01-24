@@ -96,11 +96,7 @@ class Field extends React.Component<any> {
       returnChildNode = React.cloneElement(children, this.getCntrolled());
     }
 
-    return (
-      <React.Fragment key={resetCount}>
-        {returnChildNode}
-      </React.Fragment>
-    );
+    return <React.Fragment key={resetCount}>{returnChildNode}</React.Fragment>;
   }
 }
 export default Field;

@@ -26,18 +26,16 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.13.1"
+        "react": "^17.0.1"
     },
     "dependencies": {
-        "styled-components": "^5.1.1",
-        "codemirror": "5.54.0",
-        "react-codemirror2": "7.2.0",
+        "styled-components": "^5.2.1",
+        "codemirror": "5.58.3",
+        "react-codemirror2": "7.2.1",
         "buble": "^0.20.0"
     },
     "devDependencies": {
-        "@types/react": "16.9.35",
-        "react": "^16.13.1",
-        "raw.macro": "0.3.0",
+        "react": "^17.0.1",
         "rimraf": "^3.0.0"
     }
 }

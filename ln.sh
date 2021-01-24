@@ -46,3 +46,4 @@ ln -f packages/za-carousel/README.md docs/components/za-carousel.md
 ln -f packages/za-breadcrumb/README.md docs/components/za-breadcrumb.md
 ln -f packages/za-badge/README.md docs/components/za-badge.md
 ln -f packages/za-backtop/README.md docs/components/za-backtop.md
+ln -f packages/za-tabs/README.md docs/components/za-tabs.md

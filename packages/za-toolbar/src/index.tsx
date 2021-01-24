@@ -1,5 +1,9 @@
-import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
+
+export interface ToolBarProps {
+    disableGutters: boolean;
+    variant: 'regular' | 'dense';
+}
 
 const regular = css`
     min-height: 56px;
@@ -12,12 +16,7 @@ const gutters = css`
     padding-right: 16px;
 `;
 
-export interface ToolBarProps {
-    disableGutters: boolean;
-    variant: 'regular' | 'dense';
-}
-
-const Root = styled.div<ToolBarProps>`
+const ToolBarRoot = styled.div<ToolBarProps>`
     display: flex;
     position: relative;
     align-items: center;
@@ -26,22 +25,9 @@ const Root = styled.div<ToolBarProps>`
     ${props => (props.disableGutters ? gutters : null)}
 `;
 
-const ToolBar: FC<ToolBarProps> = ({
-    children,
-    disableGutters,
-    variant,
-    ...other
-}) => {
-    return (
-        <Root disableGutters={disableGutters} variant={variant} {...other}>
-            {children}
-        </Root>
-    );
-};
-
-ToolBar.defaultProps = {
+ToolBarRoot.defaultProps = {
     variant: 'regular',
     disableGutters: false,
 };
 
-export default ToolBar;
+export default ToolBarRoot;
