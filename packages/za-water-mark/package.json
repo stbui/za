@@ -1,8 +1,8 @@
 {
-    "name": "@stbui/za-waterMark",
+    "name": "@stbui/za-water-mark",
     "version": "0.0.1",
     "description": "",
-    "author": "stbui <w431106@163.com>",
+    "author": "stbui <stbui@stbui.com>",
     "homepage": "https://github.com/stbui/za",
     "license": "ISC",
     "main": "lib/index",

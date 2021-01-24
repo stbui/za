@@ -1,8 +1,8 @@
 {
-    "name": "@stbui/za-upload",
+    "name": "@stbui/za-check-card",
     "version": "0.0.1",
     "description": "",
-    "author": "stbui <w431106@163.com>",
+    "author": "stbui <stbui@stbui.com>",
     "homepage": "https://github.com/stbui/za",
     "license": "ISC",
     "main": "lib/index",

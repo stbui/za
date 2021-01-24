@@ -2,7 +2,7 @@
     "name": "za",
     "version": "0.0.1",
     "description": "一个低级组件库，用于构建可访问的高级 ui 库、设计系统和带有 react 的应用程序。",
-    "author": "stbui <w431106@163.com>",
+    "author": "stbui <stbui@stbui.com>",
     "homepage": "https://github.com/stbui/za",
     "license": "ISC",
     "main": "lib/index",
