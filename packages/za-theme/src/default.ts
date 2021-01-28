@@ -1,7 +1,8 @@
 const palette = {
     common: {},
 
-    primary: '#0070F3',
+    primary: '#00bc70',
+    // primary: '#0070F3',
     error: '#A51C30',
 
     grey: {
