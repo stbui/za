@@ -10,55 +10,22 @@
 
 ## 基本
 
-```js
-  state = { visible: false }
+```tsx
+import React from 'react';
+import Modal from '@stbui/za-modal';
+import Button from '@stbui/za-button';
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  }
-
-  handleOk = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  }
-
-  handleCancel = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  }
-
-  render() {
+export default () => {
     return (
-      <div>
-        <Button type="primary" onClick={this.showModal}>Open</Button>
-          <Modal
-            title="Basic Modal"
-            visible={this.state.visible}
-            onOk={this.handleOk}
-            onCancel={this.handleCancel}
-          >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
-      </div>
+        <>
+            <Button type="primary">Open</Button>
+            <Modal title="Basic Modal" visible>
+                1111
+            </Modal>
+        </>
     );
-  }
+};
 ```
-
-```less
-.modal p {
-    margin: 0;
-}
-```
-
-:::
 
 ## 异步关闭
 
