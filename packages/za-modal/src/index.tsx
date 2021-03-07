@@ -96,12 +96,12 @@ export const Modal = props => {
     const { title, content, footer, ...other } = props;
 
     return (
-        <Overlay>
+        <>
             <ModalStyle {...props}>
                 <Background onClick={props.toggle} />
                 <Content>{props.children}</Content>
             </ModalStyle>
-        </Overlay>
+        </>
     );
 };
 
