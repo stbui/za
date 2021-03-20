@@ -8,7 +8,10 @@ export const TooltipPortal = props => {
 
     if (!el) return null;
 
-    return createPortal(<TooltipContent {...props}></TooltipContent>, el);
+    return createPortal(
+        props.visible ? <TooltipContent {...props}></TooltipContent> : null,
+        el
+    );
 };
 
 export default TooltipPortal;
