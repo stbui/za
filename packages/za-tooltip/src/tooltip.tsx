@@ -39,12 +39,17 @@ export const Tooltip = props => {
         };
     }, [ref?.current]);
 
-    const child = cloneElement(children, { ref });
+    const clickEventHandler = () =>
+        trigger === 'click' && changeVisible(!visible);
+
+    const child = cloneElement(children, { ref, onClick: clickEventHandler });
 
     const wrapper = isValidElement(children) ? (
         child
     ) : (
-        <span ref={ref}>{children}</span>
+        <span ref={ref} onClick={clickEventHandler}>
+            {children}
+        </span>
     );
 
     const changeVisible = (nextState: boolean) => {
@@ -69,9 +74,6 @@ export const Tooltip = props => {
         );
     };
 
-    const clickEventHandler = () =>
-        trigger === 'click' && changeVisible(!visible);
-
     useClickAway(ref, () => trigger === 'click' && changeVisible(false));
 
     return (
@@ -82,6 +84,7 @@ export const Tooltip = props => {
                 iconOffset={iconOffset}
                 parent={ref}
                 offset={offset}
+                visible={visible}
             ></TooltipPortal>
         </>
     );
@@ -96,6 +99,7 @@ Tooltip.defaultProps = {
     autoAdjustOverflow: true,
     offset: 0,
     trigger: 'click',
+    onVisibleChange: () => {},
 };
 
 export default Tooltip;
