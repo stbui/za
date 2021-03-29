@@ -31,7 +31,6 @@
         "styled-components": "^5.2.1"
     },
     "devDependencies": {
-        
         "react": "^17.0.1",
         "rimraf": "^3.0.0"
     }

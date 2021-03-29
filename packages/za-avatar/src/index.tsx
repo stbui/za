@@ -68,7 +68,7 @@ const AvatarTextInner = styled.div`
 `;
 
 export const Avatar: FC<AvatarProps> = props => {
-    const { src, contain, square, size, ...other } = props;
+    const { src, contain, square, size, name, ...other } = props;
 
     return (
         <AvatarRoot square={square} size={size} {...other}>

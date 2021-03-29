@@ -1,60 +1,30 @@
 import styled, { css } from 'styled-components';
-
 export interface ButtonProps {
     children: any;
     theme?: any;
     disabled?: boolean;
-    shape?: 'round' | 'normal';
-    variant?: 'default' | 'primary' | 'warn';
+    shape?: 'circle' | 'round' | 'normal';
+    type?: any;
+    ghost?: boolean;
 }
 
-const variant_default = css`
-    background-color: var(--rb-color-white);
-    border-color: var(--rb-color-gray-80);
-    color: var(--rb-color-gray-40);
-
-    &:hover:not(.rb-button--disabled) {
-        background-color: var(--rb-color-primary-95);
-        border-color: var(--rb-color-primary-80);
-        color: var(--rb-color-primary-40);
-    }
-
-    &:focus:not(.rb-button--disabled) {
-        background-color: var(--rb-color-primary-95);
-        border-color: var(--rb-color-primary-70);
-        color: var(--rb-color-primary-40);
-        box-shadow: 0 0 0 var(--rb-focus-ring-width)
-            hsla(
-                var(--rb-color-primary-hue),
-                var(--rb-color-primary-saturation),
-                50%,
-                var(--rb-focus-ring-alpha)
-            );
-    }
-
-    &:active:not(.rb-button--disabled) {
-        background-color: var(--rb-color-primary-95);
-        border-color: var(--rb-color-primary-50);
-        color: var(--rb-color-primary-30);
-    }
-`;
-
-const variant: any = ({ variant }) => {
-    const variant_primary = css`
-        background-color: var(--rb-color-primary-50);
-        border-color: var(--rb-color-primary-50);
-        color: var(--rb-color-primary-text);
+const setTheme = theme => {
+    return css`
+        background-color: ${theme.bg};
+        border-color: ${theme.bg};
+        color: ${theme.color};
 
         &:hover:not(.rb-button--disabled) {
-            background-color: var(--rb-color-primary-60);
-            border-color: var(--rb-color-primary-60);
-            color: var(--rb-color-primary-text);
+            background-color: ${theme.bg};
+            border-color: ${theme.bg};
+            color: ${theme.color};
         }
 
         &:focus:not(.rb-button--disabled) {
-            background-color: var(--rb-color-primary-60);
-            border-color: var(--rb-color-primary-60);
-            color: var(--rb-color-primary-text);
+            background-color: ${theme.bg};
+            border-color: ${theme.bg};
+            color: ${theme.color};
+
             box-shadow: 0 0 0 var(--rb-focus-ring-width)
                 hsla(
                     var(--rb-color-primary-hue),
@@ -65,27 +35,15 @@ const variant: any = ({ variant }) => {
         }
 
         &:active:not(.rb-button--disabled) {
-            background-color: var(--rb-color-primary-50);
-            border-color: var(--rb-color-primary-50);
-            color: var(--rb-color-primary-text);
+            background-color: ${theme.bg};
+            border-color: ${theme.bg};
+            color: ${theme.color};
         }
     `;
+};
 
-    switch (variant) {
-        case 'primary':
-            return variant_primary;
-        case 'success':
-            return variant_primary;
-        case 'info':
-            return variant_primary;
-        case 'warning':
-            return variant_primary;
-        case 'danger':
-            return variant_primary;
-        case 'defalut':
-        default:
-            return variant_default;
-    }
+const variant: any = ({ type, theme }) => {
+    return setTheme(theme.button[type]);
 };
 
 const shape: any = ({ shape }) => {
@@ -110,6 +68,7 @@ const ButtonRoot = styled.button<ButtonProps>`
     display: inline-flex;
     align-items: stretch;
     justify-content: center;
+    position: relative;
 
     text-decoration: none;
     user-select: none;
@@ -145,7 +104,19 @@ const ButtonRoot = styled.button<ButtonProps>`
 `;
 
 ButtonRoot.defaultProps = {
-    variant: 'default',
+    type: 'default',
+    theme: {
+        button: {
+            default: {
+                color: '#fff',
+                bg: '#952ae6',
+            },
+            primary: {
+                color: '#fff',
+                bg: '#f00',
+            },
+        },
+    },
 };
 
 export default ButtonRoot;

@@ -7,9 +7,8 @@ nav:
 
 # 编码规范
 
-## Inline styles
+## 内联样式
 
-Just use the `style` prop.
 
 ```jsx
 import React from 'react';
@@ -22,7 +21,6 @@ export default () => (
 
 ## CSS in JS
 
-Example with styled-components
 
 ```jsx
 import React from 'react';

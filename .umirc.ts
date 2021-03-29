@@ -1,7 +1,7 @@
 export default {
     // ssr: {},
     hash: true,
-    title: '基础设施平台',
+    title: '聚石塔',
     mode: 'site',
     menus: {
         '/guide': [
@@ -59,5 +59,6 @@ export default {
         null,
         { title: 'GitHub', path: 'https://github.com/stbui/za' },
         { title: '更新日志', path: 'https://github.com/stbui/za/releases' },
+        { title: '中台框架', path: 'https://github.com/stbui/prophet' },
     ],
 };

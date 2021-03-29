@@ -8,6 +8,7 @@ export interface MenuProps {
     prefix?: any;
     suffix?: any;
     icon?: any;
+    theme?: any;
 }
 
 export const MenuItemActive = css`
@@ -97,6 +98,13 @@ export const MenuItem: FC<MenuProps> = props => {
     );
 };
 
-MenuItem.defaultProps = {};
+MenuItem.defaultProps = {
+    theme: {
+        menu: {
+            bg: '#e5f5ff',
+            color: '#009dff',
+        },
+    },
+};
 
 export default MenuItem;

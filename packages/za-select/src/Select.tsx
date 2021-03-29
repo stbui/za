@@ -91,7 +91,7 @@ export const Select: FC<SelectProps> = ({
 
     useEffect(() => {
         document.addEventListener('click', handleDocumentClick);
-    }, 1);
+    }, []);
 
     return (
         <SelectRoot>

@@ -1,6 +1,5 @@
 # Elevation
 
-Elevation is the relative distance between two surfaces along the z-axis.
 
 ## Installation
 

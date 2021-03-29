@@ -43,9 +43,7 @@ import Button from '@stbui/za-button';
 
 export default () => (
     <>
-        <Button colors="primary" isSubmit={true}>
-            Default
-        </Button>
+        <Button colors="primary">Default</Button>
         <Button disabled>disabled</Button>
         <Button bordered>border</Button>
         <Button colors="primary" shape="round">

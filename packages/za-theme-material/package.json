@@ -1,6 +1,5 @@
 {
-    "name": "@stbui/za-playground",
-    "private": true,
+    "name": "@stbui/za-theme-material",
     "version": "0.0.1",
     "description": "",
     "author": "stbui <stbui@stbui.com>",
@@ -29,10 +28,7 @@
         "react": "^17.0.1"
     },
     "dependencies": {
-        "styled-components": "^5.2.1",
-        "codemirror": "5.58.3",
-        "react-codemirror2": "7.2.1",
-        "buble": "^0.20.0"
+        "styled-components": "^5.2.1"
     },
     "devDependencies": {
         "react": "^17.0.1",
