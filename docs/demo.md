@@ -11,7 +11,6 @@
 -   https://github.com/twbs/bootstrap
 -   https://influxdata.github.io/clockface
 -   https://github.com/bumbag/bumbag-ui
--   https://github.com/chakra-ui/chakra-ui
 -   https://github.com/shoelace-style/shoelace
 -   https://github.com/sheinsight/shineout
 -   https://github.com/prijs/pri
@@ -30,3 +29,4 @@
 -   https://github.com/museui/muse-ui
 -   https://github.com/NSFI/ppfish-components
 -   https://github.com/alibaba/rex-design
+-   https://github.com/chakra-ui/chakra-ui
