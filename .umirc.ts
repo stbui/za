@@ -1,8 +1,39 @@
+import { readdirSync } from 'fs';
+import { join } from 'path';
+
+function findpkgList(dir) {
+    const headPkgList = [];
+    const pkgList = readdirSync(join(__dirname, dir)).filter(
+        pkg => pkg.charAt(0) !== '.' && !headPkgList.includes(pkg)
+    );
+
+    const alias = pkgList.reduce((pre, pkg) => {
+        pre[`@za/${pkg}`] = join(__dirname, dir, pkg, 'src');
+        return {
+            ...pre,
+        };
+    }, {});
+
+    const tailPkgList = pkgList
+        .map(path => [join(dir, path, 'src')])
+        .reduce((acc, val) => acc.concat(val), []);
+
+    // console.log(tailPkgList);
+    return tailPkgList;
+}
+
+const vs = findpkgList('vscode');
+
+console.log(vs);
+
 export default {
     // ssr: {},
     hash: true,
     title: '聚石塔',
     mode: 'site',
+    resolve: {
+        includes: ['docs'],
+    },
     menus: {
         '/guide': [
             {
@@ -42,17 +73,6 @@ export default {
                 title: '反馈',
                 children: ['components/za-alert'],
             },
-            // {
-            //     title: '其他',
-            //     children: [
-            //         'components/za-affix',
-            //         'components/za-alert',
-            //         'components/za-anchor',
-            //         'components/za-appbar',
-            //         'components/za-avatar',
-            //         'components/za-button',
-            //     ],
-            // },
         ],
     },
     navs: [
