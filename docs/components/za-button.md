@@ -30,25 +30,17 @@ npm install @stbui/za-button
 
 ```tsx
 import React from 'react';
-import Button from '@stbui/za-button';
+import styled, { ThemeProvider } from 'styled-components';
 
-export default () => (
-    <Button style={{ color: 'white', background: 'red' }}>Button</Button>
-);
-```
-
-```tsx
-import React from 'react';
 import Button from '@stbui/za-button';
 
 export default () => (
     <>
-        <Button colors="primary">Default</Button>
-        <Button disabled>disabled</Button>
-        <Button bordered>border</Button>
-        <Button colors="primary" shape="round">
-            round
-        </Button>
+        <Button>Button</Button>
+        <Button type="primary">primary</Button>
+        <Button type="success">success</Button>
+        <Button type="danger">danger</Button>
+        <Button type="warning">warning</Button>
     </>
 );
 ```

@@ -1,70 +1,32 @@
 import styled, { css } from 'styled-components';
+import { themes } from '@stbui/za-theme';
 export interface ButtonProps {
     children: any;
-    theme?: any;
     disabled?: boolean;
     shape?: 'circle' | 'round' | 'normal';
     type?: any;
     ghost?: boolean;
 }
 
-const setTheme = theme => {
+
+const types: any = ({ theme, type }) => {
+    const mode = theme[type];
+
     return css`
-        background-color: ${theme.bg};
-        border-color: ${theme.bg};
-        color: ${theme.color};
+        background-color: ${mode};
+        border-color: ${mode};
 
-        &:hover:not(.rb-button--disabled) {
-            background-color: ${theme.bg};
-            border-color: ${theme.bg};
-            color: ${theme.color};
+        &:hover,
+        &:focus {
+            color: white;
         }
 
-        &:focus:not(.rb-button--disabled) {
-            background-color: ${theme.bg};
-            border-color: ${theme.bg};
-            color: ${theme.color};
-
-            box-shadow: 0 0 0 var(--rb-focus-ring-width)
-                hsla(
-                    var(--rb-color-primary-hue),
-                    var(--rb-color-primary-saturation),
-                    50%,
-                    var(--rb-focus-ring-alpha)
-                );
-        }
-
-        &:active:not(.rb-button--disabled) {
-            background-color: ${theme.bg};
-            border-color: ${theme.bg};
-            color: ${theme.color};
+        &:active {
         }
     `;
 };
 
-const variant: any = ({ type, theme }) => {
-    return setTheme(theme.button[type]);
-};
-
-const shape: any = ({ shape }) => {
-    const shape_round = css`
-        border-radius: 1000px;
-    `;
-
-    const shape_normal = css`
-        border-radius: 4px;
-    `;
-
-    switch (shape) {
-        case 'round':
-            return shape_round;
-        case 'normal':
-        default:
-            return shape_normal;
-    }
-};
-
-const ButtonRoot = styled.button<ButtonProps>`
+const Button = styled.button<ButtonProps>`
     display: inline-flex;
     align-items: stretch;
     justify-content: center;
@@ -74,7 +36,6 @@ const ButtonRoot = styled.button<ButtonProps>`
     user-select: none;
     white-space: nowrap;
     vertical-align: middle;
-    cursor: inherit;
 
     padding: 4px 12px;
     line-height: 1.5;
@@ -85,10 +46,6 @@ const ButtonRoot = styled.button<ButtonProps>`
     color: #fff;
     font-weight: 400;
 
-    &::-moz-focus-inner {
-        border: 0;
-    }
-
     &:focus {
         outline: none;
     }
@@ -98,25 +55,23 @@ const ButtonRoot = styled.button<ButtonProps>`
         cursor: not-allowed;
     }
 
-    ${variant}
+    ${({ theme }) => css`
+        &:hover,
+        &:focus {
+            opacity: 0.8;
+            color: #fff;
+        }
 
-    ${shape}
+        &:active {
+        }
+    `}
+
+    ${types}
 `;
 
-ButtonRoot.defaultProps = {
-    type: 'default',
-    theme: {
-        button: {
-            default: {
-                color: '#fff',
-                bg: '#952ae6',
-            },
-            primary: {
-                color: '#fff',
-                bg: '#f00',
-            },
-        },
-    },
+Button.defaultProps = {
+    type: 'primary',
+    theme: themes.default,
 };
 
-export default ButtonRoot;
+export default Button;
