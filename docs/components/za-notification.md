@@ -85,7 +85,7 @@ render(){
 ```
 
 ```less
-.code-notification-demo .fishd-btn {
+.code-notification-demo .btn {
     margin-right: 1em;
 }
 ```
