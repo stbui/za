@@ -8,49 +8,45 @@
 
 ## 基本用法
 
-:::demo 独立使用状态：基本状态用圆形选装图标展示，loading 一般设有默认值，超出一定时间后则会给到反馈，loading 时间根据业务自定义。loading 图标的动效为顺时针旋转的样式。
-
 ```js
-render(){
-  return(
-    <Spin />
-  )
-}
-```
+/**
+ * desc: 独立使用状态：基本状态用圆形选装图标展示，loading 一般设有默认值，超出一定时间后则会给到反馈，loading 时间根据业务自定义。loading 图标的动效为顺时针旋转的样式。
+ */
+import React from 'react';
+import Spin from '@stbui/za-spin';
 
-:::
+export default () => <Spin />;
+```
 
 ## 各种大小
 
-:::demo 小的用于文本加载，默认用于卡片容器级加载，大的用于**页面级**加载。
+```ts
+/**
+ * desc: 小的用于文本加载，默认用于卡片容器级加载，大的用于**页面级**加载。
+ */
+import React from 'react';
+import Spin from '@stbui/za-spin';
 
-```js
-render(){
-  return(
+export default () => (
     <div>
         <Spin size="small" />
         <Spin />
         <Spin size="large" />
-      </div>
-  )
-}
+    </div>
+);
 ```
-
-:::
 
 ## 文字加载样式
 
-:::demo 标点符号式的 loading：在文案的结尾用省略号的形式展现 loading，省略号的动效为依次出现，满 3 个后，全部消失，如此循环动效。
+```ts
+/**
+ * desc: 标点符号式的 loading：在文案的结尾用省略号的形式展现 loading，省略号的动效为依次出现，满 3 个后，全部消失，如此循环动效。
+ */
+import React from 'react';
+import Spin from '@stbui/za-spin';
 
-```js
-render(){
-  return(
-    <Spin.TextLoading />
-  )
-}
+export default () => <Spin.TextLoading />;
 ```
-
-:::
 
 ## 自定义指示符
 
@@ -68,16 +64,18 @@ render(){
 
 ## 指示符和自定义描述文案结合
 
-:::demo 图标位于文案的前方，文案原则上不超过 15 个字。自定义描述文案建议为"加载中..."。
+```ts
+/**
+ * desc: 图标位于文案的前方，文案原则上不超过 15 个字。自定义描述文案建议为"加载中..."。
+ */
+import React from 'react';
+import Spin from '@stbui/za-spin';
 
-```js
-render(){
-  return(
+export default () => (
     <div className="example">
-      <Spin tip="加载中..." />
+        <Spin tip="加载中..." />
     </div>
-  )
-}
+);
 ```
 
 ```less
@@ -90,8 +88,6 @@ render(){
     margin: 20px 0;
 }
 ```
-
-:::
 
 ## 作为容器
 
