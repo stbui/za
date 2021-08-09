@@ -53,7 +53,7 @@
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
 ```
@@ -116,7 +116,7 @@
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
 ```
@@ -174,7 +174,7 @@ render(){
 ```
 
 ```less
-.demo-modal-btn-group .fishd-btn {
+.demo-modal-btn-group .btn {
     margin-right: 8px;
 }
 ```
@@ -272,7 +272,7 @@ render(){
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
 ```
@@ -332,10 +332,10 @@ render(){
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
-.demo-modal-btn-group .fishd-btn {
+.demo-modal-btn-group .btn {
     margin-right: 8px;
 }
 ```
@@ -393,10 +393,10 @@ render(){
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
-.demo-modal-btn-group .fishd-btn {
+.demo-modal-btn-group .btn {
     margin-right: 8px;
 }
 ```
@@ -461,7 +461,7 @@ render(){
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
 ```
@@ -517,7 +517,7 @@ render(){
 ```
 
 ```less
-.fishd-modal p {
+.modal p {
     margin: 0;
 }
 ```
