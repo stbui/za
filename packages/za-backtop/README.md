@@ -33,7 +33,7 @@ render(){
   return(
     <div id="components-back-top-demo-custom">
       <BackTop duration={200}>
-        <div className="fishd-back-top-inner">UP</div>
+        <div className="back-top-inner">UP</div>
       </BackTop>
       <p>Scroll down to see the bottom-right
       <strong style={{ color: '#1088e9' }}> UP </strong>
@@ -41,24 +41,6 @@ render(){
       </p>
     </div>
   )
-}
-```
-
-```less
-#components-back-top-demo-custom {
-    .fishd-back-top {
-        bottom: 110px;
-    }
-    .fishd-back-top-inner {
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        border-radius: 4px;
-        background-color: #1088e9;
-        color: #fff;
-        text-align: center;
-        font-size: 20px;
-    }
 }
 ```
 
