@@ -7,57 +7,62 @@
 
 ## 基本使用
 
-:::demo 最基本的下拉筛选使用方式
+```ts
+import React from 'react';
+import Select from '@stbui/za-select';
 
-```js
-  render() {
-    return (
-      <div className="demo-select">
-        <Select style={{width: 300}}>
-          <Select.Option value={0}>{'选项0'}</Select.Option>
-          <Select.Option value={1}>{'选项1'}</Select.Option>
-          <Select.Option value={2}>{'选项2'}</Select.Option>
-          <Select.Option value={3}>{'选项3'}</Select.Option>
+export default () => (
+    <div className="demo-select">
+        <Select style={{ width: 300 }}>
+            <Select.Option value={0}>选项0</Select.Option>
+            <Select.Option value={1}>选项1</Select.Option>
+            <Select.Option value={2}>选项2</Select.Option>
+            <Select.Option value={3}>选项3</Select.Option>
         </Select>
-        <br/>
-        <Select showSingleClear style={{width: 300}}>
-          <Select.Option value={1}>{'选项1'}</Select.Option>
-          <Select.Option value={2} disabled>{'选项2'}</Select.Option>
-          <Select.Option value={3}>{'选项3'}</Select.Option>
+        <br />
+        <Select showSingleClear style={{ width: 300 }}>
+            <Select.Option value={1}>选项1</Select.Option>
+            <Select.Option value={2} disabled>
+                选项2
+            </Select.Option>
+            <Select.Option value={3}>选项3</Select.Option>
         </Select>
-        <br/>
-        <Select disabled style={{width: 300}}></Select>
-      </div>
-    )
-  }
+        <br />
+        <Select disabled style={{ width: 300 }}></Select>
+    </div>
+);
 ```
-
-```less
-.fishd-select {
-    margin-bottom: 10px;
-}
-```
-
-:::
 
 ## 限制多选个数
 
 :::demo 最基本的下拉筛选使用方式
 
-```js
-  render() {
-    return (
-      <div className="demo-select">
-        <Select mode={'multiple'} errorMessage={'最多仅能选择3项'} labelClear maxCount={3} style={{width: 300, margin: 10}} showSelectAll>
-          <Select.Option value={"1"}>{'选项1'}</Select.Option>
-          <Select.Option value={"2"} disabled>{'选项2'}</Select.Option>
-          <Select.Option value={"3"}>{'选项3'}</Select.Option>
-          <Select.Option value={"4"}>{'比较长的选项比较长的选项-选项4'}</Select.Option>
-          <Select.Option value={"5"}>{'选项5'}</Select.Option>
+```ts
+import React from 'react';
+import Select from '@stbui/za-select';
+
+export default () => (
+    <div className="demo-select">
+        <Select
+            mode={'multiple'}
+            errorMessage={'最多仅能选择3项'}
+            labelClear
+            maxCount={3}
+            style={{ width: 300, margin: 10 }}
+            showSelectAll
+        >
+            <Select.Option value={'1'}>{'选项1'}</Select.Option>
+            <Select.Option value={'2'} disabled>
+                {'选项2'}
+            </Select.Option>
+            <Select.Option value={'3'}>{'选项3'}</Select.Option>
+            <Select.Option value={'4'}>
+                {'比较长的选项比较长的选项-选项4'}
+            </Select.Option>
+            <Select.Option value={'5'}>{'选项5'}</Select.Option>
         </Select>
-      </div>
-    )
-  }
+    </div>
+);
 ```
 
 :::
@@ -405,7 +410,7 @@ ReactDOM.render(<Demo {...context.props} />, mountNode);
 ```
 
 ```less
-.fishd-select {
+.select {
     margin-bottom: 10px;
 }
 ```
@@ -454,7 +459,7 @@ ReactDOM.render(<Demo {...context.props} />, mountNode);
 ```
 
 ```less
-.fishd-select {
+.select {
     margin-bottom: 10px;
 }
 ```
@@ -480,7 +485,7 @@ render(){
 ```
 
 ```less
-.fishd-select {
+.select {
     margin-bottom: 10px;
 }
 ```
