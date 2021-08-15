@@ -95,17 +95,6 @@ export const Select: FC<SelectProps> = ({
 
     return (
         <SelectRoot>
-            {/* <Input
-                value={val}
-                placeholder={placeholder}
-                text={type}
-                animated={animated}
-                label={label}
-                endAdorn={<Icon onClick={handleFocus} />}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-            /> */}
-
             <Menu>
                 <ul>
                     {React.Children.toArray(children).length
