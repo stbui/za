@@ -1,14 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import Steps from './steps';
+import Step from './step';
 
-const Root = styled.div``;
+Steps.Step = Step;
 
-export const Steps = props => {
-    const { ...other } = props;
-
-    return <Root {...other} />;
-};
-
-Steps.defaultProps = {};
+export { Steps, Step };
 
 export default Steps;

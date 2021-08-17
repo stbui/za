@@ -5,7 +5,10 @@ export interface TagProps {
     closable?: boolean;
     visible?: boolean;
     color?: string;
+    /** 关闭时的回调 */
     onClose?: Function;
+    /** 动画关闭后的回调 */
+    afterClose?: Function;
 }
 
 export const TagRoot = styled.span<TagProps>`
@@ -28,9 +31,9 @@ export const TagRoot = styled.span<TagProps>`
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
-    color: ${props => (props.color ? props.color : '#343434')};
-    background: #f2f2f2;
-    border: 1px solid #f2f2f2;
+    color: ${props => (props.color ? '#fff' : '#343434')};
+    background: ${props => (props.color ? props.color : '#f2f2f2')};
+    border: 1px solid ${props => (props.color ? props.color : '#f2f2f2')};
 `;
 
 export const TagIcon = styled.span`
@@ -42,7 +45,6 @@ export const TagIcon = styled.span`
     vertical-align: -0.125em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 
     font-size: 12px;
     transform: scale(0.83333333) rotate(0deg);
@@ -69,7 +71,7 @@ export const Tag: FC<TagProps> = props => {
     };
 
     return visible ? (
-        <TagRoot color={color} {...other}>
+        <TagRoot {...props}>
             {children}
             {closable ? (
                 <TagIcon onClick={onIconClick}>
@@ -86,5 +88,7 @@ export const Tag: FC<TagProps> = props => {
         </TagRoot>
     ) : null;
 };
+
+Tag.defaultProps = { closable: false };
 
 export default Tag;
