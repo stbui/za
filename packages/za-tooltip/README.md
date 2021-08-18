@@ -42,7 +42,7 @@ render () {
 ```
 
 ```less
- .fishd-btn {
+ .btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
@@ -111,11 +111,11 @@ render(){
  .demo {
   overflow: auto;
 }
- .fishd-btn {
+ .btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
- .demo .fishd-btn {
+ .demo .btn {
   width: 70px;
   text-align: center;
   padding: 0;
