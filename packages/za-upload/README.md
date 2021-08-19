@@ -88,7 +88,7 @@ render() {
     const uploadButton = (
       <div>
         <Icon type="upload-plus" />
-        <div className="fishd-upload-text">上传图片</div>
+        <div className="upload-text">上传图片</div>
       </div>
     );
     return (
@@ -113,11 +113,11 @@ render() {
 
 ```less
 /* you can make up upload button and sample style by using stylesheets */
-.fishd-upload-select-picture-card i {
+.upload-select-picture-card i {
     font-size: 32px;
     color: #999;
 }
-.fishd-upload-select-picture-card .fishd-upload-text {
+.upload-select-picture-card .upload-text {
     margin-top: 8px;
     color: #666;
 }
@@ -154,11 +154,11 @@ render(){
   };
   return (
     <Dragger {...props}>
-      <p className="fishd-upload-drag-icon">
+      <p className="upload-drag-icon">
         <Icon type="upload-cloud" />
       </p>
-      <p className="fishd-upload-text">
-        将文件拖到此处，或<span className="fishd-upload-text-hl">点击上传</span>
+      <p className="upload-text">
+        将文件拖到此处，或<span className="upload-text-hl">点击上传</span>
       </p>
     </Dragger>
   )
@@ -275,7 +275,7 @@ render() {
     const uploadButton = (
       <div>
         { this.state.loading ?  <Spin /> : <Icon type="upload-plus"/> }
-        <div className="fishd-upload-text">上传图片</div>
+        <div className="upload-text">上传图片</div>
       </div>
     );
     const imageUrl = this.state.imageUrl;
@@ -297,7 +297,7 @@ render() {
 ```
 
 ```less
-.avatar-uploader > .fishd-upload {
+.avatar-uploader > .upload {
     width: 100px;
     height: 100px;
 }
@@ -425,15 +425,15 @@ render(){
 
 ```less
 /* tile uploaded pictures */
-.upload-list-inline .fishd-upload-list-item {
+.upload-list-inline .upload-list-item {
     float: left;
     width: 200px;
     margin-right: 8px;
 }
-.upload-list-inline .fishd-upload-animate-enter {
+.upload-list-inline .upload-animate-enter {
     animation-name: uploadAnimateInlineIn;
 }
-.upload-list-inline .fishd-upload-animate-leave {
+.upload-list-inline .upload-animate-leave {
     animation-name: uploadAnimateInlineOut;
 }
 ```

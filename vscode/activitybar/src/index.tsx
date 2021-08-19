@@ -87,15 +87,12 @@ const Root = styled.div`
 const ActionLabel = styled(Icon)`
     position: relative;
     z-index: 1;
-    display: flex;
     overflow: hidden;
     width: 48px;
     height: 48px;
     margin-right: 0;
     box-sizing: border-box;
     font-size: 24px;
-    align-items: center;
-    justify-content: center;
     color: rgba(255, 255, 255, 0.4);
 
     &:hover {
@@ -122,7 +119,7 @@ export const Activitybar = props => {
             badge: 0,
         },
         {
-            type: 'run',
+            type: 'debugAlt2',
             badge: 0,
         },
         {
