@@ -6,48 +6,49 @@
 
 ## 基本用法
 
-:::demo 使用`onChange`回调获取`alpha`以及`color`值
-
 ```js
-onChangeColor=({color,alpha}) => {
-  console.log(`color:${color}`,`alpha:${alpha}`);
+/**
+ * desc: 使用`onChange`回调获取`alpha`以及`color`值
+ */
+import React from 'react';
+import ColorPicker from '@stbui/za-color-picker';
+
+export default () => {
+    const onChangeColor = ({ color, alpha }) => {
+        console.log(`color:${color}`, `alpha:${alpha}`);
+    };
+
+    return (
+        <div>
+            <h3>默认设置</h3>
+            <ColorPicker
+                onChange={onChangeColor}
+                className="demo-color-picker"
+            />
+            <h3>开启透明度设置</h3>
+            <ColorPicker enableAlpha onChange={onChangeColor} />
+        </div>
+    );
 };
-
-render(){
-  return(
-    <div>
-      <h3>默认设置</h3>
-      <ColorPicker onChange={this.onChangeColor} className="demo-color-picker"/>
-      <h3>开启透明度设置</h3>
-      <ColorPicker enableAlpha onChange={this.onChangeColor}/>
-    </div>
-)
-}
 ```
-
-```less
-.demo-color-picker {
-    margin-bottom: 30px;
-}
-```
-
-:::
 
 ## 快速选择
 
-:::demo 弹出层快捷选择颜色，使用`onChange`回调获取 color`值
-
 ```js
-onChangeColor=({color,alpha}) => {
-  console.log(`color:${color}`);
+/**
+ * desc: 弹出层快捷选择颜色，使用`onChange`回调获取 color`值
+ */
+import React from 'react';
+import ColorPicker from '@stbui/za-color-picker';
+
+export default () => {
+    const onChangeColor = ({ color, alpha }) => {
+        console.log(`color:${color}`, `alpha:${alpha}`);
+    };
+
+    return <ColorPicker quickMode onChange={onChangeColor} />;
 };
-
-render(){
-  return(<ColorPicker quickMode onChange={this.onChangeColor}/>)
-}
 ```
-
-:::
 
 ## 面板选择
 
