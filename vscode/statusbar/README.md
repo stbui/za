@@ -4,7 +4,7 @@ order: 1
 group:
     path: /
 nav:
-    title: 组件
+    title: vscode
     path: /vscode
 ---
 

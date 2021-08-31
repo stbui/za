@@ -158,27 +158,18 @@ const TabsRoot = styled.div`
 
 const CloseIcon = styled(Icon)`
     color: inherit;
-    font-size: 16px;
     padding: 2px;
-    width: 16px;
-    height: 16px;
 `;
 
 const HistoryIcon = styled(Icon)`
     color: inherit;
-    font-size: 16px;
     padding: 2px;
-    width: 16px;
-    height: 16px;
     color: #c5c5c5;
 `;
 
 const MoreIcon = styled(Icon)`
     color: inherit;
-    font-size: 16px;
     padding: 2px;
-    width: 16px;
-    height: 16px;
     color: #c5c5c5;
 `;
 
@@ -251,6 +242,7 @@ export const Tabs = props => {
                     <div className="tabs-container">
                         {data.map((tab, key) => (
                             <div
+                                key={key}
                                 draggable="true"
                                 className={`tab ${
                                     active === key ? 'active' : ''
@@ -294,7 +286,7 @@ export const Tabs = props => {
                                 <li className="action-item" role="presentation">
                                     <div className="monaco-dropdown">
                                         <div className="dropdown-label">
-                                            <MoreIcon type="more"></MoreIcon>
+                                            <MoreIcon type="ellipsis"></MoreIcon>
                                         </div>
                                     </div>
                                 </li>
