@@ -122,6 +122,7 @@ export default {
                     'components/za-tree',
                     'components/za-trend',
                     'components/za-ellipsis',
+                    'components/za-tag',
                 ],
             },
             {
