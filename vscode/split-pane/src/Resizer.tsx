@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Root = styled.span`
-    background-color: #ccc;
+    /* background-color: #ccc; */
     z-index: 1;
 
     &.horizontal {

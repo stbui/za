@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Icon from '@stbui/vs-icon';
 
 export const StatusbarRoot = styled.footer`
     box-sizing: border-box;
@@ -12,7 +13,7 @@ export const StatusbarRoot = styled.footer`
 
     background-color: rgb(0, 122, 204);
     color: rgb(255, 255, 255);
-    width: 1000px;
+    /* width: 1000px; */
     height: 22px;
 `;
 
@@ -65,6 +66,9 @@ export const Statusbar = props => {
                 <StatusbarItem>
                     <A>main</A>
                 </StatusbarItem>
+                <StatusbarItem>
+                    <Icon type="sync"></Icon>
+                </StatusbarItem>
             </StatusbarLeft>
             <StatusbarRight>
                 <StatusbarItem>
@@ -81,6 +85,12 @@ export const Statusbar = props => {
                 </StatusbarItem>
                 <StatusbarItem>
                     <A>制表符长度: 4</A>
+                </StatusbarItem>
+                <StatusbarItem>
+                    <Icon type="feedback"></Icon>
+                </StatusbarItem>
+                <StatusbarItem>
+                    <Icon type="bell"></Icon>
                 </StatusbarItem>
             </StatusbarRight>
         </StatusbarRoot>
