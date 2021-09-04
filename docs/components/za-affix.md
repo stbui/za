@@ -1,5 +1,4 @@
 ---
-title: 固钉 affix
 nav:
     title: 基础组件
     order: 1
@@ -21,7 +20,7 @@ nav:
 npm install @stbui/za-affix
 ```
 
-## Usage
+## 固定在顶部
 
 ```jsx
 import React from 'react';
@@ -30,13 +29,28 @@ import Affix from '@stbui/za-affix';
 export default () => <Affix>Affix</Affix>;
 ```
 
+## 自定义固钉触发距离及回调监听
+
+可以获得是否固定的状态。
+
+```jsx | pure
+import React from 'react';
+import Affix from '@stbui/za-affix';
+
+export default () => <Affix offsetTop={120}>Affix</Affix>;
+```
+
+## 滚动容器
+
+用 `target` 设置 `Affix` 需要监听其滚动事件的元素，默认为 `window`。
+
+## 固定在底部
+
 ## API
 
 | 成员         | 说明                                                                   | 类型              | 默认值       |
 | ------------ | ---------------------------------------------------------------------- | ----------------- | ------------ |
-| offsetBottom | 距离窗口底部达到指定偏移量后触发                                       | number            | -            |
-| offsetTop    | 距离窗口顶部达到指定偏移量后触发                                       | number            | -            |
-| onChange     | 固定状态改变时触发的回调函数                                           | function(affixed) | -            |
+| offsetBottom | 距离窗口底部达到指定偏移量后触发                                       | Number            | -            |
+| offsetTop    | 距离窗口顶部达到指定偏移量后触发                                       | Number            | -            |
+| onChange     | 固定状态改变时触发的回调函数                                           | (affixed) => Void | -            |
 | target       | 设置 `Affix` 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 | () => HTMLElement | () => window |
-
-## FAQ
