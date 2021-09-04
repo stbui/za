@@ -1,7 +1,7 @@
 ---
-title: 编码规范
+title: 规范
 nav:
-    title: 编码规范
+    title: 规范
     order: 2
 ---
 
