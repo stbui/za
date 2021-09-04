@@ -8,10 +8,9 @@ npm install @stbui/za-overlay
 
 ## Usage
 
-```jsx | pure
+```ts
 import React from 'react';
 import Overlay from '@stbui/za-overlay';
 
 export default () => <Overlay>Input</Overlay>;
 ```
-

@@ -1,14 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import { NotificationContainer } from './container';
+import usePortal from '@stbui/za-overlay';
 
-const Root = styled.div``;
+const applyToast = () => {};
 
-export const Notification = props => {
-    const { ...other } = props;
+const notification = () => {};
 
-    return <Root {...other} />;
+notification.open = () => {
+    applyToast();
+};
+notification.success = () => {
+    applyToast();
 };
 
-Notification.defaultProps = {};
-
-export default Notification;
+export default notification;
