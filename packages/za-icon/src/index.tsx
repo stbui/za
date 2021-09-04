@@ -10,7 +10,6 @@ interface IconProps {
 }
 
 const Root = styled.span<IconProps>`
-    cursor: pointer;
     display: inline-block;
     color: inherit;
     font-style: normal;
