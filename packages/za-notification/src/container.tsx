@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
-import { Notification } from './Notification';
-import { useToast } from './useToast';
+import React, { useState, useMemo } from 'react';
+import { createPortal } from 'react-dom';
+import { usePortal } from '@stbui/za-portal';
 
 export const NotificationContainer = () => {
-    const { toasts, dispatch } = useToast();
+    const portal = usePortal('toast');
 
-    return (
-        <div>
-            {toasts.map(toast => (
-                <Notification key={toast.id} />
-            ))}
-        </div>
-    );
+    if (!portal) return null;
+    return createPortal(<div>1</div>, portal);
 };
