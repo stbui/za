@@ -1,4 +1,4 @@
-# backtop
+# BackTop 回到顶部
 
 返回页面顶部的操作按钮。
 
@@ -13,7 +13,7 @@
 npm install @stbui/za-backtop
 ```
 
-## Usage
+## 基本
 
 ```jsx
 import React from 'react';
@@ -22,11 +22,9 @@ import Checkbox from '@stbui/za-backtop';
 export default () => <Checkbox>backtop</Checkbox>;
 ```
 
-## API
+## 自定义样式
 
-> 有默认样式，距离底部 `50px`，可覆盖。
->
-> 自定义样式宽高不大于 40px \* 40px。
+## API
 
 | 参数             | 说明                                                          | 类型              | 默认值       | 版本 |
 | ---------------- | ------------------------------------------------------------- | ----------------- | ------------ | ---- |
