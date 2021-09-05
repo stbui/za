@@ -12,13 +12,13 @@
 
 ## 基本
 
-```js
+```tsx
 /**
  * desc: 最简单的用法，4.5 秒后自动关闭。
  */
 import React from 'react';
 import Button from '@stbui/za-button';
-import message from '@stbui/za-message';
+import notification from '@stbui/za-notification';
 
 export default () => {
     const openNotification = () => {
