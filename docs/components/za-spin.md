@@ -6,25 +6,155 @@
 
 系统与服务器交互时中间产生的等待状态，适用于短时间的交互提示。
 
-## Installation
+## 基本用法
 
-```sh
-npm install @stbui/za-alert
-```
+:::demo 独立使用状态：基本状态用圆形选装图标展示，loading 一般设有默认值，超出一定时间后则会给到反馈，loading 时间根据业务自定义。loading 图标的动效为顺时针旋转的样式。
 
-## Usage
-
-```jsx
-import Alert from '@stbui/za-alert';
-
-function Example() {
-    return (
-        <>
-            <Alert>Alert</Alert>
-        </>
-    );
+```js
+render(){
+  return(
+    <Spin />
+  )
 }
 ```
+
+:::
+
+## 各种大小
+
+:::demo 小的用于文本加载，默认用于卡片容器级加载，大的用于**页面级**加载。
+
+```js
+render(){
+  return(
+    <div>
+        <Spin size="small" />
+        <Spin />
+        <Spin size="large" />
+      </div>
+  )
+}
+```
+
+:::
+
+## 文字加载样式
+
+:::demo 标点符号式的 loading：在文案的结尾用省略号的形式展现 loading，省略号的动效为依次出现，满 3 个后，全部消失，如此循环动效。
+
+```js
+render(){
+  return(
+    <Spin.TextLoading />
+  )
+}
+```
+
+:::
+
+## 自定义指示符
+
+:::demo 使用自定义指示符。
+
+```js
+render(){
+  return(
+    <Spin indicator={<Icon type="load-line" style={{ fontSize: 20 }} spinning />} />
+  )
+}
+```
+
+:::
+
+## 指示符和自定义描述文案结合
+
+:::demo 图标位于文案的前方，文案原则上不超过 15 个字。自定义描述文案建议为"加载中..."。
+
+```js
+render(){
+  return(
+    <div className="example">
+      <Spin tip="加载中..." />
+    </div>
+  )
+}
+```
+
+```less
+.example {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    margin: 20px 0;
+}
+```
+
+:::
+
+## 作为容器
+
+:::demo 可以将 Spin 作为容器，为内容加上毛玻璃效果和指示符。
+
+```js
+  state = { loading: false }
+
+  toggle = (value) => {
+    this.setState({ loading: value });
+  }
+
+  render(){
+    return(
+      <div>
+        <Spin tip="加载中..." spinning={this.state.loading}>
+          <Alert
+            message="Alert message title"
+            description="Further details about the context of this alert."
+            type="info"
+          />
+        </Spin>
+        <div style={{ marginTop: 16 }}>
+          Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
+        </div>
+      </div>
+    )
+  }
+```
+
+:::
+
+## 放入一个容器中
+
+:::demo 放入一个容器中，通过容器的样式控制 Spin 的位置。
+
+```js
+render(){
+  return(
+    <div className="example">
+      <Spin />
+    </div>
+  )
+}
+```
+
+:::
+
+## 使用带居中效果的容器
+
+:::demo 使用 Spin.Contaner 作为容器，实现居中显示。
+
+```js
+render(){
+  return(
+    <Spin.Container style={{height: 200}}>
+      <Spin />
+    </Spin.Container>
+  )
+}
+```
+
+:::
 
 ## API
 
