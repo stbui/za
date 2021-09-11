@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { themes } from '@stbui/za-theme';
 
 const Addon = styled.span`
     white-space: nowrap;
@@ -16,7 +17,7 @@ const Addon = styled.span`
     transition: all 0.3s;
 `;
 
-const InputRoot = styled.span`
+const InputStyle = styled.span`
     margin: 0;
     padding: 0;
     color: #343434;
@@ -47,18 +48,24 @@ const InputRoot = styled.span`
         line-height: 1.5;
         background-color: #fafafa;
         background-image: none;
-        border: 1px solid #fafafa;
+        border: 1px solid #cccfd7;
         transition: all 0.3s;
         outline: 0;
     }
 `;
 
-export default ({ addonBefore, addonAfter, value, onChange, ...other }) => {
+const Input = ({ addonBefore, addonAfter, value, onChange, ...other }) => {
     return (
-        <InputRoot>
+        <InputStyle>
             {addonBefore ? <Addon>{addonBefore}</Addon> : null}
             <input placeholder="请输入" value={value} onChange={onChange} />
             {addonAfter ? <Addon>{addonAfter}</Addon> : null}
-        </InputRoot>
+        </InputStyle>
     );
 };
+
+Input.defaultProps = {
+    theme: themes.default,
+};
+
+export default Input;
