@@ -4,9 +4,13 @@ import styled from 'styled-components';
 const Root = styled.div``;
 
 export const BackTop = props => {
-    const { ...other } = props;
+    const { duration, ...other } = props;
 
-    return <Root {...other} />;
+    const scrollToTop = () => {
+        const startTime = Date.now();
+    };
+
+    return <Root {...other} onClick={scrollToTop}></Root>;
 };
 
 BackTop.defaultProps = {};
