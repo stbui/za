@@ -17,7 +17,9 @@ export default {
 
     primary: palette.primary,
     default: '#00bc70',
-    success: '#00bc70',
+    success: 'rgb(255, 61, 113)',
+    info: 'rgb(0, 214, 143)',
+    warning: 'rgb(255, 170, 0)',
 
     'primary-color': palette.primary,
     'link-color': '#1890ff',
@@ -31,4 +33,20 @@ export default {
     'border-color-base': '#d9d9d9',
 
     'font-size-base': '14px',
+
+    fonts: {
+        default: '"Comic Sans MS", sans-serif',
+        heading: '"Helvetica", sans',
+    },
+    palette: {
+        primary: '#574feb',
+        success: '#0a7d33',
+        danger: '#da1717',
+        warning: '#ed9c22',
+    },
+    Button: {
+        defaultProps: {
+            palette: 'primary',
+        },
+    },
 };
