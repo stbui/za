@@ -5,29 +5,30 @@ export interface ToolBarProps {
     variant: 'regular' | 'dense';
 }
 
-const regular = css`
-    min-height: 56px;
+const ToolBarStyle = styled.div<ToolBarProps>`
+    ${({ theme, variant, disableGutters }) => css`
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        &.toolbar-regular {
+            min-height: 56px;
+        }
+
+        &.toolbar-dense {
+        }
+
+        ${disableGutters &&
+        css`
+            padding-left: 16px;
+            padding-right: 16px;
+        `}
+    `}
 `;
 
-const dense = css``;
-
-const gutters = css`
-    padding-left: 16px;
-    padding-right: 16px;
-`;
-
-const ToolBarRoot = styled.div<ToolBarProps>`
-    display: flex;
-    position: relative;
-    align-items: center;
-
-    ${props => (props.variant === 'regular' ? regular : dense)}
-    ${props => (props.disableGutters ? gutters : null)}
-`;
-
-ToolBarRoot.defaultProps = {
+ToolBarStyle.defaultProps = {
     variant: 'regular',
     disableGutters: false,
 };
 
-export default ToolBarRoot;
+export default ToolBarStyle;
