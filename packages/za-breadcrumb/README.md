@@ -11,16 +11,22 @@
 ## Installation
 
 ```sh
-npm install @stbui/za-checkbox
+npm install @stbui/za-breadcrumb
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import Checkbox from '@stbui/za-breadcrumb';
+import Breadcrumb from '@stbui/za-breadcrumb';
 
-export default () => <Checkbox>breadcrumb</Checkbox>;
+export default () => (
+    <Breadcrumb>
+        <Breadcrumb.Item>Item1</Breadcrumb.Item>
+        <Breadcrumb.Item>Item2</Breadcrumb.Item>
+        <Breadcrumb.Item>Item3</Breadcrumb.Item>
+    </Breadcrumb>
+);
 ```
 
 ## API
