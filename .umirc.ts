@@ -50,6 +50,11 @@ export default {
                     'components/za-audio-player',
                     'components/za-button',
                     'components/za-elevation',
+                    'components/za-breadcrumb',
+                    'components/za-progress',
+                    'components/za-pagination',
+                    'components/za-toolbar',
+                    'components/za-alert',
                 ],
             },
             {
