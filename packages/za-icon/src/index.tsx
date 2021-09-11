@@ -10,31 +10,29 @@ interface IconProps {
 }
 
 const Root = styled.span<IconProps>`
-    text-decoration: none;
-    text-rendering: auto;
+    cursor: pointer;
+    display: inline-block;
+    color: inherit;
+    font-style: normal;
+    line-height: 0;
     text-align: center;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    user-select: none;
 
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    svg {
+        display: inline-block;
+    }
 
     ${({ size }) => css`
-        width: ${size}px;
-        height: ${size}px;
         font-size: ${size}px;
     `}
 `;
 
 const Icon: React.FC<IconProps> = props => {
     const { type } = props;
-    const IconType =
-        'Ai' + type.substring(0, 1).toUpperCase() + type.substring(1);
-
-    console.log(type);
+    const IconType = 'Ai' + type;
 
     return <Root {...props}>{React.createElement(ai[IconType])}</Root>;
 };
