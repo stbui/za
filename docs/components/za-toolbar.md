@@ -8,7 +8,7 @@ npm install @stbui/za-toolbar
 
 ## Usage
 
-```jsx
+```jsx | pure
 import React from 'react';
 import Toolbar from '@stbui/za-toolbar';
 
