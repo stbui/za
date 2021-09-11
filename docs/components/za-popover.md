@@ -1,16 +1,16 @@
-# Checkbox
+# popover
 
 ## Installation
 
 ```sh
-npm install @stbui/za-checkbox
+npm install @stbui/za-popover
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+import Popover from '@stbui/za-popover';
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+export default () => <Popover>Popover</Popover>;
 ```
