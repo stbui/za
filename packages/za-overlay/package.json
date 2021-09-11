@@ -1,5 +1,5 @@
 {
-    "name": "@stbui/za-modal",
+    "name": "@stbui/za-overlay",
     "version": "0.0.1",
     "description": "",
     "author": "stbui <stbui@stbui.com>",
@@ -25,11 +25,10 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^17.0.1"
+        "react": "^17.0.1",
+        "react-dom": "^17.0.2"
     },
     "dependencies": {
-        "@stbui/za-mask": "0.0.1",
-        "@stbui/za-overlay": "0.0.1",
         "styled-components": "^5.3.1"
     },
     "devDependencies": {

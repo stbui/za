@@ -55,6 +55,8 @@ export default {
                     'components/za-pagination',
                     'components/za-toolbar',
                     'components/za-alert',
+                    'components/za-overlay',
+                    'components/za-modal',
                 ],
             },
             {

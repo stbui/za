@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Mask from '@stbui/za-mask';
+import Overlay from '@stbui/za-overlay';
 
-export const ModalRoot = styled.div`
-    position: fixed;
+export const ModalStyle = styled.div`
+    /* position: fixed;
     top: 0;
     left: 0;
     z-index: 1050;
@@ -11,7 +11,33 @@ export const ModalRoot = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
-    outline: 0;
+    outline: 0; */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Background = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    background-color: black;
+`;
+
+const Content = styled.div`
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
 `;
 
 export const ModalDialog = styled.div`
@@ -70,20 +96,12 @@ export const Modal = props => {
     const { title, content, footer, ...other } = props;
 
     return (
-        <React.Fragment>
-            <Mask></Mask>
-            <ModalRoot {...other}>
-                <ModalDialog>
-                    <ModalContent>
-                        <ModalHeader>
-                            <ModalTitle>{title}</ModalTitle>
-                        </ModalHeader>
-                        <ModalBody>{content}</ModalBody>
-                        <ModalFooter>{footer}</ModalFooter>
-                    </ModalContent>
-                </ModalDialog>
-            </ModalRoot>
-        </React.Fragment>
+        <Overlay>
+            <ModalStyle {...props}>
+                <Background onClick={props.toggle} />
+                <Content>{props.children}</Content>
+            </ModalStyle>
+        </Overlay>
     );
 };
 

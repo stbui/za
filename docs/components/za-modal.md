@@ -1,16 +1,17 @@
-# Checkbox
+# Modal
 
 ## Installation
 
 ```sh
-npm install @stbui/za-checkbox
+npm install @stbui/za-modal
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+import Modal from '@stbui/za-modal';
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+export default () => <Modal>Modal</Modal>;
 ```
+
