@@ -1,12 +1,17 @@
 # Radio 单选框
 
+##何时使用
+
+-   用于在多个备选项中选中单个状态。
+-   和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
+
 ## Installation
 
 ```sh
 npm install @stbui/za-radio
 ```
 
-## Usage
+## 基本
 
 适用广泛的基础最简单的用法，展示各种状态下的样式。
 
@@ -42,6 +47,20 @@ export default () => (
     </Radio.Group>
 );
 ```
+
+## 不可用
+
+## 单选组合
+
+## 单选组合 - 配合 name 使用
+
+## RadioGroup 垂直
+
+## RadioGroup 组合 - 配置方式
+
+## 按钮样式
+
+## 按钮样式三种大小
 
 ## API
 
