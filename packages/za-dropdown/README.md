@@ -1,4 +1,4 @@
-# 下拉菜单 Dropdown
+# Dropdown 下拉菜单
 
 当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
 
@@ -28,17 +28,67 @@
 npm install @stbui/za-dropdown
 ```
 
-## Usage
+## 基本
 
-```jsx
+```jsx | pure
 import React from 'react';
 import Dropdown from '@stbui/za-dropdown';
 
 export default () => <Checkbox>Checkbox</Checkbox>;
 ```
 
+## 弹出位置
+
+## 右键菜单
+
+## 带下拉框的按钮
+
+## 触发事件
+
+## 其他元素
+
+## 菜单隐藏方式
+
+## 多级菜单
+
+## 触发方式
+
 ## API
 
-| 参数名 | 说明 | 必填 | 类型 | 默认值 | 备注 |
-| ------ | ---- | ---- | ---- | ------ | ---- |
-|        |      |      |      |        |      |
+属性如下
+
+| 参数              | 说明                                                                                                                                                          | 类型                                                                                   | 默认值              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------- |
+| className         | 自定义类名                                                                                                                                                    | String                                                                                 | -                   |
+| disabled          | 菜单是否禁用                                                                                                                                                  | Boolean                                                                                | -                   |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | () => HTMLElement                                                                      | () => document.body |
+| onVisibleChange   | 菜单显示状态改变时调用，参数为 visible                                                                                                                        | (visible) => Void                                                                      | -                   |
+| overlay           | 菜单                                                                                                                                                          | [Menu](https://nsfi.github.io/ppfish-components/#/components/menu)                     | -                   |
+| placement         | 菜单弹出位置                                                                                                                                                  | Enum {'bottomLeft', 'bottomCenter' ,'bottomRight' ,'topLeft' ,'topCenter', 'topRight'} | 'bottomLeft'        |
+| style             | 自定义样式                                                                                                                                                    | Object                                                                                 | -                   |
+| trigger           | 触发下拉的行为                                                                                                                                                | Array< `click` \| `hover` \| `contextMenu` >                                           | ['hover']           |
+| visible           | 菜单是否显示                                                                                                                                                  | Boolean                                                                                | -                   |
+
+`overlay` 菜单使用 [Menu](https://nsfi.github.io/ppfish-components/#/components/menu/)，还包括菜单项 `Menu.Item`，分割线 `Menu.Divider`。
+
+> 注意： Menu.Item 必须设置唯一的 key 属性。
+>
+> Dropdown 在单个数据过长、数量过多的极端情况下可能会出现屏幕显示不下的情况，可以考虑设置`overflow:auto`,`maxWidth(maxHeight):100vw`等方式处理
+>
+> Dropdown 下的 Menu 默认不可选中。如果需要菜单可选中，可以指定 `<Menu selectable>`.
+
+### Dropdown.Button
+
+| 参数            | 说明                                   | 类型                                                                                   | 默认值       |
+| --------------- | -------------------------------------- | -------------------------------------------------------------------------------------- | ------------ |
+| className       | 自定义类名                             | String                                                                                 | -            |
+| disabled        | 菜单是否禁用                           | Boolean                                                                                | -            |
+| onClick         | 点击左侧按钮的回调，和 Button 一致     | () => Void                                                                             | -            |
+| onVisibleChange | 菜单显示状态改变时调用，参数为 visible | (visible) => Void                                                                      | -            |
+| overlay         | 菜单                                   | Menuu                                                                                  | -            |
+| placement       | 菜单弹出位置                           | Enum {'bottomLeft', 'bottomCenter' ,'bottomRight' ,'topLeft' ,'topCenter', 'topRight'} | 'bottomLeft' |
+| size            | 按钮大小，和 Button 一致               | String                                                                                 | 'default'    |
+| style           | 自定义样式                             | Object                                                                                 | -            |
+| trigger         | 触发下拉的行为                         | Array< `click` \| `hover` \| `contextMenu` >                                           | ['hover']    |
+| type            | 按钮类型，和 Button 一致               | String                                                                                 | 'default'    |
+| visible         | 菜单是否显示                           | Boolean                                                                                | -            |
