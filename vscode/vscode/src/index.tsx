@@ -154,7 +154,7 @@ export const VSCode = props => {
                                     </li>
                                 </ul>
                             </Actionbar>
-                            <div className="content" style={{ height: 173 }}>
+                            <div className="content" style={{ height: 213 }}>
                                 1111
                             </div>
                         </Terminal>

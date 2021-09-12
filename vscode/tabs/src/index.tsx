@@ -149,6 +149,11 @@ const TabsRoot = styled.div`
     .monaco-toolbar {
         height: 100%;
     }
+
+    .editor-container {
+        background-color: rgb(30, 30, 30);
+        height: 251.667px;
+    }
 `;
 
 const CloseIcon = styled(Icon)`
@@ -176,6 +181,49 @@ const MoreIcon = styled(Icon)`
     height: 16px;
     color: #c5c5c5;
 `;
+
+const Breadcrumbs = styled.div`
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    outline-style: none;
+    background-color: #1e1e1e;
+
+    height: 22px;
+    overflow: hidden;
+
+    > .item {
+        display: flex;
+        align-items: center;
+        flex: 0 1 auto;
+        white-space: nowrap;
+        cursor: pointer;
+        align-self: center;
+        height: 100%;
+        outline: none;
+        color: rgba(204, 204, 204, 0.8);
+        max-width: 80%;
+    }
+
+    .label-name {
+        display: flex;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 22px;
+        line-height: 22px;
+    }
+`;
+
+const BreadcrumbsItem = ({ children }) => {
+    return (
+        <div className="item">
+            <div className="label-name">{children}</div>
+            <Icon type="chevronRight"></Icon>
+        </div>
+    );
+};
 
 export const Tabs = props => {
     const { title, content, footer, ...other } = props;
@@ -274,7 +322,14 @@ export const Tabs = props => {
                 </div>
             </div>
 
-            <div className="tabs-breadcrumbs"></div>
+            <div className="tabs-breadcrumbs">
+                <Breadcrumbs>
+                    <BreadcrumbsItem>stbui</BreadcrumbsItem>
+                    <BreadcrumbsItem>stbui</BreadcrumbsItem>
+                    <BreadcrumbsItem>stbui</BreadcrumbsItem>
+                </Breadcrumbs>
+            </div>
+            <div className="editor-container"></div>
         </TabsRoot>
     );
 };

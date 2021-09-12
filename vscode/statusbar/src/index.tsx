@@ -12,7 +12,7 @@ export const StatusbarRoot = styled.footer`
 
     background-color: rgb(0, 122, 204);
     color: rgb(255, 255, 255);
-    width: 765px;
+    width: 1000px;
     height: 22px;
 `;
 
