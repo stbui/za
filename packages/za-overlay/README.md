@@ -8,7 +8,7 @@ npm install @stbui/za-overlay
 
 ## Usage
 
-```jsx
+```jsx | pure
 import React from 'react';
 import Overlay from '@stbui/za-overlay';
 
