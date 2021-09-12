@@ -4,9 +4,14 @@ const child_process = require('child_process');
 const chokidar = require('chokidar');
 
 const config = {
-    watch: './vscode',
-    docs: './docs/vscode',
+    watch: './packages',
+    docs: './docs/components',
 };
+
+// const config = {
+//     watch: './vscode',
+//     docs: './docs/vscode',
+// };
 
 const watcher = chokidar.watch(config.watch);
 

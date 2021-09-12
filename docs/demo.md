@@ -30,3 +30,4 @@
 -   https://github.com/NSFI/ppfish-components
 -   https://github.com/alibaba/rex-design
 -   https://github.com/chakra-ui/chakra-ui
+-   https://github.com/paljs/ui
