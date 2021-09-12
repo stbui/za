@@ -30,6 +30,7 @@
     "dependencies": {
         "@stbui/za-mask": "0.0.1",
         "@stbui/za-overlay": "0.0.1",
+        "@stbui/za-theme": "^0.0.1",
         "styled-components": "^5.3.1"
     },
     "devDependencies": {
