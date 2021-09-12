@@ -1,39 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
+import { themes } from '@stbui/za-theme';
 
-const PaginationRoot = styled.ul`
+const PaginationStyle = styled.ul`
     font-size: 12px;
     user-select: none;
     padding: 0;
-`;
 
-const Item = styled.li`
-    cursor: pointer;
-    color: #666;
-    font-size: 10px;
-    border-radius: 6px;
-    list-style: none;
-    min-width: 28px;
-    height: 28px;
-    line-height: 28px;
-    text-align: center;
+    .pagination-item {
+        cursor: pointer;
+        color: #666;
+        font-size: 10px;
+        border-radius: 6px;
+        list-style: none;
+        min-width: 28px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+    }
 `;
-
-const Prev = styled(Item)``;
-const Next = styled(Item)``;
 
 export const Pagination = props => {
     const { ...other } = props;
 
     return (
-        <PaginationRoot {...other}>
-            <Prev></Prev>
-            <Item>1</Item>
-            <Item>2</Item>
-            <Item>3</Item>
-            <Next></Next>
-        </PaginationRoot>
+        <PaginationStyle {...other}>
+            <li className="pagination-item">pre</li>
+            <li className="pagination-item">1</li>
+            <li className="pagination-item">2</li>
+            <li className="pagination-item">3</li>
+            <li className="pagination-item">next</li>
+        </PaginationStyle>
     );
 };
+
+Pagination.defaultProps = { theme: themes.default };
 
 export default Pagination;

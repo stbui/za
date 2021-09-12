@@ -11,6 +11,7 @@ npm install @stbui/za-pagination
 ## Usage
 
 ```jsx
+import React from 'react';
 import Pagination from '@stbui/za-pagination';
 
 export default () => <Pagination>Pagination</Pagination>;
