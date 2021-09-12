@@ -7,6 +7,7 @@ import Statusbar from '@stbui/vs-statusbar';
 import Sidebar from '@stbui/vs-sidebar';
 import Pane from '@stbui/vs-pane';
 import Tabs from '@stbui/vs-tabs';
+import SplitPane from '@stbui/vs-split-pane';
 
 const SplitContainer = styled.div`
     width: 100%;
@@ -63,8 +64,6 @@ const Terminal = styled.div`
     border-right-color: rgba(128, 128, 128, 0.35);
 `;
 
-const composite = styled.div``;
-const CompositeBar = styled.div``;
 const Actionbar = styled.div`
     .actions-container {
         display: flex;
@@ -117,24 +116,27 @@ export const VSCode = props => {
 
     return (
         <Root {...other}>
-            <SplitContainer>
-                <SplitViewLeft>
-                    <Activitybar />
-                </SplitViewLeft>
-                <SplitViewSidebar>
-                    <Sidebar>
-                        <SplitContainer>
-                            <SplitViewExplorer>
-                                <Pane></Pane>
-                            </SplitViewExplorer>
-                        </SplitContainer>
-                    </Sidebar>
-                </SplitViewSidebar>
-                <SplitViewCenter>
-                    <SplitView style={{ top: 0, height: 308.667 }}>
+            <SplitPane split="vertical" minSize={327} defaultSize={327}>
+                <div>
+                    <SplitViewLeft>
+                        <Activitybar />
+                    </SplitViewLeft>
+                    <SplitViewSidebar>
+                        <Sidebar>
+                            <SplitContainer>
+                                <SplitViewExplorer>
+                                    <Pane></Pane>
+                                </SplitViewExplorer>
+                            </SplitContainer>
+                        </Sidebar>
+                    </SplitViewSidebar>
+                </div>
+
+                <SplitPane split="horizontal" defaultSize={304}>
+                    <SplitView>
                         <Tabs></Tabs>
                     </SplitView>
-                    <SplitView style={{ top: 308.667, height: 208 }}>
+                    <SplitView>
                         <Terminal>
                             <Actionbar>
                                 <ul className="actions-container">
@@ -159,10 +161,21 @@ export const VSCode = props => {
                             </div>
                         </Terminal>
                     </SplitView>
-                </SplitViewCenter>
-            </SplitContainer>
+                </SplitPane>
+            </SplitPane>
 
-            <Statusbar />
+            {/* <SplitContainer>
+                <SplitViewLeft></SplitViewLeft>
+                <SplitViewSidebar></SplitViewSidebar>
+                <SplitViewCenter>
+                    <SplitView style={{ top: 0, height: 308.667 }}></SplitView>
+                    <SplitView
+                        style={{ top: 308.667, height: 208 }}
+                    ></SplitView>
+                </SplitViewCenter>
+            </SplitContainer> */}
+
+            {/* <Statusbar /> */}
         </Root>
     );
 };

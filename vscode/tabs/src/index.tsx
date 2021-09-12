@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Icon from '@stbui/vs-icon';
 
@@ -227,77 +227,59 @@ const BreadcrumbsItem = ({ children }) => {
 
 export const Tabs = props => {
     const { title, content, footer, ...other } = props;
+    const [active, setActive] = useState(0);
+
+    const data = [
+        {
+            name: 'stbui.css',
+            ext: 'css',
+        },
+        {
+            name: 'stbui.css',
+            ext: 'css',
+        },
+        {
+            name: 'stbui.css',
+            ext: 'css',
+        },
+    ];
 
     return (
         <TabsRoot {...other}>
             <div className="tabs-and-actions-container">
                 <div className="editor-files">
                     <div className="tabs-container">
-                        <div draggable="true" className="tab">
-                            <div className="tab-border-top-container"></div>
-                            <div className="tab-label">
-                                <div className="monaco-icon-label-container">
-                                    <span className="monaco-icon-name-container">
-                                        <a className="label-name">stbui.css</a>
-                                    </span>
-                                    <span className="monaco-icon-description-container"></span>
+                        {data.map((tab, key) => (
+                            <div
+                                draggable="true"
+                                className={`tab ${
+                                    active === key ? 'active' : ''
+                                }`}
+                                onClick={() => setActive(key)}
+                            >
+                                <div className="tab-border-top-container"></div>
+                                <div className="tab-label">
+                                    <div className="monaco-icon-label-container">
+                                        <span className="monaco-icon-name-container">
+                                            <a className="label-name">
+                                                stbui.css
+                                            </a>
+                                        </span>
+                                        <span className="monaco-icon-description-container"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="tab-actions">
-                                <div className="monaco-action-bar animated">
-                                    <ul className="actions-container">
-                                        <li className="action-item">
-                                            <CloseIcon type="close"></CloseIcon>
-                                        </li>
-                                    </ul>
+                                <div className="tab-actions">
+                                    <div className="monaco-action-bar animated">
+                                        <ul className="actions-container">
+                                            <li className="action-item">
+                                                <CloseIcon type="close"></CloseIcon>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+                                <div className="tab-border-bottom-container"></div>
                             </div>
-                            <div className="tab-border-bottom-container"></div>
-                        </div>
-
-                        <div draggable="true" className="tab active">
-                            <div className="tab-border-top-container"></div>
-                            <div className="tab-label">
-                                <div className="monaco-icon-label-container">
-                                    <span className="monaco-icon-name-container">
-                                        <a className="label-name">stbui.css</a>
-                                    </span>
-                                    <span className="monaco-icon-description-container"></span>
-                                </div>
-                            </div>
-                            <div className="tab-actions">
-                                <div className="monaco-action-bar animated">
-                                    <ul className="actions-container">
-                                        <li className="action-item">
-                                            <CloseIcon type="close"></CloseIcon>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="tab-border-bottom-container"></div>
-                        </div>
-
-                        <div draggable="true" className="tab">
-                            <div className="tab-border-top-container"></div>
-                            <div className="tab-label">
-                                <div className="monaco-icon-label-container">
-                                    <span className="monaco-icon-name-container">
-                                        <a className="label-name">stbui.css</a>
-                                    </span>
-                                    <span className="monaco-icon-description-container"></span>
-                                </div>
-                            </div>
-                            <div className="tab-actions">
-                                <div className="monaco-action-bar animated">
-                                    <ul className="actions-container">
-                                        <li className="action-item">
-                                            <CloseIcon type="close"></CloseIcon>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="tab-border-bottom-container"></div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 

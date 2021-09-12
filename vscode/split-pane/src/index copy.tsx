@@ -1,6 +1,40 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 
+function unFocus(document, window) {
+    if (document.selection) {
+        document.selection.empty();
+    } else {
+        try {
+            window.getSelection().removeAllRanges();
+        } catch (e) {}
+    }
+}
+
+function removeNullChildren(children) {
+    return React.Children.toArray(children).filter(c => c);
+}
+
+function getDefaultSize(
+    defaultSize: number,
+    minSize: number,
+    maxSize: number,
+    draggedSize: number
+) {
+    if (typeof draggedSize === 'number') {
+        const min = typeof minSize === 'number' ? minSize : 0;
+        const max =
+            typeof maxSize === 'number' && maxSize >= 0 ? maxSize : Infinity;
+        return Math.max(min, Math.min(max, draggedSize));
+    }
+
+    if (defaultSize !== undefined) {
+        return defaultSize;
+    }
+
+    return minSize;
+}
+
 const ViewRoot = styled.div`
     position: relative;
     flex: 0 0 auto;
@@ -90,13 +124,53 @@ export const SplitterLayout = (props: SplitterLayoutProps) => {
         vertical,
         primaryIndex,
         secondaryInitialSize,
+
+        allowResize,
+        onDragStarted,
+        split,  maxSize, minSize, onChange,  step
         ...other
     } = props;
 
-    // const [resizing, setResizing] = useState(false);
+    const [active, setActive] = useState(false);
+    const [resized, setResized] = useState(false);
     const [secondaryPaneSize, setSecondaryPaneSize] = useState(0);
     const containerRef = useRef();
     const splitterRef = useRef();
+
+    const [state, setState]: any = useState({
+        active: false,
+        resized: false,
+        position: 0,
+    });
+
+    const onMouseDown = event => {
+        const eventWithTouches = Object.assign({}, event, {
+            touches: [{ clientX: event.clientX, clientY: event.clientY }],
+        });
+        onTouchStart(eventWithTouches);
+    };
+
+    const onTouchStart = event => {
+        if (allowResize) {
+            unFocus(document, window);
+            const position =
+                split === 'vertical'
+                    ? event.touches[0].clientX
+                    : event.touches[0].clientY;
+
+            if (typeof onDragStarted === 'function') {
+                onDragStarted();
+            }
+
+            setState(() => ({
+                active: true,
+                position,
+            }));
+        }
+    };
+
+   
+ 
 
     const getSecondaryPaneSize = (
         containerRect,
@@ -209,7 +283,6 @@ export const SplitterLayout = (props: SplitterLayoutProps) => {
     };
 
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
         document.addEventListener('mouseup', handleMouseUp);
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('touchend', handleMouseUp);
@@ -240,7 +313,6 @@ export const SplitterLayout = (props: SplitterLayoutProps) => {
         setSecondaryPaneSize(secondaryPaneSize);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
             document.removeEventListener('mouseup', handleMouseUp);
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('touchend', handleMouseUp);

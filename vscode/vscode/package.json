@@ -38,7 +38,8 @@
         "@stbui/vs-pane": "0.0.1",
         "@stbui/vs-sidebar": "0.0.1",
         "@stbui/vs-statusbar": "0.0.1",
-        "@stbui/vs-tabs": "0.0.1"
+        "@stbui/vs-tabs": "0.0.1",
+        "@stbui/vs-split-pane": "0.0.1"
     },
     "devDependencies": {
         "react": "^17.0.1",
