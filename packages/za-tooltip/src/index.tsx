@@ -1,14 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import tooltip from './tooltip';
+import TooltipContent from './tooltip-content';
+import TooltipPortal from './tooltip-portal';
 
-const Root = styled.div``;
-
-export const Tooltip = props => {
-    const { ...other } = props;
-
-    return <Root {...other} />;
-};
-
-Tooltip.defaultProps = {};
-
-export default Tooltip;
+export { TooltipContent, TooltipPortal };
+export default tooltip;
