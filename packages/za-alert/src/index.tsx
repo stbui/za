@@ -10,9 +10,8 @@ const Root = styled.div`
 
     ${({ theme }) => {
         return css`
-            background-color: ${theme.primary.background};
-            border-color: ${theme.primary.border};
-            color: ${theme.primary.color};
+            background-color: ${theme['primary-color']};
+            border-color: ${theme['primary-color']};
         `;
     }}
 `;
@@ -26,7 +25,7 @@ const Action = styled.div`
     font-size: 21px;
     font-weight: 700;
     line-height: 1;
-    color: #000;
+    color: #fff;
     text-shadow: 0 1px 0 #fff;
     opacity: 0.2;
     filter: alpha(opacity=20);
@@ -35,12 +34,6 @@ const Action = styled.div`
 const StyledIcon = styled.i`
     padding: 0 5px;
 `;
-
-Root.defaultProps = {
-    theme: {
-        primary: { color: '#fff', background: '#00bc70', border: '#00bc70' },
-    },
-};
 
 export const Alert = props => {
     const { children, ...other } = props;
@@ -57,7 +50,9 @@ export const Alert = props => {
 };
 
 Alert.defaultProps = {
-    prefixCls: 'za-alert',
+    theme: {
+        'primary-color': '#00bc70',
+    },
 };
 
 export default Alert;

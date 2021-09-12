@@ -1,14 +1,9 @@
 const palette = {
     common: {},
 
-    primary: {
-        main: '#0070F3',
-        light: '#146DD6',
-    },
-    error: {
-        main: '#A51C30',
-        light: '#A7333F',
-    },
+    primary: '#0070F3',
+    error: '#A51C30',
+
     grey: {
         100: '#EAEAEA',
         200: '#C9C5C5',
@@ -18,36 +13,22 @@ const palette = {
 };
 
 export default {
-    fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
-    colors: {
-        blue: '#07c',
-        lightgray: '#f6f6ff',
-    },
-    space: [0, 4, 8, 16, 32, 64, 128, 256],
-    fonts: {
-        body: 'system-ui, sans-serif',
-        heading: 'inherit',
-        monospace: 'Menlo, monospace',
-    },
-    fontWeights: {
-        body: 400,
-        heading: 700,
-        bold: 700,
-    },
-    lineHeights: {
-        body: 1.5,
-        heading: 1.25,
-    },
-    shadows: {
-        small: '0 0 4px rgba(0, 0, 0, .125)',
-        large: '0 0 24px rgba(0, 0, 0, .125)',
-    },
-    variants: {},
-    text: {},
-    button: {
-        primary: '#00bc70',
-    },
-    alert: {
-        primary: { color: '#fff', background: '#00bc70', border: '#00bc70' },
-    },
+    colorPrimary100: '#f2f6ff',
+
+    primary: palette.primary,
+    default: '#00bc70',
+    success: '#00bc70',
+
+    'primary-color': palette.primary,
+    'link-color': '#1890ff',
+    'success-color': '#52c41a',
+    'warning-color': '#faad14',
+    'error-color': ' #f5222d',
+
+    'text-color': 'rgba(0, 0, 0, 0.65)',
+    'text-color-secondary': 'rgba(0, 0, 0, 0.45)',
+    'disabled-color': 'rgba(0, 0, 0, 0.25)',
+    'border-color-base': '#d9d9d9',
+
+    'font-size-base': '14px',
 };

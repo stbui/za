@@ -1,3 +1,5 @@
-export * from './default';
-export * from './light';
-export * from './dark';
+import defaultTheme from './default';
+
+export const themes = {
+    default: defaultTheme,
+};

@@ -20,10 +20,8 @@ const AppBarRoot = styled.header<AppBarProps>`
     flex-shrink: 0;
     flex-direction: column;
 
-    /* color */
     background: ${props => (props.color ? props.color : '#fff')};
 
-    /* position */
     ${props => (props.position === 'fixed' ? Fixed : null)}
 `;
 

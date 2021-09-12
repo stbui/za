@@ -20,11 +20,12 @@ export interface RadioProps {
     onChange?: (checked: boolean) => void;
 }
 
-export const RadioChecked = css`
+export const RadioChecked = ({ theme }) => css`
     color: ${color.white};
-    border-color: ${color.primary};
-    background-color: ${color.primary};
+    border-color: ${theme['primary-color']};
+    background-color: ${theme['primary-color']};
 `;
+
 export const RadioDisabled = css`
     opacity: 0.5;
     cursor: not-allowed;
@@ -65,7 +66,7 @@ export const RadioControl = styled.span<RadioProps>`
         -webkit-appearance: none;
     }
 
-    ${props => props.checked && RadioChecked}
+    ${RadioChecked}
 `;
 
 const Label = styled.span`
@@ -142,5 +143,7 @@ export const Radio: FC<RadioProps> = props => {
         </RadioRoot>
     );
 };
+
+Radio.defaultProps = {};
 
 export default Radio;
