@@ -1,5 +1,5 @@
 {
-    "name": "@stbui/za-image-loader",
+    "name": "@stbui/za-layout",
     "version": "0.0.1",
     "description": "",
     "author": "stbui <stbui@stbui.com>",
@@ -28,8 +28,8 @@
         "react": "^17.0.1"
     },
     "dependencies": {
-        "@stbui/za-theme": "^0.0.1",
-        "styled-components": "^5.3.1"
+        "styled-components": "^5.3.1",
+        "@stbui/za-theme": "0.0.1"
     },
     "devDependencies": {
         "react": "^17.0.1",
