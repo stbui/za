@@ -1,5 +1,12 @@
 # Switch 开关
 
+功能的开关组件。
+
+## 何时使用
+
+-   适用于在开关状态，或两个互斥状态中进行切换。切换的结果会即时作用于页面。
+-   和 `checkbox`的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
+
 ## 安装
 
 ```sh
@@ -56,3 +63,25 @@ export default () => (
     </>
 );
 ```
+
+## API
+
+| 参数              | 说明               | 类型                               | 默认值    |
+| ----------------- | ------------------ | ---------------------------------- | --------- |
+| autoFocus         | 组件自动获取焦点   | Boolean                            | false     |
+| checked           | 指定当前是否选中   | Boolean                            | false     |
+| checkedChildren   | 选中时的内容       | String \| ReactNode                | -         |
+| className         | 选择器的 className | String                             | -         |
+| defaultChecked    | 初始是否选中       | Boolean                            | false     |
+| disabled          | 是否禁用           | Boolean                            | false     |
+| loading           | 加载中的开关       | Boolean                            | false     |
+| onChange          | 变化时回调函数     | (checked:Boolean) => Void          | -         |
+| size              | 开关大小           | Enum {'default', 'small', 'large'} | 'default' |
+| unCheckedChildren | 非选中时的内容     | String \| ReactNode                | -         |
+
+## 方法
+
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
+| focus() | 获取焦点 |

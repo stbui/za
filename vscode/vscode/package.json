@@ -28,18 +28,19 @@
         "react": "^17.0.1"
     },
     "dependencies": {
-        "styled-components": "^5.3.1",
-        "@stbui/vs-icon": "0.0.1",
-        "@stbui/vs-theme": "0.0.1",
         "@stbui/vs-activitybar": "0.0.1",
         "@stbui/vs-button": "0.0.1",
+        "@stbui/vs-icon": "0.0.1",
         "@stbui/vs-input": "0.0.1",
         "@stbui/vs-notification": "0.0.1",
         "@stbui/vs-pane": "0.0.1",
         "@stbui/vs-sidebar": "0.0.1",
+        "@stbui/vs-split-pane": "0.0.1",
         "@stbui/vs-statusbar": "0.0.1",
         "@stbui/vs-tabs": "0.0.1",
-        "@stbui/vs-split-pane": "0.0.1"
+        "@stbui/vs-theme": "0.0.1",
+        "@stbui/za-theme": "^0.0.1",
+        "styled-components": "^5.3.1"
     },
     "devDependencies": {
         "react": "^17.0.1",
