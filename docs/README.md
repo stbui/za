@@ -2,7 +2,7 @@
 title: 聚石塔
 hero:
     title: 基础设施平台
-    desc: 一个低级组件库，用于构建可访问的高级 ui 库、设计系统和带有 react 的应用程序。
+    desc: 基于 React 实现的高质量的企业级 UI 组件库，帮助设计者与开发者快速构建系统。
     actions:
         - text: 快速上手 →
           link: /base/getting-started
