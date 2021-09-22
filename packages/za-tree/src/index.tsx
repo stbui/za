@@ -1,69 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { TreeNode } from './node';
 
-const Ellipsis = styled.div`
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-`;
-
-const StyledIcon: any = styled('i')`
-    visibility: ${({ child }: any) => (child ? 'visible' : 'hidden')};
-    padding-right: 4px;
-`;
-
-const StyledTreeNodeTitle: any = styled(Ellipsis)`
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    border-radius: 4px;
-    line-height: 44px;
-    height: 44px;
-
-    ${({ selected }: any) =>
-        selected &&
-        ` background: rgba(0, 188, 112, 0.1);
-    color: #00bc70;`}
-`;
-
-const StyledTreeNodeContent = styled(Ellipsis)`
-    flex: auto;
-    cursor: pointer;
-`;
-
-export const TreeNode = props => {
-    const {
-        children,
-        title,
-        extra,
-        selected,
-        expanded,
-        onSelect,
-        onExpand,
-        ...other
-    } = props;
-
-    return (
-        <div>
-            <StyledTreeNodeTitle selected={selected}>
-                <StyledIcon
-                    type="caret-down"
-                    rotate={expanded ? 0 : -90}
-                    child={children}
-                    onClick={onExpand}
-                />
-                <StyledTreeNodeContent
-                    onClick={() => onSelect({ title, ...other })}
-                >
-                    {title}
-                </StyledTreeNodeContent>
-                <span style={{ flex: 'auto' }} />
-                {extra}
-            </StyledTreeNodeTitle>
-            {expanded ? <div>{children}</div> : null}
-        </div>
-    );
-};
+export interface TreeProps {
+    dataSource?: any[];
+    onSelect?: (key, node) => void;
+    defaultSelectKeys?: any;
+}
 
 export const Tree = ({
     children,
@@ -75,21 +17,9 @@ export const Tree = ({
     const [selectKeys, setSelectKeys] = useState(defaultSelectKeys);
 
     const onExpand = (key: any) => {
-        // const index = expandKeys.indexOf(key);
-        // if (index === -1) {
-        //   setExpand((prevState) => [...prevState, key]);
-        // } else if (index > -1) {
-        //   const keys = [...expandKeys];
-
-        //   setExpand(keys.splice(index, 1));
-        // } else {
-        //   setExpand([key]);
-        // }
-        // @ts-ignore
         const index = expandKeys.indexOf(key);
 
         if (index === -1) {
-            // @ts-ignore
             setExpand([key]);
         } else if (index > -1) {
             setExpand([]);
@@ -103,7 +33,6 @@ export const Tree = ({
 
     const getNodeProps = key => {
         return {
-            // @ts-ignore
             expanded: expandKeys.indexOf(key) > -1,
             selected: selectKeys.indexOf(key) > -1,
             onExpand: () => onExpand(key),
@@ -123,9 +52,7 @@ export const Tree = ({
 
                 const props = getNodeProps(`${key}`);
 
-                // @ts-ignore
                 if (child.props.children) {
-                    // @ts-ignore
                     props.children = loop(child.props.children, pos);
                 }
 
@@ -166,5 +93,9 @@ export const Tree = ({
 
     return <div>{dataSource ? renderByDataSource() : renderByChidren()}</div>;
 };
+
+Tree.defaultProps = {};
+
+export { TreeNode };
 
 export default Tree;
