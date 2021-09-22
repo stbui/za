@@ -32,3 +32,4 @@
 -   https://github.com/chakra-ui/chakra-ui
 -   https://github.com/paljs/ui
 -   https://nsfi.github.io/ppfish-components/#/home
+-   https://github.com/b-zurg/react-collapse-pane
