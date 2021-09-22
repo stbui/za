@@ -6,20 +6,237 @@
 
 适用于在系统中播放视频内容。
 
-## Installation
+## 播放器
 
-```sh
-npm install @stbui/za-checkbox
-```
+### 带封面的播放器
 
-## Usage
-
-```jsx
+```ts
+/**
+ * desc: 播放器组件`VideoViewer.Video`，`poster`指定播放器封面。
+ */
 import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+import VideoViewer from '@stbui/za-video-viewer';
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+export default () => (
+    <VideoViewer.Video
+        poster="//ysf.qiyukf.net/rygnbxiwcgoudyqnzzpypmtxlwpixigf"
+        sources={[
+            {
+                src: 'http://vjs.zencdn.net/v/oceans.mp4',
+                type: 'video/mp4',
+            },
+        ]}
+        download={true}
+        downloadSrc="http://vjs.zencdn.net/v/oceans.mp4"
+        width={600}
+    />
+);
 ```
+
+:::
+
+### 不带封面的播放器
+
+:::demo 播放器组件`VideoViewer.Video`。不指定封面时，默认展示视频第一帧。
+
+```js
+  render() {
+    return(
+      <VideoViewer.Video
+        sources={[{
+          src: "http://www.w3school.com.cn/i/movie.ogg",
+          type:'video/ogg'
+        }]}
+        download={true}
+        downloadSrc="http://www.w3school.com.cn/i/movie.ogg"
+        width={600}
+       />
+    )
+  }
+```
+
+:::
+
+## 缩略图
+
+### 正常状态
+
+:::demo `VideoViewer`组件封装了`VideoViewer.VideoModal`和`VideoViewer.Video`，实现了点击缩略图在模态框中播放视频。
+`modalProps` 传入`VideoViewer.VideoModal`的参数；`videoProps`传入`VideoViewer.Video`的参数
+
+```js
+  render() {
+    return(
+      <div className="source">
+        <div className="block">
+          <VideoViewer
+            poster="//ysf.qiyukf.net/rygnbxiwcgoudyqnzzpypmtxlwpixigf"
+            modalProps={{
+              width: 640
+            }}
+            videoProps={{
+              sources:[{
+                src:'http://vjs.zencdn.net/v/oceans.mp4',
+                type:'video/mp4'
+              }],
+              download: true,
+              downloadSrc: "http://vjs.zencdn.net/v/oceans.mp4",
+              width:640
+            }}
+          />
+        </div>
+        <div className="block">
+          <VideoViewer
+            modalProps={{
+              width: 600
+            }}
+            videoProps={{
+              sources:[{
+                src: "http://www.w3school.com.cn/i/movie.ogg",
+                type:'video/ogg'
+              }],
+              download: true,
+              downloadSrc: "http://www.w3school.com.cn/i/movie.ogg",
+              width: 600
+            }}
+          />
+        </div>
+      </div>
+    )
+  }
+```
+
+:::
+
+### 其他状态
+
+:::demo 当视频由于某些原因无法播放时，通过 `failedMessage` 展示缩略图的其他状态, 当设置了`failedMessage`时，缩略图将不可点击并播放
+
+```js
+  render() {
+    return(
+      <div className="source">
+        <div className="block">
+          <VideoViewer
+            failedMessage="已过期"
+            poster="//ysf.qiyukf.net/rygnbxiwcgoudyqnzzpypmtxlwpixigf"
+            modalProps={{
+              width: 640
+            }}
+            videoProps={{
+              sources:[{
+                src:'http://vjs.zencdn.net/v/oceans.mp4',
+                type:'video/mp4'
+              }],
+              download: true,
+              downloadSrc: "http://vjs.zencdn.net/v/oceans.mp4",
+              width:640
+            }}
+          />
+        </div>
+        <div className="block">
+          <VideoViewer
+            failedMessage="状态描述"
+            modalProps={{
+              width: 600
+            }}
+            videoProps={{
+              sources:[{
+                src: "http://www.w3school.com.cn/i/movie.ogg",
+                type:'video/ogg'
+              }],
+              download: true,
+              downloadSrc: "http://www.w3school.com.cn/i/movie.ogg",
+              width: 600
+            }}
+          />
+        </div>
+      </div>
+    )
+  }
+```
+
+:::
+
+## 自行控制视频
+
+:::demo 可以用自定义的等组件，将播放器模态框`VideoViewer.VideoModal`和播放器`VideoViewer.Video`配合使用，自行控制视频。
+
+```js
+  constructor(props) {
+    super(props);
+    this.state = { visible: false };
+    this.video = React.createRef();
+  }
+
+  open = () => {
+    this.setState({
+      visible: true,
+    },() => {
+      const video = this.video && this.video.current;
+      const player = video && video.getVideoPlayer();
+      if (player && typeof player.play === 'function') {
+         player.play();
+      }
+    });
+  }
+
+  onClose = () => {
+    const video = this.video && this.video.current;
+    const player = video.getVideoPlayer();
+    if (player && typeof player.paused === 'function') {
+       player.pause();
+    }
+  };
+
+  handleCancel = (e) => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render() {
+    return(
+      <div className="source">
+        <div className="block">
+          <Button type="primary" onClick={this.open}>点击播放视频</Button>
+          <VideoViewer.VideoModal
+            mask={true}
+            draggable={true}
+            maskClosable={false}
+            visible={this.state.visible}
+            afterClose={this.onClose}
+            onCancel={this.handleCancel}
+            width={600}
+          >
+            <VideoViewer.Video
+              ref={this.video}
+              autoplay={true}
+              bigPlayButton={false}
+              sources={[{
+                src: 'http://vjs.zencdn.net/v/oceans.mp4',
+                type: 'video/mp4'
+              }]}
+              width={600}
+            />
+          </VideoViewer.VideoModal>
+        </div>
+      </div>
+    )
+  }
+```
+
+:::
+
+<style>
+.source {
+  display: flex
+}
+
+.block + .block {
+  margin-left: 20px;
+}
+</style>
 
 ## API
 

@@ -1,4 +1,4 @@
-# AudioPlayer 音频播放器 【交互：翁宇宇 | 视觉：徐剑杰 | 开发：王晓玲】
+# AudioPlayer 音频播放器
 
 提供音频文件的播放、控制等
 
@@ -6,19 +6,101 @@
 
 网页中播放音频
 
-## Installation
+## 基本使用
 
-```sh
-npm install @stbui/za-audio-player
-```
-
-## Usage
-
-```jsx
+```tsx
 import React from 'react';
 import AudioPlayer from '@stbui/za-audio-player';
 
-export default () => <AudioPlayer>AudioPlayer</AudioPlayer>;
+export default () => (
+    <div style={{ width: 400 }}>
+        <AudioPlayer
+            src="//ysf.qiyukf.net/26952087D69B79839F17040A5DC2E775.wav"
+            title="这是一个demo"
+        />
+    </div>
+);
+```
+
+## 大小
+
+```tsx
+import React from 'react';
+import AudioPlayer from '@stbui/za-audio-player';
+
+export default () => (
+    <div style={{ width: 400 }}>
+        <AudioPlayer
+            size="default"
+            src="//ysf.qiyukf.net/26952087D69B79839F17040A5DC2E775.wav"
+            title="这是一个demo"
+        />
+    </div>
+);
+```
+
+## 最简洁版
+
+```tsx
+/**
+ * desc: 通过设置 `controlVolume=false` 去掉音量控制按钮；`controlProgress=false` 去掉进度控制；`displayTime=false` 去掉时间
+ */
+import React from 'react';
+import AudioPlayer from '@stbui/za-audio-player';
+
+export default () => (
+    <div style={{ width: 56 }}>
+        <AudioPlayer
+            src="//ysf.qiyukf.net/6DB6A44FF040D96551EC00507730FC4D.wav"
+            controlVolume={false}
+            controlProgress={false}
+            displayTime={false}
+        />
+    </div>
+);
+```
+
+## 支持调节播放速度
+
+```tsx
+/**
+ * desc: 通过设置 `playbackRate="1.0"` 设置默认播放速度, 通过设置 `playbackRates=["2.0", "1.0", "0.5"]` 设置播放速度选择列表
+ */
+import React from 'react';
+import AudioPlayer from '@stbui/za-audio-player';
+
+export default () => (
+    <div style={{ width: 350 }}>
+        <AudioPlayer
+            src="//ysf.qiyukf.net/6DB6A44FF040D96551EC00507730FC4D.wav"
+            download={true}
+            size={'small'}
+            rateOptions={{
+                decimal: 1,
+                range: [2, 1, 0.5],
+            }}
+        />
+    </div>
+);
+```
+
+## 支持下载
+
+```tsx
+/**
+ * desc: 通过设置 `download=true` 设置音频可下载
+ */
+import React from 'react';
+import AudioPlayer from '@stbui/za-audio-player';
+
+export default () => (
+    <div style={{ width: 350 }}>
+        <AudioPlayer
+            src="//ysf.qiyukf.net/6DB6A44FF040D96551EC00507730FC4D.wav"
+            download={true}
+        />
+    </div>
+);
 ```
 
 ## API

@@ -6,19 +6,157 @@
 
 面向新用户或新功能的引导，使用户快速地了解页面内容。
 
-## Installation
+## 基本使用
 
-```sh
-npm install @stbui/za-checkbox
+```js
+import React from 'react';
+import RichEditor from '@stbui/za-rich-editor';
+
+export default () => {
+    return (
+        <div className="guide-demo">
+            <div className="guide-demo-cont">
+                <h3 className="item guide-demo-step-alone">引导项</h3>
+            </div>
+            <Guide
+                visible={true}
+                mask={true}
+                steps={[
+                    {
+                        element: '.guide-demo-step-alone',
+                        popover: {
+                            className: 'custom',
+                            title: '标题',
+                            description: '当前引导步骤介绍',
+                        },
+                    },
+                ]}
+            />
+        </div>
+    );
+};
 ```
 
-## Usage
+## 固定展示
 
-```jsx
-import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+```js
+  constructor(props){
+    super(props);
+    this.state = {
+      visible: false
+    };
+  };
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+  handleStart = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  render() {
+    return (
+    <div className="guide-demo">
+        <Button type="primary" onClick={this.handleStart}>开始引导</Button>
+        <Guide
+          className='custom-fixed-mode'
+          visible={this.state.visible}
+          mode='fixed'
+          steps={[
+            {
+              title: '标题 1',
+              subtitle: '春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。',
+              content: (
+                <img alt="图片" style={{ width: '100%' }} src={'//ysf.qiyukf.net/3df2280d2319678a091138b0bbba82fe'} />
+              )
+            },
+            {
+              title: '标题 2',
+              content: (
+                <img alt="图片" style={{ width: '100%' }} src={'//ysf.qiyukf.net/080b89be8a980ab9951a1b0de643d939'} />
+              )
+            },
+            {
+              content: (
+                <img alt="图片" style={{ width: '100%' }} src={'//ysf.qiyukf.net/260c0731b07b2933fe04f1a4d629450c'} />
+              )
+            },
+          ]}
+        />
+    </div>
+    );
+  }
+```
+
+## 带计数的步骤
+
+```js
+  constructor(props){
+    super(props);
+    this.state = {
+      visible: false
+    };
+  };
+
+  handleStart = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  render() {
+    return (
+    <div className="guide-demo">
+        <Button type="primary" onClick={this.handleStart}>开始引导</Button>
+        <div className="guide-demo-cont">
+          <h3 className="item guide-demo-step1">第1步</h3>
+          <h3 className="item guide-demo-step2">第2步</h3>
+          <h3 className="item guide-demo-step3">第3步</h3>
+          <h3 className="item guide-demo-step4">第4步</h3>
+        </div>
+        <Guide
+          visible={this.state.visible}
+          steps={[
+            {
+              element: '.guide-demo-step1',
+              popover: {
+                className: 'custom',
+                title: '第1步',
+                description: '第1步介绍',
+                position: 'bottomLeft'
+              }
+            },
+            {
+              counterPosition: 'leftBottom',
+              element: '.guide-demo-step2',
+              popover: {
+                title: '第2步',
+                description: '第2步介绍',
+                position: 'right'
+              }
+            },
+            {
+              counterPosition: 'rightTop',
+              element: '.guide-demo-step3',
+              popover: {
+                title: '第3步',
+                description: '第3步介绍',
+                position: 'left'
+              }
+            },
+            {
+              counterPosition: 'rightBottom',
+              element: '.guide-demo-step4',
+              popover: {
+                title: '第4步',
+                description: '第4步介绍',
+                position: 'top'
+              }
+            },
+          ]}
+        />
+    </div>
+    );
+  }
 ```
 
 ## API
@@ -65,3 +203,60 @@ export default () => <Checkbox>Checkbox</Checkbox>;
 | content  | 步骤的内容                         | String \| HTMLElement | -      |
 | subtitle | 步骤的子标题                       | String \| HTMLElement | -      |
 | title    | 步骤的标题，值为 null 时不展示标题 | String \| HTMLElement | null   |
+
+<style>
+.guide-demo {
+  position: relative;
+}
+
+.guide-demo-cont {
+  width: 100%;
+  height: 500px;
+  margin-top: 40px;
+}
+
+.guide-demo-cont .item {
+  width: 60px;
+  height: 24px;
+  text-align: center;
+  margin: auto;
+}
+
+.guide-demo-step-alone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+}
+
+.guide-demo-step1 {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.guide-demo-step2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+}
+
+.guide-demo-step3 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+}
+
+.guide-demo-step4 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style>

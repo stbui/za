@@ -1,4 +1,4 @@
-# 按钮 Button
+# Button 按钮
 
 按钮用于开始一个即时操作，响应用户点击行为，触发相应的业务逻辑。以下包含了各类形态和风格的按纽，可根据界面的风格和使用场景选择对应的类型。
 
@@ -30,8 +30,6 @@ npm install @stbui/za-button
 
 ```tsx
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-
 import Button from '@stbui/za-button';
 
 export default () => (

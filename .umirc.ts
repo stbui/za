@@ -46,7 +46,8 @@ export default {
                 ],
             },
         ],
-        '/base': [
+
+        '/components': [
             {
                 title: '基础',
                 children: [
@@ -61,8 +62,6 @@ export default {
                     'components/za-guide',
                 ],
             },
-        ],
-        '/components': [
             {
                 title: '布局',
                 children: [
@@ -71,7 +70,6 @@ export default {
                     'components/za-elevation',
                     'components/za-toolbar',
                     'components/za-overlay',
-                    'components/za-modal',
                 ],
             },
             {

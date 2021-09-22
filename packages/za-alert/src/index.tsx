@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { themes } from '@stbui/za-theme';
 
 interface AlertProps {
-    type?: 'success' | 'info' | 'warning' | 'error';
+    type: 'success' | 'info' | 'warning' | 'error';
     closable?: boolean;
     onClose?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
