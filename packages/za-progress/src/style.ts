@@ -1,26 +1,26 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { themes } from '@stbui/za-theme';
 
 export interface ProgressStyle {}
 
+const progressActive = keyframes`
+0% {
+  opacity: 0.1;
+  width: 0;
+}
+
+20% {
+  opacity: 0.5;
+  width: 0;
+}
+
+100% {
+  opacity: 0;
+  width: 100%;
+}
+`;
+
 const active = css`
-    @keyframes progress-active {
-        0% {
-            opacity: 0.1;
-            width: 0;
-        }
-
-        20% {
-            opacity: 0.5;
-            width: 0;
-        }
-
-        100% {
-            opacity: 0;
-            width: 100%;
-        }
-    }
-
     .progress-bg:before {
         content: '';
         opacity: 0;
@@ -31,7 +31,8 @@ const active = css`
         bottom: 0;
         background: #fff;
         border-radius: 10px;
-        animation: progress-active 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+        animation: ${progressActive} 2.4s cubic-bezier(0.23, 1, 0.32, 1)
+            infinite;
     }
 `;
 

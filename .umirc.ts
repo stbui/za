@@ -31,6 +31,7 @@ export default {
                     'components/za-audio-player',
                     'components/za-video-viewer',
                     'components/za-rich-editor',
+                    'components/za-monacoeditor',
                     'components/za-divider',
                     'components/za-guide',
                 ],

@@ -1,17 +1,26 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const checkboxEffect = keyframes`
+0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+`;
+
+const transferHighlightIn = keyframes`
+  0% {
+      background: #d6e5ff;
+  }
+  100% {
+      background: transparent;
+  }
+`;
 
 export const TransferStyle = styled.div`
-    @keyframes fishdCheckboxEffect {
-        0% {
-            transform: scale(1);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1.6);
-            opacity: 0;
-        }
-    }
-
     font-family: 'Monospaced Number', 'Chinese Quote', -apple-system,
         BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC',
         'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica,
@@ -115,7 +124,7 @@ export const TransferStyle = styled.div`
         background-color: rgba(153, 153, 153, 0.8);
     }
     .transfer-list-content > .LazyLoad {
-        animation: transferHighlightIn 1s;
+        animation: ${transferHighlightIn} 1s;
     }
     .transfer-list-content-item {
         padding: 6px 12px;
@@ -185,14 +194,6 @@ export const TransferStyle = styled.div`
     }
     .transfer-operation .btn .fishdicon {
         font-size: 12px;
-    }
-    @keyframes transferHighlightIn {
-        0% {
-            background: #d6e5ff;
-        }
-        100% {
-            background: transparent;
-        }
     }
 `;
 

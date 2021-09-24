@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import Panel from './panel';
 
 export interface CollapseProps {
-    defaultActiveKey?: string | string[];
-    activeKey?: string | string[];
-    statusList?: any[];
-
-    isScrollToHeader?: boolean;
     accordion?: boolean;
-    showClose?: boolean;
+    activeKey?: string | string[];
     bordered?: boolean;
-
-    onChange?: (value: string) => void;
-    close?: (statusList: any[]) => void;
+    showArrow?: boolean;
+    onChange?: (activeKey: string[]) => void;
 }
 
 const CollapseStyle = styled.div`
@@ -33,12 +27,20 @@ const CollapseStyle = styled.div`
     }
 `;
 
+function toArray(activeKey: CollapseProps['activeKey']) {
+    let currentActiveKey = activeKey;
+    if (!Array.isArray(currentActiveKey)) {
+        currentActiveKey = currentActiveKey ? [currentActiveKey] : [];
+    }
+    return currentActiveKey;
+}
+
 export const Collapse = props => {
     const {
         prefixCls,
         className,
         defaultActiveKey,
-        activeKey,
+        activeKey: propsActiveKey,
         statusList,
         isScrollToHeader,
         accordion,
@@ -48,26 +50,58 @@ export const Collapse = props => {
         close,
         children,
     } = props;
-    const [currentActiveKey, setCurrentActiveKey] = useState(defaultActiveKey);
+    const [activeKey, setActiveKey] = useState(toArray(propsActiveKey));
 
-    const onClickItem = (key: string) => {};
+    const onClickItem = (key: string) => {
+        let keys = activeKey;
+        if (accordion) {
+            keys = keys[0] === key ? [] : [key];
+        } else {
+            keys = [...keys];
+            const index = keys.indexOf(key);
+            const isActive = index > -1;
+            if (isActive) {
+                keys.splice(index, 1);
+            } else {
+                keys.push(key);
+            }
+        }
+        setActiveKey(keys);
+    };
+
     const onCloseItem = (key: string) => {};
+
+    useMemo(() => {
+        if (propsActiveKey !== activeKey) {
+            setActiveKey(toArray(propsActiveKey));
+        }
+    }, [propsActiveKey]);
+    useMemo(() => {
+        if (propsActiveKey !== activeKey) {
+            onChange && onChange(activeKey);
+        }
+    }, [activeKey, propsActiveKey]);
 
     return (
         <CollapseStyle>
             {React.Children.map(children, (child, index) => {
                 const key = child.key || String(index);
-                // const isActive = accordion
-                //     ? activeKey[0] === key
-                //     : activeKey.indexOf(key) > -1;
+                const { disabled } = child.props;
+
+                let isActive = false;
+                if (accordion) {
+                    // 手风琴模式下默认选择第一个
+                    isActive = activeKey[0] === key;
+                } else {
+                    isActive = activeKey.indexOf(key) > -1;
+                }
 
                 const header = child.props.header;
 
                 const props = {
                     header,
                     showClose,
-                    // isActive,
-                    prefixCls,
+                    isActive,
                     children: child.props.children,
                     onItemClick: onClickItem(key),
                     onCloseItem: onCloseItem(key),
@@ -83,7 +117,6 @@ export const Collapse = props => {
 };
 
 Collapse.defaultProps = {
-    isScrollToHeader: false,
     accordion: false,
     showClose: false,
     bordered: true,

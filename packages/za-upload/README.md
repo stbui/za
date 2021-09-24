@@ -423,23 +423,6 @@ render(){
 
 ```
 
-```less
-/* tile uploaded pictures */
-.upload-list-inline .upload-list-item {
-    float: left;
-    width: 200px;
-    margin-right: 8px;
-}
-.upload-list-inline .upload-animate-enter {
-    animation-name: uploadAnimateInlineIn;
-}
-.upload-list-inline .upload-animate-leave {
-    animation-name: uploadAnimateInlineOut;
-}
-```
-
-:::
-
 ## 手动上传
 
 :::demo `beforeUpload` 返回 `false` 后，手动上传文件。
