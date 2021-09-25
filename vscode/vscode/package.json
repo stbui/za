@@ -25,7 +25,7 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^17.0.1"
+        "react": "^17.0.2"
     },
     "dependencies": {
         "@stbui/vs-activitybar": "0.0.1",
@@ -39,11 +39,10 @@
         "@stbui/vs-statusbar": "0.0.1",
         "@stbui/vs-tabs": "0.0.1",
         "@stbui/vs-theme": "0.0.1",
-        "@stbui/za-theme": "^0.0.1",
         "styled-components": "^5.3.1"
     },
     "devDependencies": {
-        "react": "^17.0.1",
+        "react": "^17.0.2",
         "rimraf": "^3.0.0"
     }
 }

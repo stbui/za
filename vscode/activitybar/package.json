@@ -30,7 +30,6 @@
     "dependencies": {
         "@stbui/vs-icon": "0.0.1",
         "@stbui/vs-theme": "0.0.1",
-        "@stbui/za-theme": "^0.0.1",
         "styled-components": "^5.3.1"
     },
     "devDependencies": {

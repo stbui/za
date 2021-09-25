@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 import Mask from '@stbui/za-mask';
 import usePortal from '@stbui/za-overlay';
+import Icon from '@stbui/za-icon';
 
 import { PicturePreviewStyle } from './style';
 
@@ -108,9 +109,12 @@ export const PicturePreview = (props: PicturePreviewProps) => {
                             );
                         })}
                     </div>
-                    <i className="picture-preview-close" onClick={onClose}>
-                        close
-                    </i>
+
+                    <Icon
+                        type="OutlineClose"
+                        className="picture-preview-close"
+                        onClick={onClose}
+                    />
                     <i
                         className="picture-preview-prev"
                         onClick={() => goIndex(-1)}

@@ -122,10 +122,8 @@ export const Pagination = (props: PaginationProps) => {
     return (
         <PaginationStyle {...other}>
             {initPageSoure.map((item, idx) => {
-                // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 let label = <a>{item.label}</a>;
                 if (/^(prev|next)$/.test(item.type as string)) {
-                    // eslint-disable-next-line jsx-a11y/anchor-is-valid
                     label = <a className={`arrow ${item.type}`} />;
                 }
                 return (

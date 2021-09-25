@@ -1,8 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import mapping from './mapping';
 import * as vsc from 'react-icons/vsc';
-// const vsc = require('react-icons/vsc')
 
 interface IconProps {
     className?: string;

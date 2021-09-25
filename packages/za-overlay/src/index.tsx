@@ -1,24 +1,29 @@
 import React, { useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ProtalOptions {
     closeOnOutSide?: boolean;
     className?: string;
     rootContainer?: HTMLElement;
     defaultShow?: boolean;
+    mask?: boolean;
 }
 
-const OverlayStyle = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
+const OverlayStyle = styled.div<ProtalOptions>`
+    ${({ mask }) =>
+        mask &&
+        css`
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+        `}}
 `;
 
 export const useProtal = ({
@@ -26,6 +31,7 @@ export const useProtal = ({
     className,
     rootContainer = document.body,
     defaultShow = false,
+    mask = true,
 }: ProtalOptions = {}) => {
     const [isShow, setShow] = useState(defaultShow);
 
@@ -43,6 +49,7 @@ export const useProtal = ({
 
             return ReactDOM.createPortal(
                 <OverlayStyle
+                    mask={mask}
                     className={className}
                     onClick={closeOnOutSide ? onClose : () => {}}
                 >
