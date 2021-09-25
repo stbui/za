@@ -1,35 +1,8 @@
-import { readdirSync } from 'fs';
-import { join } from 'path';
-
-function findpkgList(dir) {
-    const headPkgList = [];
-    const pkgList = readdirSync(join(__dirname, dir)).filter(
-        pkg => pkg.charAt(0) !== '.' && !headPkgList.includes(pkg)
-    );
-
-    const alias = pkgList.reduce((pre, pkg) => {
-        pre[`@za/${pkg}`] = join(__dirname, dir, pkg, 'src');
-        return {
-            ...pre,
-        };
-    }, {});
-
-    const tailPkgList = pkgList
-        .map(path => [join(dir, path, 'src')])
-        .reduce((acc, val) => acc.concat(val), []);
-
-    // console.log(tailPkgList);
-    return tailPkgList;
-}
-
-const vs = findpkgList('vscode');
-
-console.log(vs);
-
 export default {
-    // ssr: {},
     hash: true,
     title: '聚石塔',
+    publicPath: '/za/',
+    base: '/za/',
     mode: 'site',
     resolve: {
         includes: ['docs'],
@@ -52,13 +25,13 @@ export default {
                 title: '基础',
                 children: [
                     'components/za-button',
-                    'components/za-divider',
                     'components/za-picture-preview',
                     'components/za-image-loader',
                     'components/za-color-picker',
                     'components/za-audio-player',
                     'components/za-video-viewer',
                     'components/za-rich-editor',
+                    'components/za-divider',
                     'components/za-guide',
                 ],
             },
@@ -69,6 +42,7 @@ export default {
                     'components/za-layout',
                     'components/za-elevation',
                     'components/za-toolbar',
+                    'components/za-appbar',
                     'components/za-overlay',
                 ],
             },
@@ -84,7 +58,6 @@ export default {
                     'components/za-anchor',
                     'components/za-backtop',
                     'components/za-pagination',
-                    'components/za-appbar',
                 ],
             },
             {
