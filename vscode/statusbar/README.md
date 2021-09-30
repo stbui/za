@@ -8,7 +8,7 @@ nav:
     path: /vscode
 ---
 
-# statusbar
+# statusbar 状态栏
 
 ```tsx
 import React from 'react';

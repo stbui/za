@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { defaultTheme } from '@stbui/za-theme';
 
 export interface PaginationItemProps {
     active?: boolean;
@@ -51,6 +52,10 @@ export const PaginationItemStyle = styled.li<PaginationItemProps>`
             }
         `}
 `;
+
+PaginationItemStyle.defaultProps = {
+    theme: defaultTheme,
+};
 
 export const PaginationItem: React.FC<PaginationItemProps> = props => {
     const { active, children, disabled, onClick } = props;

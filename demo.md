@@ -39,8 +39,9 @@
 行业组件
 
 -   https://nutui.jd.com/cat/#/
--   https://chatui.io/?from=thosefree.com
+-   https://chatui.io/
 -   https://design.ksyun.com/
+-   https://legao.jd.com/
 
 vue
 

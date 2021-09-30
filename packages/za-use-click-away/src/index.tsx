@@ -7,6 +7,7 @@ const useClickAway = (
     handler: (event: Event) => void
 ) => {
     const handlerRef = useRef(handler);
+
     useEffect(() => {
         handlerRef.current = handler;
     }, [handlerRef]);
@@ -15,6 +16,7 @@ const useClickAway = (
         const callback = (event: Event) => {
             const el = ref.current;
             if (!event || !el || el.contains((event as any).target)) return;
+
             handlerRef.current(event);
         };
 

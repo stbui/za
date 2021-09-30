@@ -8,7 +8,7 @@ nav:
     path: /vscode
 ---
 
-# activitybar 活动栏
+# activitybar
 
 ```tsx
 import React from 'react';

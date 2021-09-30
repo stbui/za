@@ -1,22 +1,22 @@
 ---
-title: sidebar 
+title: tree
 order: 1
 group:
     path: /
 nav:
-    title: VSCode
+    title: vscode
     path: /vscode
 ---
 
-# sidebar 侧边栏
+# tree
 
 ```tsx
 import React from 'react';
-import Sidebar from '@stbui/vs-sidebar';
+import Statusbar from '@stbui/vs-statusbar';
 
 export default () => (
     <>
-        <Sidebar>t1est</Sidebar>
+        <Statusbar>test</Statusbar>
     </>
 );
 ```
