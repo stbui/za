@@ -44,17 +44,20 @@ render(){
       <iframe src="./demo/footerToolbar.html" height={450} width={'100%'}></iframe>
     </div>
   )
-  
+
 }
 ```
+
 :::
 
-## 在Layout中的使用方式
+## 在 Layout 中的使用方式
+
 :::demo
+
 ```js
 render() {
   const { Header, Content, Sider } = Layout;
-  
+
   const layoutFixedSider = () => {
   <Layout>
     <Sider style={{overflow: 'auto', height: '100vh', position: 'fixed', left: 0}}>
@@ -73,7 +76,7 @@ render() {
           <span className="nav-text">nav 3</span>
         </Menu.Item>
         <Menu.Item key="4">
-          <IconBarChart className="img-icon-14 fishdicon" />
+          <IconBarChart className="img-icon-14" />
           <span className="nav-text">nav 4</span>
         </Menu.Item>
         <Menu.Item key="5">
@@ -120,7 +123,7 @@ render() {
     </Layout>
   </Layout>
   }
-  
+
   //为了演示效果，该demo已打包为单独的页面嵌入iframe，核心代码可参考上面的layoutToolbar
   return(
     <div className="browser-mockup">
@@ -129,6 +132,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ## 指定滚动区域
@@ -168,22 +172,13 @@ render(){
 }
 ```
 
-```less
-#demo-footertoolbar .fishd-footer-toolbar-inner{
-  text-align:right;
-}
-
-#demo-footertoolbar .fishd-footer-toolbar-inner button + button {
-  margin-left: 8px;
-}
-```
 :::
 
 ## API
 
-参数 | 说明 | 类型 | 默认值
-----|------|-----|------
-children | 工具栏内容 | ReactNode | -
-className | 额外的class| String | -
-style | 自定义样式 | Object | - |
-target | 目标，默认window | () => HTMLElement | () => window
+| 参数      | 说明              | 类型              | 默认值       |
+| --------- | ----------------- | ----------------- | ------------ |
+| children  | 工具栏内容        | ReactNode         | -            |
+| className | 额外的 class      | String            | -            |
+| style     | 自定义样式        | Object            | -            |
+| target    | 目标，默认 window | () => HTMLElement | () => window |
