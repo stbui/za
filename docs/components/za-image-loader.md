@@ -46,28 +46,28 @@ import ImageLoader from '@stbui/za-image-loader';
   renderImg = () => {
     switch (this.state.status) {
       case 'pending':
-        return <div className="fishd-image-loader fishd-image-loader-pending">
+        return <div className="image-loader image-loader-pending">
           <div className="preload-img" style={{
             width: 150,
             height: 100
           }}></div>
         </div>;
       case 'loading':
-        return <div className="fishd-image-loader fishd-image-loader-loading">
+        return <div className="image-loader image-loader-loading">
           <div className="preload-img" style={{
             width: 150,
             height: 100
           }}></div>
         </div>;
       case 'failed':
-        return <div className="fishd-image-loader fishd-image-loader-failed">
+        return <div className="image-loader image-loader-failed">
           <div className="failed-img" style={{
             width: 150,
             height: 100
           }}></div>
         </div>;
       default:
-        return <div className="fishd-image-loader fishd-image-loader-loaded">
+        return <div className="image-loader image-loader-loaded">
           <img src="http://blog.qiyukf.com/wp-content/uploads/2018/01/pexels-photo-821754-e1517317444456.jpeg" />
         </div>;
     }
