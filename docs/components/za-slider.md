@@ -8,54 +8,37 @@
 
 ## 基本
 
-:::demo 基本滑动条。当 `range` 为 `true` 时，渲染为双滑块。当 `disabled` 为 `true` 时，滑块处于不可用状态。
+```tsx
+/**
+ * desc: 基本滑动条。当 `range` 为 `true` 时，渲染为双滑块。当 `disabled` 为 `true` 时，滑块处于不可用状态。
+ */
+import React from 'react';
+import Slider from '@stbui/za-slider';
 
-```js
-  state = {
-    disabled: false,
-  };
-
-  handleDisabledChange = (disabled) => {
-    this.setState({ disabled });
-  }
-
-  render() {
-    const { disabled } = this.state;
+export default () => {
     return (
-      <div className="code-box-demo">
-        <Slider defaultValue={30} disabled={disabled} />
-        <Slider range defaultValue={[20, 50]} disabled={disabled} />
-        Disabled: <Switch size="small" checked={disabled} onChange={this.handleDisabledChange} />
-      </div>
+        <div className="code-box-demo">
+            <Slider defaultValue={30} />
+            <Slider range defaultValue={[20, 50]} />
+        </div>
     );
-  }
+};
 ```
-```less
-.code-box-demo .fishd-slider {
-  margin-bottom: 16px;
-}
-```
-:::
 
 ## 进度条提示
 
-:::demo 
+```tsx
+import React from 'react';
+import Slider from '@stbui/za-slider';
 
-```js
-  render() {
+export default () => {
     return (
-      <div className="code-box-demo">
-        <Slider defaultValue={30} tipMode={"all"} />
-      </div>
+        <div className="code-box-demo">
+            <Slider defaultValue={30} tipMode={'all'} />
+        </div>
     );
-  }
+};
 ```
-```less
-.code-box-demo .fishd-slider {
-  margin-bottom: 16px;
-}
-```
-:::
 
 ## 带输入框的滑块
 
@@ -115,6 +98,7 @@
     );
   }
 ```
+
 :::
 
 ## 带 icon 的滑块
@@ -147,50 +131,52 @@
 
 ```less
 .icon-wrapper {
-  position: relative;
-  padding: 0px 30px;
+    position: relative;
+    padding: 0px 30px;
 }
 
 .icon-wrapper .fishdicon {
-  position: absolute;
-  top: -2px;
-  width: 16px;
-  height: 16px;
-  line-height: 1;
-  font-size: 16px;
-  color: rgba(0, 0, 0, .25);
+    position: absolute;
+    top: -2px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.25);
 }
 
 .icon-wrapper .fishdicon:first-child {
-  left: 0;
+    left: 0;
 }
 
 .icon-wrapper .fishdicon:last-child {
-  right: 0;
+    right: 0;
 }
 ```
+
 :::
 
 ## 自定义提示
 
-:::demo 使用 `tipFormatter` 可以格式化 `Tooltip` 的内容，设置 `tipFormatter={null}`，则隐藏 `Tooltip`。
-
 ```js
-formatter=(value) => {
-  return `${value}%`;
-}
+/**
+ * desc: 使用 `tipFormatter` 可以格式化 `Tooltip` 的内容，设置 `tipFormatter={null}`，则隐藏 `Tooltip`。
+ */
+import React from 'react';
+import Slider from '@stbui/za-slider';
 
-render(){
-  return(
-      <div>
-        <Slider tipFormatter={this.formatter} />
-        <Slider tipFormatter={null} />
-      </div>
-  )
-}
+export default () => {
+    const formatter = value => {
+        return `${value}%`;
+    };
+    return (
+        <div>
+            <Slider tipFormatter={formatter} />
+            <Slider tipFormatter={null} />
+        </div>
+    );
+};
 ```
-:::
-
 
 ## 事件
 
@@ -214,6 +200,7 @@ render(){
   )
 }
 ```
+
 :::
 
 ## 带标签的滑块
@@ -253,12 +240,13 @@ render(){
 
 ```less
 #components-slider-demo-mark h4 {
-  margin: 0 0 16px;
+    margin: 0 0 16px;
 }
-#components-slider-demo-mark .fishd-slider-with-marks {
-  margin-bottom: 44px;
+#components-slider-demo-mark .slider-with-marks {
+    margin-bottom: 44px;
 }
 ```
+
 :::
 
 ## 垂直
@@ -272,7 +260,7 @@ render(){
     height: 300,
     marginLeft: 70,
   };
-  
+
   const marks = {
     0: '0°C',
     26: '26°C',
@@ -298,33 +286,34 @@ render(){
   </div>)
 }
 ```
+
 :::
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| allowClear | 支持清除, 单选模式有效 | Boolean | false |
-| defaultValue | 设置初始取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]` | Number \| Array< Number > | 0 \| [0, 0] |
-| disabled | 值为 `true` 时，滑块为禁用状态 | Boolean | false |
-| dots | 是否只能拖拽到刻度上 | Boolean | false |
-| handle | 拖动块的自定义 | ReactNode | 默认蓝色小球 |
-| included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | Boolean | true |
-| marks | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内，每个标签可以单独设置样式 | Object | { Number: String \| ReactNode } \| { Number: { style: Object, label: String \| ReactNode } } |
-| max | 最大值 | Number | 100 |
-| min | 最小值 | Number | 0 |
-| onAfterChange | 与 `onmouseup` 触发时机一致，把当前值作为参数传入。 | (value) => Void | noop |
-| onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。 | (value) => Void | noop |
-| range | 双滑块模式 | Boolean | false |
-| step | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 `null`，此时 Slider 的可选值仅有 marks 标出来的部分。 | Number \| null | 1 |
-| tipFormatter | Slider 会把当前值传给 `tipFormatter`，并在 Tooltip 中显示 `tipFormatter` 的返回值，若为 null，则隐藏 Tooltip。 | Function \| null | (value: Number) => value.toString() |
-| tipMode |  设置为`all`时将在滚动条任何地方hover时展示tooltip | Enum {'all','default'} | 'default' |
-| value | 设置当前取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]` | Number \| Array< Number > | - |
-| vertical | 值为 `true` 时，Slider 为垂直方向 | Boolean | false |
+| 参数          | 说明                                                                                                                                               | 类型                      | 默认值                                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------- |
+| allowClear    | 支持清除, 单选模式有效                                                                                                                             | Boolean                   | false                                                                                        |
+| defaultValue  | 设置初始取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]`                                                                   | Number \| Array< Number > | 0 \| [0, 0]                                                                                  |
+| disabled      | 值为 `true` 时，滑块为禁用状态                                                                                                                     | Boolean                   | false                                                                                        |
+| dots          | 是否只能拖拽到刻度上                                                                                                                               | Boolean                   | false                                                                                        |
+| handle        | 拖动块的自定义                                                                                                                                     | ReactNode                 | 默认蓝色小球                                                                                 |
+| included      | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列                                                                             | Boolean                   | true                                                                                         |
+| marks         | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内，每个标签可以单独设置样式                                                         | Object                    | { Number: String \| ReactNode } \| { Number: { style: Object, label: String \| ReactNode } } |
+| max           | 最大值                                                                                                                                             | Number                    | 100                                                                                          |
+| min           | 最小值                                                                                                                                             | Number                    | 0                                                                                            |
+| onAfterChange | 与 `onmouseup` 触发时机一致，把当前值作为参数传入。                                                                                                | (value) => Void           | noop                                                                                         |
+| onChange      | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。                                                                       | (value) => Void           | noop                                                                                         |
+| range         | 双滑块模式                                                                                                                                         | Boolean                   | false                                                                                        |
+| step          | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 `null`，此时 Slider 的可选值仅有 marks 标出来的部分。 | Number \| null            | 1                                                                                            |
+| tipFormatter  | Slider 会把当前值传给 `tipFormatter`，并在 Tooltip 中显示 `tipFormatter` 的返回值，若为 null，则隐藏 Tooltip。                                     | Function \| null          | (value: Number) => value.toString()                                                          |
+| tipMode       | 设置为`all`时将在滚动条任何地方 hover 时展示 tooltip                                                                                               | Enum {'all','default'}    | 'default'                                                                                    |
+| value         | 设置当前取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]`                                                                   | Number \| Array< Number > | -                                                                                            |
+| vertical      | 值为 `true` 时，Slider 为垂直方向                                                                                                                  | Boolean                   | false                                                                                        |
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
