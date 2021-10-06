@@ -8,58 +8,71 @@
 
 ## 基本用法
 
-:::demo 简单的步骤条。
+```tsx
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    return (
-      <Steps current={1}>
+export default () => (
+    <Steps current={1}>
         <Steps.Step title="Finished" description="This is a description." />
         <Steps.Step title="In Progress" description="This is a description." />
         <Steps.Step title="Waiting" description="This is a description." />
-      </Steps>
-    )
-  }
+    </Steps>
+);
 ```
-
-:::
 
 ## 迷你版
 
-:::demo 迷你版的步骤条，通过设置 `<Steps size="small">` 启用.
+```tsx
+/**
+ * desc: 迷你版的步骤条，通过设置 `<Steps size="small">` 启用
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    return (
-      <Steps size="small" current={1}>
+export default () => (
+    <Steps size="small" current={1}>
         <Steps.Step title="Finished" />
         <Steps.Step title="In Progress" />
         <Steps.Step title="Waiting" />
-      </Steps>
-    )
-  }
+    </Steps>
+);
 ```
-
-:::
 
 ## 带图标的步骤条
 
-:::demo 通过设置 Steps.Step 的 `icon` 属性，可以启用自定义图标。
+```ts
+/**
+ * desc: 通过设置 Steps.Step 的 `icon` 属性，可以启用自定义图标。
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    return (
-      <Steps>
-        <Steps.Step status="finish" title="Finished" icon={<IconPlay className="img-icon-14 fishdicon"  />} />
-        <Steps.Step status="finish" title="Finished" icon={<IconTrash className="img-icon-14 fishdicon" />} />
-        <Steps.Step status="process" title="In Progress" icon={<IconPie className="img-icon-14 fishdicon" />} />
-        <Steps.Step status="wait" title="Waiting" icon={<IconNote className="img-icon-14 fishdicon"/>} />
-      </Steps>
-    )
-  }
+export default () => (
+    <Steps>
+        <Steps.Step
+            status="finish"
+            title="Finished"
+            icon={<IconPlay className="img-icon-14 fishdicon" />}
+        />
+        <Steps.Step
+            status="finish"
+            title="Finished"
+            icon={<IconTrash className="img-icon-14 fishdicon" />}
+        />
+        <Steps.Step
+            status="process"
+            title="In Progress"
+            icon={<IconPie className="img-icon-14 fishdicon" />}
+        />
+        <Steps.Step
+            status="wait"
+            title="Waiting"
+            icon={<IconNote className="img-icon-14 fishdicon" />}
+        />
+    </Steps>
+);
 ```
-
-:::
 
 ## 步骤切换
 
@@ -128,162 +141,129 @@
   }
 ```
 
-```less
-.demo-step .fishd-steps-item-icon {
-    cursor: pointer;
-}
-
-.demo-step .fishd-steps-item-content {
-    cursor: pointer;
-}
-
-.steps-content {
-    margin-top: 16px;
-    border: 1px dashed #e9e9e9;
-    border-radius: 6px;
-    background-color: #fafafa;
-    min-height: 200px;
-    text-align: center;
-    padding-top: 80px;
-}
-
-.steps-action {
-    margin-top: 24px;
-}
-```
-
-:::
-
 ## 竖直方向的步骤条
 
-:::demo 简单的竖直方向的步骤条。
+```tsx
+/**
+ * desc: 简单的竖直方向的步骤条。
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    const Step = Steps.Step;
-    return (
-      <Steps direction="vertical" current={1}>
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
-    )
-  }
+export default () => (
+    <Steps direction="vertical" current={1}>
+        <Steps.Step title="Finished" description="This is a description." />
+        <Steps.Step title="In Progress" description="This is a description." />
+        <Steps.Step title="Waiting" description="This is a description." />
+    </Steps>
+);
 ```
-
-:::
 
 ## 竖直方向的小型步骤条
 
-:::demo 简单的竖直方向的小型步骤条。
+```tsx
+/**
+ * desc:  简单的竖直方向的小型步骤条。
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    const Step = Steps.Step;
-    return (
-      <Steps direction="vertical" size="small" current={1}>
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
-    )
-  }
+export default () => (
+    <Steps direction="vertical" size="small" current={1}>
+        <Steps.Step title="Finished" description="This is a description." />
+        <Steps.Step title="In Progress" description="This is a description." />
+        <Steps.Step title="Waiting" description="This is a description." />
+    </Steps>
+);
 ```
-
-:::
 
 ## 步骤运行错误
 
-:::demo 使用 Steps 的 `status` 属性来指定当前步骤的状态。
+```tsx
+/**
+ * desc: 使用 Steps 的 `status` 属性来指定当前步骤的状态。
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    const Step = Steps.Step;
-    return (
-      <Steps current={1} status="error">
-        <Step title="Finished" description="This is a description" />
-        <Step title="In Process" description="This is a description" />
-        <Step title="Waiting" description="This is a description" />
-      </Steps>
-    )
-  }
+export default () => (
+    <Steps current={1} status="error">
+        <Steps.Step title="Finished" description="This is a description." />
+        <Steps.Step title="In Progress" description="This is a description." />
+        <Steps.Step title="Waiting" description="This is a description." />
+    </Steps>
+);
 ```
-
-:::
 
 ## 点状步骤条
 
-:::demo 包含步骤点的进度条。
+```tsx
+/**
+ * desc: 包含步骤点的进度条。
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    const Step = Steps.Step;
-    return (
-      <Steps progressDot current={1}>
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
-    )
-  }
+export default () => (
+    <Steps progressDot current={1}>
+        <Steps.Step title="Finished" description="This is a description." />
+        <Steps.Step title="In Progress" description="This is a description." />
+        <Steps.Step title="Waiting" description="This is a description." />
+    </Steps>
+);
 ```
-
-:::
 
 ## 自定义点状步骤条
 
-:::demo 为点状步骤条增加自定义展示。
+```ts
+/**
+ * desc: 为点状步骤条增加自定义展示。
+ */
+import React from 'react';
+import Steps from '@stbui/za-steps';
 
-```js
-  render() {
-    const Step = Steps.Step;
-    const customDot = (dot, { status, index }) => (
-      <Popover content={<span>step {index} status: {status}</span>}>
+const customDot = (dot, { status, index }) => (
+    <Popover
+        content={
+            <span>
+                step {index} status: {status}
+            </span>
+        }
+    >
         {dot}
-      </Popover>
-    );
-    return (
-      <Steps current={1} progressDot={customDot}>
-        <Step title="Finished" description="You can hover on the dot." />
-        <Step title="In Progress" description="You can hover on the dot." />
-        <Step title="Waiting" description="You can hover on the dot." />
-        <Step title="Waiting" description="You can hover on the dot." />
-      </Steps>
-    )
-  }
-```
+    </Popover>
+);
 
-:::
+export default () => (
+    <Steps progressDot={customDot} current={1}>
+        <Steps.Step title="Finished" description="This is a description." />
+        <Steps.Step title="In Progress" description="This is a description." />
+        <Steps.Step title="Waiting" description="This is a description." />
+    </Steps>
+);
+```
 
 ## API
-
-```js
-<Steps>
-    <Step title="第一步" />
-    <Step title="第二步" />
-    <Step title="第三步" />
-</Steps>
-```
 
 ### Steps
 
 整体步骤条。
 
-| 参数        | 说明                                                                          | 类型                                        | 默认值                                                      |
-| ----------- | ----------------------------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------- | ----- |
-| current     | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | Number                                      | 0                                                           |
-| direction   | 指定步骤条方向。目前支持水平（`'horizontal'`）和竖直（`'vertical'`）两种方向  | Enum {'horizontal', 'vertical'}             | 'horizontal'                                                |
-| progressDot | 点状步骤条，可以设置为一个 function                                           | Boolean                                     | (iconDot, {index, status, title, description}) => ReactNode | false |
-| size        | 指定大小，目前支持普通（`'default'`）和迷你（`'small'`）                      | Enum {'default', 'small'}                   | 'default'                                                   |
-| status      | 指定当前步骤的状态，可选 `'wait'` `'process'` `'finish'` `'error'`            | Enum {'wait', 'process', 'finish', 'error'} | 'process'                                                   |
+| 参数        | 说明                                                                          | 类型    | 默认值       |
+| ----------- | ----------------------------------------------------------------------------- | ------- | ------------ |
+| current     | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | Number  |
+| direction   | 指定步骤条方向。                                                              |         | 'horizontal' |
+| progressDot | 点状步骤条                                                                    | Boolean |              |
+| size        | 指定大小                                                                      |         | 'default'    |
+| status      | 指定当前步骤的状态                                                            |         | 'process'    |
 
 ### Steps.Step
 
 步骤条内的每一个步骤。
 
-| 参数        | 说明                                                                                                                  | 类型                                        | 默认值 |
-| ----------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------ |
-| description | 步骤的详情描述，可选                                                                                                  | String \| ReactNode                         | -      |
-| icon        | 步骤图标的类型，可选                                                                                                  | String \| ReactNode                         | -      |
-| status      | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`'wait'` `'process'` `'finish'` `'error'` | Enum {'wait', 'process', 'finish', 'error'} | 'wait' |
-| title       | 标题                                                                                                                  | String \| ReactNode                         | -      |
+| 参数        | 说明                 | 类型                                        | 默认值 |
+| ----------- | -------------------- | ------------------------------------------- | ------ |
+| description | 步骤的详情描述，可选 | String \| ReactNode                         | -      |
+| icon        | 步骤图标的类型，可选 | String \| ReactNode                         | -      |
+| status      | 指定状态。           | Enum {'wait', 'process', 'finish', 'error'} | 'wait' |
+| title       | 标题                 | String \| ReactNode                         | -      |
