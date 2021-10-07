@@ -45,12 +45,6 @@ render(){
 }
 ```
 
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
-```
-
 :::
 
 ## 默认值
@@ -89,12 +83,6 @@ render(){
   return(
   <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={this.onChange} />);
   }
-```
-
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
 ```
 
 :::
@@ -140,12 +128,6 @@ render(){
       </span>
     );
   }
-```
-
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
 ```
 
 :::
@@ -198,12 +180,6 @@ render(){
   }
 ```
 
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
-```
-
 :::
 
 ## 禁用选项
@@ -246,12 +222,6 @@ render(){
   }
 ```
 
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
-```
-
 :::
 
 ## 选择即改变
@@ -290,12 +260,6 @@ render(){
   return(
     <Cascader options={options} onChange={this.onChange} changeOnSelect />)
   }
-```
-
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
 ```
 
 :::
@@ -340,12 +304,6 @@ render(){
       <Cascader size="small" options={options} onChange={this.onChange} /><br /><br />
     </div>)
   }
-```
-
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
 ```
 
 :::
@@ -408,19 +366,11 @@ render(){
 }
 ```
 
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
-```
-
 :::
 
 ## 搜索
 
 :::demo 可以直接搜索选项并选择。
-
-> `Cascader[showSearch]` 暂不支持服务端搜索，更多信息见 [#5547](https://github.com/ant-design/ant-design/issues/5547)
 
 ```js
 
@@ -468,12 +418,6 @@ render(){
       filter:this.filter
     }}
   />)
-}
-```
-
-```less
-.fishd-cascader-picker {
-    width: 300px;
 }
 ```
 
@@ -534,12 +478,6 @@ render(){
   }
 ```
 
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
-```
-
 :::
 
 ## 自定义字段名
@@ -579,12 +517,6 @@ render(){
   return(
   <Cascader fieldNames={{ label: 'name', value: 'code', children: 'items' }} options={options} onChange={this.onChange} />);
   }
-```
-
-```less
-.fishd-cascader-picker {
-    width: 300px;
-}
 ```
 
 :::
