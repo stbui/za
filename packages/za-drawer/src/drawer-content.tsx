@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 import styled from 'styled-components';
 
 const DrawerStyle: any = styled.div`
@@ -26,16 +26,17 @@ const DrawerStyle: any = styled.div`
     }
 `;
 
-const Drawer = props => {
+const Drawer = forwardRef((props, ref) => {
     const { title, children, footer } = props;
+
     return (
-        <DrawerStyle>
+        <DrawerStyle {...props} ref={ref}>
             <div className="drawer-header">{title}</div>
             <div className="drawer-body">{children}</div>
             <div className="drawer-footer">{footer}</div>
         </DrawerStyle>
     );
-};
+});
 
 Drawer.defaultProps = {};
 

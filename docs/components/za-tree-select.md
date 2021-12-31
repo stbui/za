@@ -14,16 +14,11 @@ npm install @stbui/za-alert
 
 ## 单选
 
-```jsx
+```tsx
+import React from 'react';
 import Alert from '@stbui/za-alert';
 
-function Example() {
-    return (
-        <>
-            <Alert>Alert</Alert>
-        </>
-    );
-}
+export default () => <Alert>Alert</Alert>;
 ```
 
 ## 设置为必选的单选

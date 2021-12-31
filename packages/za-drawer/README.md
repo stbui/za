@@ -9,18 +9,14 @@
 
 ## 基础用法
 
-:::demo
-
 ```tsx
 import React from 'react';
 import Drawer from '@stbui/za-drawer';
 
 export default () => {
-    return <Drawer width="30vw">111111</Drawer>;
+    return <Drawer width="30vw">Drawer</Drawer>;
 };
 ```
-
-:::
 
 ## 带触发按钮的抽屉
 
