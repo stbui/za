@@ -6,7 +6,7 @@
 
 ## 基本用法
 
-```js
+```tsx
 /**
  * desc: 使用`onChange`回调获取`alpha`以及`color`值
  */
@@ -34,7 +34,7 @@ export default () => {
 
 ## 快速选择
 
-```js
+```tsx
 /**
  * desc: 弹出层快捷选择颜色，使用`onChange`回调获取 color`值
  */
@@ -55,24 +55,39 @@ export default () => {
 颜色选择面板组件、可选择默认配置颜色以及自定义颜色
 
 ```js
+import React from 'react';
+import ColorPicker from '@stbui/za-color-picker';
 
-state={
-  color:'#33bbff',
-}
+export default () => {
+    const [state, setState] = React.useState('#33bbff');
+    const onChangeColor = ({ color }) => {
+        console.log(`color:${color}`);
+        setState(color);
+    };
 
-onChangeColor=({color}) => {
-  console.log(`color:${color}`);
-  this.setState({
-    color
-  })
+    return (
+        <div>
+            <ColorPicker.QuickPanel
+                color={state}
+                colorHistory={['#33bbff']}
+                onChange={onChangeColor}
+            />
+            <div
+                style={{
+                    width: 100,
+                    height: 100,
+                    color: '#fff',
+                    lineHeight: '100px',
+                    textAlign: 'center',
+                    margin: '10px 0',
+                    background: state,
+                }}
+            >
+                已选中颜色
+            </div>
+        </div>
+    );
 };
-
-render(){
-  return(<div>
-  <ColorPicker.QuickPanel color={this.state.color} colorHistory={['#33bbff']} onChange={this.onChangeColor}/>
-  <div style={{width:100,height:100,color:'#fff',lineHeight:'100px',textAlign:'center',margin:'10px 0',background:this.state.color}}>已选中颜色</div>
-</div>)
-}
 ```
 
 ## API
