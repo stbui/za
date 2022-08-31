@@ -22,7 +22,7 @@ export default () => {
 
 提供左、右、上、下四种位置可供选择
 
-:::demo 带触发按钮的抽屉，点击触发按钮抽屉滑出，点击遮罩区或再次点击触发按钮关闭。`handler` 控制是否显示触发按钮，默认为 false
+带触发按钮的抽屉，点击触发按钮抽屉滑出，点击遮罩区或再次点击触发按钮关闭。`handler` 控制是否显示触发按钮，默认为 false
 
 ```js
   constructor(props) {
@@ -128,11 +128,7 @@ export default () => {
   }
 ```
 
-:::
-
 ## 自定义触发按钮的样式
-
-:::demo
 
 ```js
   constructor(props) {
@@ -233,11 +229,7 @@ export default () => {
   }
 ```
 
-:::
-
 ## 多层抽屉
-
-:::demo
 
 ```js
 constructor(props) {
@@ -323,8 +315,6 @@ render() {
 }
 ```
 
-:::
-
 ## 加入拖拽功能
 
 -   抽屉组件可以与其他组件配合使用，实现复杂的功能；
@@ -334,8 +324,6 @@ render() {
     -   拖拽时为了避免内容被选中，抽屉组件增加了禁止选中的样式，如果你需要选中里面的内容，请参考下面的`onResizeStart`和`onResizeStop`方法
 
 ### 从左边弹出
-
-:::demo
 
 ```js
   constructor(props) {
@@ -491,11 +479,7 @@ render() {
 }
 ```
 
-:::
-
 ### 从右边弹出
-
-:::demo
 
 ```js
   constructor(props) {
@@ -646,8 +630,6 @@ render() {
     cursor: col-resize;
 }
 ```
-
-:::
 
 ## API
 

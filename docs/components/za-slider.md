@@ -42,7 +42,7 @@ export default () => {
 
 ## 带输入框的滑块
 
-:::demo 和 [数字输入框](/components/input-number/) 组件保持同步。
+和 [数字输入框](/components/input-number/) 组件保持同步。
 
 ```js
   state = {
@@ -99,11 +99,9 @@ export default () => {
   }
 ```
 
-:::
-
 ## 带 icon 的滑块
 
-:::demo 滑块左右可以设置图标来表达业务含义。
+滑块左右可以设置图标来表达业务含义。
 
 ```js
   state = {
@@ -154,8 +152,6 @@ export default () => {
 }
 ```
 
-:::
-
 ## 自定义提示
 
 ```js
@@ -180,7 +176,7 @@ export default () => {
 
 ## 事件
 
-:::demo 当 Slider 的值发生改变时，会触发 `onChange` 事件，并把改变后的值作为参数传入。在 `onmouseup` 时，会触发 `onAfterChange` 事件，并把当前值作为参数传入。
+当 Slider 的值发生改变时，会触发 `onChange` 事件，并把改变后的值作为参数传入。在 `onmouseup` 时，会触发 `onAfterChange` 事件，并把当前值作为参数传入。
 
 ```js
 onChange=(value) => {
@@ -201,11 +197,9 @@ render(){
 }
 ```
 
-:::
-
 ## 带标签的滑块
 
-:::demo 使用 `marks` 属性标注分段式滑块，使用 `value` / `defaultValue` 指定滑块位置。当 `included=false` 时，表明不同标记间为并列关系。当 `step=null` 时，Slider 的可选值仅有 `marks` 标出来的部分。
+使用 `marks` 属性标注分段式滑块，使用 `value` / `defaultValue` 指定滑块位置。当 `included=false` 时，表明不同标记间为并列关系。当 `step=null` 时，Slider 的可选值仅有 `marks` 标出来的部分。
 
 ```js
 render(){
@@ -247,11 +241,9 @@ render(){
 }
 ```
 
-:::
-
 ## 垂直
 
-:::demo 垂直方向的 Slider。
+垂直方向的 Slider。
 
 ```js
 render(){
@@ -286,8 +278,6 @@ render(){
   </div>)
 }
 ```
-
-:::
 
 ## API
 

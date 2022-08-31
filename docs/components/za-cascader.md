@@ -10,7 +10,7 @@
 
 ## 基本
 
-:::demo 省市区级联。
+省市区级联。
 
 ```js
 onChange = (value) => {
@@ -45,11 +45,9 @@ render(){
 }
 ```
 
-:::
-
 ## 默认值
 
-:::demo 默认值通过数组的方式指定。
+默认值通过数组的方式指定。
 
 ```js
 onChange = (value) => {
@@ -85,11 +83,9 @@ render(){
   }
 ```
 
-:::
-
 ## 可以自定义显示
 
-:::demo 切换按钮和结果分开。
+切换按钮和结果分开。
 
 ```js
   state = {
@@ -130,11 +126,9 @@ render(){
   }
 ```
 
-:::
-
 ## 移入展开
 
-:::demo 通过移入展开下级菜单，点击完成选择。
+通过移入展开下级菜单，点击完成选择。
 
 ```js
 onChange = (value) => {
@@ -180,11 +174,9 @@ render(){
   }
 ```
 
-:::
-
 ## 禁用选项
 
-:::demo 通过指定 options 里的 `disabled` 字段。
+通过指定 options 里的 `disabled` 字段。
 
 ```js
 
@@ -222,11 +214,9 @@ render(){
   }
 ```
 
-:::
-
 ## 选择即改变
 
-:::demo 这种交互允许只选中父级选项。
+这种交互允许只选中父级选项。
 
 ```js
 onChange = (value) => {
@@ -262,11 +252,9 @@ render(){
   }
 ```
 
-:::
-
 ## 大小
 
-:::demo 不同大小的级联选择器。
+不同大小的级联选择器。
 
 ```js
 onChange=(value) => {
@@ -306,11 +294,9 @@ render(){
   }
 ```
 
-:::
-
 ## 自定义已选项
 
-:::demo 例如给最后一项加上邮编链接。
+例如给最后一项加上邮编链接。
 
 ```js
 handleAreaClick=(e, label, option) => {
@@ -366,11 +352,9 @@ render(){
 }
 ```
 
-:::
-
 ## 搜索
 
-:::demo 可以直接搜索选项并选择。
+可以直接搜索选项并选择。
 
 ```js
 
@@ -421,11 +405,9 @@ render(){
 }
 ```
 
-:::
-
 ## 动态加载选项
 
-:::demo 使用 `loadData` 实现动态加载选项。
+使用 `loadData` 实现动态加载选项。
 
 > 注意：`loadData` 与 `showSearch` 无法一起使用。
 
@@ -478,11 +460,9 @@ render(){
   }
 ```
 
-:::
-
 ## 自定义字段名
 
-:::demo 自定义字段名。
+自定义字段名。
 
 ```js
 
@@ -518,8 +498,6 @@ render(){
   <Cascader fieldNames={{ label: 'name', value: 'code', children: 'items' }} options={options} onChange={this.onChange} />);
   }
 ```
-
-:::
 
 ## API
 

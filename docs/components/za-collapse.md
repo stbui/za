@@ -223,7 +223,7 @@ export default () => {
 
 ## 可关闭
 
-:::demo 使用 showClose={false} 关闭删除功能。
+使用 showClose={false} 关闭删除功能。
 
 ```js
 
@@ -274,11 +274,9 @@ render(){
 }
 ```
 
-:::
-
 ## 定制 header
 
-:::demo header 支持传入一个函数，函数参数为面板的状态（展开为 true，收起为 false）可使用此状态定义展开和收起的图标。
+header 支持传入一个函数，函数参数为面板的状态（展开为 true，收起为 false）可使用此状态定义展开和收起的图标。
 
 ```js
 callback = (key) => {
@@ -319,8 +317,6 @@ render(){
     margin: 0;
 }
 ```
-
-:::
 
 ## API
 

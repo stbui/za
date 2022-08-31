@@ -4,8 +4,6 @@
 
 ## 基本
 
-:::demo
-
 ```js
 loadmore(){
   console.log('loadmore')
@@ -16,11 +14,7 @@ render(){
   }
 ```
 
-:::
-
 ## 加载中
-
-:::demo
 
 ```js
 render(){
@@ -28,11 +22,7 @@ render(){
   }
 ```
 
-:::
-
 ## 加载失败
-
-:::demo
 
 ```js
 render(){
@@ -40,11 +30,7 @@ render(){
   }
 ```
 
-:::
-
 ## 完全加载
-
-:::demo
 
 ```js
 render(){
@@ -52,11 +38,9 @@ render(){
   }
 ```
 
-:::
-
 ## 完整示例
 
-:::demo 配合 List 完成列表加载功能
+配合 List 完成列表加载功能
 
 ```js
   state = {
@@ -108,8 +92,6 @@ render(){
   }
 
 ```
-
-:::
 
 ## API
 

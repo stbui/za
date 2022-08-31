@@ -8,8 +8,6 @@
 
 ## 浮动固定页脚
 
-:::demo
-
 ```js
 
 render(){
@@ -48,11 +46,7 @@ render(){
 }
 ```
 
-:::
-
 ## 在 Layout 中的使用方式
-
-:::demo
 
 ```js
 render() {
@@ -133,13 +127,9 @@ render() {
 }
 ```
 
-:::
-
 ## 指定滚动区域
 
 若滚动区域非`window`，需要指定`target`为指定滚动区域，且设置`position:relative`
-
-:::demo
 
 ```js
 
@@ -171,8 +161,6 @@ render(){
  )
 }
 ```
-
-:::
 
 ## API
 

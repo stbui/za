@@ -35,7 +35,7 @@ export default () => (
 
 ## 限制多选个数
 
-:::demo 最基本的下拉筛选使用方式
+最基本的下拉筛选使用方式
 
 ```ts
 import React from 'react';
@@ -65,11 +65,9 @@ export default () => (
 );
 ```
 
-:::
-
 ## 添加额外的内容
 
-:::demo 可以自定义实现：最近选择、常用选项等功能，下面是最近选择的功能实现 demo
+可以自定义实现：最近选择、常用选项等功能，下面是最近选择的功能实现 demo
 
 ```js
   state={
@@ -147,11 +145,9 @@ export default () => (
   }
 ```
 
-:::
-
 ## 三种大小
 
-:::demo `large 40px`、`default 32px`、`small 24px`
+`large 40px`、`default 32px`、`small 24px`
 
 ```js
   state = {
@@ -200,11 +196,9 @@ export default () => (
   }
 ```
 
-:::
-
 ## 分组
 
-:::demo 可以使用`Select.OptGroup`进行分组
+可以使用`Select.OptGroup`进行分组
 
 ```js
   state = {
@@ -234,11 +228,9 @@ export default () => (
   }
 ```
 
-:::
-
 ## 获得选项文本
 
-:::demo `labelInValue`会返回`key`、`label`值，建议远程搜索采用此方案。
+`labelInValue`会返回`key`、`label`值，建议远程搜索采用此方案。
 
 ```js
   state = {
@@ -295,11 +287,9 @@ export default () => (
 }
 ```
 
-:::
-
 ## 联动
 
-:::demo 省市联动是典型的例子。但推荐使用 Cascader 组件。
+省市联动是典型的例子。但推荐使用 Cascader 组件。
 
 ```js
 const Option = Select.Option;
@@ -363,11 +353,9 @@ class Demo extends React.Component {
 ReactDOM.render(<Demo {...context.props} />, mountNode);
 ```
 
-:::
-
 ## 多选操作/Label 可删除的多选操作
 
-:::demo `labelClear`参数可以使 label 在可删除状态
+`labelClear`参数可以使 label 在可删除状态
 
 ```js
   state = {
@@ -415,11 +403,7 @@ ReactDOM.render(<Demo {...context.props} />, mountNode);
 }
 ```
 
-:::
-
 ## 支持搜索
-
-:::demo
 
 ```js
   state = {
@@ -464,11 +448,9 @@ ReactDOM.render(<Demo {...context.props} />, mountNode);
 }
 ```
 
-:::
-
 ## 加载状态
 
-:::demo 加载中状态文案
+加载中状态文案
 
 ```js
 render(){
@@ -490,11 +472,9 @@ render(){
 }
 ```
 
-:::
-
 ## 宽度及位置自定义
 
-:::demo 下拉弹框位置可以进行自定义，`bottomLeft`、`bottomCenter`、`bottomRight`、`topLeft`、`topCenter`、`topRight`
+下拉弹框位置可以进行自定义，`bottomLeft`、`bottomCenter`、`bottomRight`、`topLeft`、`topCenter`、`topRight`
 
 ```js
   state = {
@@ -539,11 +519,9 @@ render(){
   }
 ```
 
-:::
-
 ## 后端搜索-单选
 
-:::demo 使用`showSearch`、`labelInValue`、`onSearch`配合进行后端搜索操作，`notFoundContent`可以定制搜索文案
+使用`showSearch`、`labelInValue`、`onSearch`配合进行后端搜索操作，`notFoundContent`可以定制搜索文案
 
 ```js
   constructor(props) {
@@ -602,11 +580,9 @@ render(){
   }
 ```
 
-:::
-
 ## 后端搜索-多选
 
-:::demo 使用`showSearch`、`labelInValue`、`onSearch`配合进行后端搜索操作，`notFoundContent`可以定制搜索文案
+使用`showSearch`、`labelInValue`、`onSearch`配合进行后端搜索操作，`notFoundContent`可以定制搜索文案
 
 ```js
   constructor(props) {
@@ -664,8 +640,6 @@ render(){
     );
   }
 ```
-
-:::
 
 ## API
 

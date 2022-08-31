@@ -29,7 +29,7 @@ export default () => {
 
 ## 异步关闭
 
-:::demo 点击确定后异步关闭对话框，例如提交表单。
+点击确定后异步关闭对话框，例如提交表单。
 
 ```js
   state = {
@@ -88,11 +88,9 @@ export default () => {
 }
 ```
 
-:::
-
 ## 确认对话框
 
-:::demo 使用 `confirm()` 可以快捷地弹出确认框。
+使用 `confirm()` 可以快捷地弹出确认框。
 
 ```js
 showConfirm=() => {
@@ -146,11 +144,9 @@ render(){
 }
 ```
 
-:::
-
 ## 确认对话框 Promise
 
-:::demo 使用 `confirm()` 可以快捷地弹出确认框。onCancel/onOk 返回 promise 可以延迟关闭
+使用 `confirm()` 可以快捷地弹出确认框。onCancel/onOk 返回 promise 可以延迟关闭
 
 ```js
 
@@ -177,11 +173,9 @@ render(){
 }
 ```
 
-:::
-
 ## 自定义页脚
 
-:::demo 更复杂的例子，自定义了页脚的按钮，点击提交后进入 loading 状态，完成后关闭。
+更复杂的例子，自定义了页脚的按钮，点击提交后进入 loading 状态，完成后关闭。
 
 不需要默认确定取消按钮时，你可以把 `footer` 设为 `null`。
 
@@ -244,11 +238,9 @@ render(){
 }
 ```
 
-:::
-
 ## 信息提示
 
-:::demo 各种类型的信息提示，只提供一个按钮用于关闭。
+各种类型的信息提示，只提供一个按钮用于关闭。
 
 ```js
 info=() => {
@@ -307,11 +299,9 @@ render(){
 }
 ```
 
-:::
-
 ## 国际化
 
-:::demo 设置 `okText` 与 `cancelText` 以自定义按钮文字。
+设置 `okText` 与 `cancelText` 以自定义按钮文字。
 
 ```js
   state = { visible: false }
@@ -368,11 +358,9 @@ render(){
 }
 ```
 
-:::
-
 ## 手动移除
 
-:::demo 手动关闭 modal。
+手动关闭 modal。
 
 ```js
 
@@ -392,11 +380,9 @@ render(){
 
 ```
 
-:::
-
 ## 自定义位置
 
-:::demo 设置对话框位置。
+设置对话框位置。
 
 ```js
   state = {
@@ -433,11 +419,9 @@ render(){
 }
 ```
 
-:::
-
 ## 拖动支持
 
-:::demo 可拖动的对话框。
+可拖动的对话框。
 
 ```js
   state = { visible: false }
@@ -488,8 +472,6 @@ render(){
     margin: 0;
 }
 ```
-
-:::
 
 ## API
 

@@ -7,19 +7,118 @@
 -   对用户执行的操作结果进行轻量级的反馈，是一种不打断用户操作的提示方式。
 -   顶部居中显示并自动消失，可提供成功、警告和错误等反馈信息。
 
-## Installation
+## 普通提示
 
-```sh
-npm install @stbui/za-checkbox
+```js
+import React from 'react';
+import Button from '@stbui/za-button';
+import message from '@stbui/za-message';
+
+export default () => {
+    const info = () => {
+        message.info('This is a normal message');
+    };
+
+    return (
+        <Button type="primary" onClick={info}>
+            Display normal message
+        </Button>
+    );
+};
 ```
 
-## Usage
+## 其它类型提示
 
-```jsx
+```js
 import React from 'react';
-import Checkbox from '@stbui/za-checkbox';
+import Button from '@stbui/za-button';
+import message from '@stbui/za-message';
 
-export default () => <Checkbox>Checkbox</Checkbox>;
+export default () => {
+    const success = () => {
+        message.success('This is a message of success');
+    };
+
+    const error = () => {
+        message.error('This is a message of error');
+    };
+
+    const warning = () => {
+        message.warning('This is message of warning');
+    };
+
+    return (
+        <div className="components-message-demo-other">
+            <Button onClick={this.success}>Success</Button>
+            <Button onClick={this.error}>Error</Button>
+            <Button onClick={this.warning}>Warning</Button>
+        </div>
+    );
+};
+```
+
+## 修改延时
+
+自定义时长 `10s`，默认时长为 `3s`。
+
+```js
+import React from 'react';
+import Button from '@stbui/za-button';
+import message from '@stbui/za-message';
+
+export default () => {
+    const success = () => {
+        message.success(
+            'This is a prompt message for success, and it will disappear in 10 seconds',
+            10
+        );
+    };
+
+    return <Button onClick={success}>Customized display duration</Button>;
+};
+```
+
+## 加载中
+
+进行全局 loading，异步自行移除。
+
+```js
+import React from 'react';
+import Button from '@stbui/za-button';
+import message from '@stbui/za-message';
+
+export default () => {
+    const success = () => {
+        const hide = message.loading('Action in progress..', 0);
+        // Dismiss manually and asynchronously
+        setTimeout(hide, 2500);
+    };
+
+    return <Button onClick={this.success}>Display a loading indicator</Button>;
+};
+```
+
+## Promise 接口
+
+可以通过 then 接口在关闭后运行 callback 。以上用例将在每个 message 将要结束时通过 then 显示新的 message 。
+
+```js
+import React from 'react';
+import Button from '@stbui/za-button';
+import message from '@stbui/za-message';
+
+export default () => {
+    const success = () => {
+        message
+            .loading('Action in progress..', 2.5)
+            .then(() => message.success('Loading finished', 2.5))
+            .then(() => message.info('Loading finished is finished', 2.5));
+    };
+
+    return (
+        <Button onClick={this.success}>Display a sequence of message</Button>
+    );
+};
 ```
 
 ## API

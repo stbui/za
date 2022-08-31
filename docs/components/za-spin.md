@@ -50,7 +50,7 @@ export default () => <Spin.TextLoading />;
 
 ## 自定义指示符
 
-:::demo 使用自定义指示符。
+使用自定义指示符。
 
 ```js
 render(){
@@ -59,8 +59,6 @@ render(){
   )
 }
 ```
-
-:::
 
 ## 指示符和自定义描述文案结合
 
@@ -91,7 +89,7 @@ export default () => (
 
 ## 作为容器
 
-:::demo 可以将 Spin 作为容器，为内容加上毛玻璃效果和指示符。
+可以将 Spin 作为容器，为内容加上毛玻璃效果和指示符。
 
 ```js
   state = { loading: false }
@@ -118,11 +116,9 @@ export default () => (
   }
 ```
 
-:::
-
 ## 放入一个容器中
 
-:::demo 放入一个容器中，通过容器的样式控制 Spin 的位置。
+放入一个容器中，通过容器的样式控制 Spin 的位置。
 
 ```js
 render(){
@@ -134,11 +130,9 @@ render(){
 }
 ```
 
-:::
-
 ## 使用带居中效果的容器
 
-:::demo 使用 Spin.Contaner 作为容器，实现居中显示。
+使用 Spin.Contaner 作为容器，实现居中显示。
 
 ```js
 render(){
@@ -149,8 +143,6 @@ render(){
   )
 }
 ```
-
-:::
 
 ## API
 

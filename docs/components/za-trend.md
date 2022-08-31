@@ -8,7 +8,7 @@
 
 ## 基本使用
 
-:::demo 在数值背后添加一个小图标来标识涨跌情况。
+在数值背后添加一个小图标来标识涨跌情况。
 
 ```js
 
@@ -23,11 +23,10 @@
     );
   }
 ```
-:::
 
 ## 颜色反转
 
-:::demo 颜色反转。
+颜色反转。
 
 ```js
 
@@ -42,11 +41,10 @@
     );
   }
 ```
-:::
 
 ## 大小
 
-:::demo 设置标识的大小。
+设置标识的大小。
 
 ```js
   state = { size: 'small' };
@@ -74,16 +72,15 @@
   }
 
 ```
-:::
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|---|---|---|---|
-| className | 容器类名 | String | - |
-| colorful | 是否使用彩色标记 | Boolean | true |
-| flag | 上升或下降的标识 | Enum {'up', 'down'} | - |
-| reverseColor | 颜色反转 | Boolean | false |
-| size | 标识的大小 | Enum {'small', 'normal', 'large'} | 'small' |
-| style | 容器样式 | Object | - |
-| value | 上升或下降的值 | String | - |
+| 参数         | 说明             | 类型                              | 默认值  |
+| ------------ | ---------------- | --------------------------------- | ------- |
+| className    | 容器类名         | String                            | -       |
+| colorful     | 是否使用彩色标记 | Boolean                           | true    |
+| flag         | 上升或下降的标识 | Enum {'up', 'down'}               | -       |
+| reverseColor | 颜色反转         | Boolean                           | false   |
+| size         | 标识的大小       | Enum {'small', 'normal', 'large'} | 'small' |
+| style        | 容器样式         | Object                            | -       |
+| value        | 上升或下降的值   | String                            | -       |

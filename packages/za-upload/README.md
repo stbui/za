@@ -12,7 +12,7 @@
 
 ## 基本使用
 
-:::demo 经典款式，用户点击按钮弹出文件选择框。
+经典款式，用户点击按钮弹出文件选择框。
 
 ```js
 render() {
@@ -54,11 +54,9 @@ render() {
 }
 ```
 
-:::
-
 ## 可预览样式
 
-:::demo 用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。
+用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。
 
 ```js
 
@@ -123,11 +121,9 @@ render() {
 }
 ```
 
-:::
-
 ## 拖拽上传
 
-:::demo 把文件拖入指定区域，完成上传，同样支持点击上传。
+把文件拖入指定区域，完成上传，同样支持点击上传。
 
 设置 `multiple` 后，在 `IE10+` 可以一次上传多个文件。
 
@@ -165,11 +161,9 @@ render(){
 }
 ```
 
-:::
-
 ## 文件数量超出
 
-:::demo 使用 `defaultFileList` 设置已上传的内容。
+使用 `defaultFileList` 设置已上传的内容。
 
 ```js
 render() {
@@ -228,11 +222,9 @@ render() {
   }
 ```
 
-:::
-
 ## 用户头像
 
-:::demo 点击上传用户头像，并使用 `beforeUpload` 限制用户上传的图片格式和大小。
+点击上传用户头像，并使用 `beforeUpload` 限制用户上传的图片格式和大小。
 
 `beforeUpload` 的返回值可以是一个 Promise 以支持也支持异步检查：[示例](http://react-component.github.io/upload/examples/beforeUpload.html)。
 
@@ -303,11 +295,9 @@ render() {
 }
 ```
 
-:::
-
 ## 完全控制的上传列表
 
-:::demo 使用 `fileList` 对列表进行完全控制，可以实现各种自定义功能，以下演示三种情况：
+使用 `fileList` 对列表进行完全控制，可以实现各种自定义功能，以下演示三种情况：
 
 1. 上传列表数量的限制。
 
@@ -369,11 +359,9 @@ render() {
 
 ```
 
-:::
-
 ## 图片列表样式
 
-:::demo 上传文件为图片，可展示本地缩略图。`IE8/9` 不支持浏览器本地缩略图展示（[Ref](https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL)），可以写 `thumbUrl` 属性来代替。
+上传文件为图片，可展示本地缩略图。`IE8/9` 不支持浏览器本地缩略图展示（[Ref](https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL)），可以写 `thumbUrl` 属性来代替。
 
 ```js
 render(){
@@ -425,7 +413,7 @@ render(){
 
 ## 手动上传
 
-:::demo `beforeUpload` 返回 `false` 后，手动上传文件。
+`beforeUpload` 返回 `false` 后，手动上传文件。
 
 ```js
   state = {
@@ -513,8 +501,6 @@ render(){
     margin-top: 16px;
 }
 ```
-
-:::
 
 ## API
 

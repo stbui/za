@@ -50,7 +50,7 @@ export default () => {
 
 ## 位置
 
-:::demo 位置有 12 个方向。
+位置有 12 个方向。
 
 ```js
 render(){

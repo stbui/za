@@ -59,7 +59,7 @@ export default () => {
 
 ## 修改延时
 
-:::demo 自定义时长 `10s`，默认时长为 `3s`。
+自定义时长 `10s`，默认时长为 `3s`。
 
 ```js
 import React from 'react';
@@ -80,7 +80,7 @@ export default () => {
 
 ## 加载中
 
-:::demo 进行全局 loading，异步自行移除。
+进行全局 loading，异步自行移除。
 
 ```js
 import React from 'react';
@@ -100,7 +100,7 @@ export default () => {
 
 ## Promise 接口
 
-:::demo 可以通过 then 接口在关闭后运行 callback 。以上用例将在每个 message 将要结束时通过 then 显示新的 message 。
+可以通过 then 接口在关闭后运行 callback 。以上用例将在每个 message 将要结束时通过 then 显示新的 message 。
 
 ```js
 import React from 'react';

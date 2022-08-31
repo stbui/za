@@ -33,11 +33,9 @@ export default () => (
 );
 ```
 
-:::
-
 ### 不带封面的播放器
 
-:::demo 播放器组件`VideoViewer.Video`。不指定封面时，默认展示视频第一帧。
+播放器组件`VideoViewer.Video`。不指定封面时，默认展示视频第一帧。
 
 ```js
   render() {
@@ -55,13 +53,11 @@ export default () => (
   }
 ```
 
-:::
-
 ## 缩略图
 
 ### 正常状态
 
-:::demo `VideoViewer`组件封装了`VideoViewer.VideoModal`和`VideoViewer.Video`，实现了点击缩略图在模态框中播放视频。
+`VideoViewer`组件封装了`VideoViewer.VideoModal`和`VideoViewer.Video`，实现了点击缩略图在模态框中播放视频。
 `modalProps` 传入`VideoViewer.VideoModal`的参数；`videoProps`传入`VideoViewer.Video`的参数
 
 ```js
@@ -106,11 +102,9 @@ export default () => (
   }
 ```
 
-:::
-
 ### 其他状态
 
-:::demo 当视频由于某些原因无法播放时，通过 `failedMessage` 展示缩略图的其他状态, 当设置了`failedMessage`时，缩略图将不可点击并播放
+当视频由于某些原因无法播放时，通过 `failedMessage` 展示缩略图的其他状态, 当设置了`failedMessage`时，缩略图将不可点击并播放
 
 ```js
   render() {
@@ -156,11 +150,9 @@ export default () => (
   }
 ```
 
-:::
-
 ## 自行控制视频
 
-:::demo 可以用自定义的等组件，将播放器模态框`VideoViewer.VideoModal`和播放器`VideoViewer.Video`配合使用，自行控制视频。
+可以用自定义的等组件，将播放器模态框`VideoViewer.VideoModal`和播放器`VideoViewer.Video`配合使用，自行控制视频。
 
 ```js
   constructor(props) {
@@ -225,8 +217,6 @@ export default () => (
     )
   }
 ```
-
-:::
 
 <style>
 .source {

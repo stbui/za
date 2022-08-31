@@ -8,7 +8,7 @@
 
 ## 基本使用
 
-:::demo 通过 dataSource 设置自动完成的数据源。
+通过 dataSource 设置自动完成的数据源。
 
 ```js
 
@@ -83,11 +83,9 @@
   }
 ```
 
-:::
-
 ## 自定义选项
 
-:::demo 也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `dataSource`。
+也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `dataSource`。
 
 ```js
   state = {
@@ -139,11 +137,9 @@
   }
 ```
 
-:::
-
 ## 查询模式
 
-:::demo 查询模式。
+查询模式。
 
 ```js
 
@@ -220,8 +216,6 @@
     );
   }
 ```
-
-:::
 
 ## API
 
