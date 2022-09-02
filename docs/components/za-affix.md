@@ -33,7 +33,7 @@ export default () => <Affix>Affix</Affix>;
 
 可以获得是否固定的状态。
 
-```jsx | pure
+```tsx
 import React from 'react';
 import Affix from '@stbui/za-affix';
 

@@ -26,6 +26,10 @@ export const VideoViewer = props => {
     return <Root {...other} />;
 };
 
+export const Video = () => <div></div>;
+
+VideoViewer.Video = Video;
+
 VideoViewer.defaultProps = {
     className: 'video-js',
     width: 640, // 视频容器的宽度

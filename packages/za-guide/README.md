@@ -8,9 +8,9 @@
 
 ## 基本使用
 
-```js
+```tsx
 import React from 'react';
-import RichEditor from '@stbui/za-rich-editor';
+import Guide from '@stbui/za-guide';
 
 export default () => {
     return (
@@ -39,124 +39,137 @@ export default () => {
 
 ## 固定展示
 
-```js
-  constructor(props){
-    super(props);
-    this.state = {
-      visible: false
-    };
-  };
+```tsx
+import React from 'react';
+import Guide from '@stbui/za-guide';
+import Button from '@stbui/za-button';
 
-  handleStart = () => {
-    this.setState({
-      visible: true
-    });
-  };
+export default () => {
+    const [visible, setVisible] = React.useState(false);
 
-  render() {
+    const handleStart = () => {};
+
     return (
-    <div className="guide-demo">
-        <Button type="primary" onClick={this.handleStart}>开始引导</Button>
-        <Guide
-          className='custom-fixed-mode'
-          visible={this.state.visible}
-          mode='fixed'
-          steps={[
-            {
-              title: '标题 1',
-              subtitle: '春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。',
-              content: (
-                <img alt="图片" style={{ width: '100%' }} src={'//ysf.qiyukf.net/3df2280d2319678a091138b0bbba82fe'} />
-              )
-            },
-            {
-              title: '标题 2',
-              content: (
-                <img alt="图片" style={{ width: '100%' }} src={'//ysf.qiyukf.net/080b89be8a980ab9951a1b0de643d939'} />
-              )
-            },
-            {
-              content: (
-                <img alt="图片" style={{ width: '100%' }} src={'//ysf.qiyukf.net/260c0731b07b2933fe04f1a4d629450c'} />
-              )
-            },
-          ]}
-        />
-    </div>
+        <div className="guide-demo">
+            <Button type="primary" onClick={handleStart}>
+                开始引导
+            </Button>
+            <Guide
+                className="custom-fixed-mode"
+                visible={visible}
+                mode="fixed"
+                steps={[
+                    {
+                        title: '标题 1',
+                        subtitle:
+                            '春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。',
+                        content: (
+                            <img
+                                alt="图片"
+                                style={{ width: '100%' }}
+                                src={
+                                    '//ysf.qiyukf.net/3df2280d2319678a091138b0bbba82fe'
+                                }
+                            />
+                        ),
+                    },
+                    {
+                        title: '标题 2',
+                        content: (
+                            <img
+                                alt="图片"
+                                style={{ width: '100%' }}
+                                src={
+                                    '//ysf.qiyukf.net/080b89be8a980ab9951a1b0de643d939'
+                                }
+                            />
+                        ),
+                    },
+                    {
+                        content: (
+                            <img
+                                alt="图片"
+                                style={{ width: '100%' }}
+                                src={
+                                    '//ysf.qiyukf.net/260c0731b07b2933fe04f1a4d629450c'
+                                }
+                            />
+                        ),
+                    },
+                ]}
+            />
+        </div>
     );
-  }
+};
 ```
 
 ## 带计数的步骤
 
-```js
-  constructor(props){
-    super(props);
-    this.state = {
-      visible: false
-    };
-  };
+```tsx
+import React from 'react';
+import Guide from '@stbui/za-guide';
+import Button from '@stbui/za-button';
 
-  handleStart = () => {
-    this.setState({
-      visible: true
-    });
-  };
+export default () => {
+    const [visible, setVisible] = React.useState(false);
 
-  render() {
+    const handleStart = () => {};
+
     return (
-    <div className="guide-demo">
-        <Button type="primary" onClick={this.handleStart}>开始引导</Button>
-        <div className="guide-demo-cont">
-          <h3 className="item guide-demo-step1">第1步</h3>
-          <h3 className="item guide-demo-step2">第2步</h3>
-          <h3 className="item guide-demo-step3">第3步</h3>
-          <h3 className="item guide-demo-step4">第4步</h3>
+        <div className="guide-demo">
+            <Button type="primary" onClick={handleStart}>
+                开始引导
+            </Button>
+            <div className="guide-demo-cont">
+                <h3 className="item guide-demo-step1">第1步</h3>
+                <h3 className="item guide-demo-step2">第2步</h3>
+                <h3 className="item guide-demo-step3">第3步</h3>
+                <h3 className="item guide-demo-step4">第4步</h3>
+            </div>
+            <Guide
+                visible={visible}
+                steps={[
+                    {
+                        element: '.guide-demo-step1',
+                        popover: {
+                            className: 'custom',
+                            title: '第1步',
+                            description: '第1步介绍',
+                            position: 'bottomLeft',
+                        },
+                    },
+                    {
+                        counterPosition: 'leftBottom',
+                        element: '.guide-demo-step2',
+                        popover: {
+                            title: '第2步',
+                            description: '第2步介绍',
+                            position: 'right',
+                        },
+                    },
+                    {
+                        counterPosition: 'rightTop',
+                        element: '.guide-demo-step3',
+                        popover: {
+                            title: '第3步',
+                            description: '第3步介绍',
+                            position: 'left',
+                        },
+                    },
+                    {
+                        counterPosition: 'rightBottom',
+                        element: '.guide-demo-step4',
+                        popover: {
+                            title: '第4步',
+                            description: '第4步介绍',
+                            position: 'top',
+                        },
+                    },
+                ]}
+            />
         </div>
-        <Guide
-          visible={this.state.visible}
-          steps={[
-            {
-              element: '.guide-demo-step1',
-              popover: {
-                className: 'custom',
-                title: '第1步',
-                description: '第1步介绍',
-                position: 'bottomLeft'
-              }
-            },
-            {
-              counterPosition: 'leftBottom',
-              element: '.guide-demo-step2',
-              popover: {
-                title: '第2步',
-                description: '第2步介绍',
-                position: 'right'
-              }
-            },
-            {
-              counterPosition: 'rightTop',
-              element: '.guide-demo-step3',
-              popover: {
-                title: '第3步',
-                description: '第3步介绍',
-                position: 'left'
-              }
-            },
-            {
-              counterPosition: 'rightBottom',
-              element: '.guide-demo-step4',
-              popover: {
-                title: '第4步',
-                description: '第4步介绍',
-                position: 'top'
-              }
-            },
-          ]}
-        />
-    </div>
     );
-  }
+};
 ```
 
 ## API

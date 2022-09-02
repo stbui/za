@@ -8,42 +8,50 @@
 
 ## 浮动固定页脚
 
-```js
+```tsx
+import React from 'react';
+import FooterToolbar from '@stbui/za-footer-toolbar';
 
-render(){
-  const layoutFixedHeader = () => {
-      <div style={{background: '#f7f7f7'}}>
-        <div style={{padding: 24, marginBottom: 52}}>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
-          <p>Content Content Content Content</p>
+export default () => {
+    const layoutFixedHeader = () => {
+        <div style={{ background: '#f7f7f7' }}>
+            <div style={{ padding: 24, marginBottom: 52 }}>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+                <p>Content Content Content Content</p>
+            </div>
+            <FooterToolbar>
+                <Button>取消</Button>
+                <Button type="primary" style={{ marginLeft: 8 }}>
+                    保存
+                </Button>
+            </FooterToolbar>
+        </div>;
+    };
+
+    //为了演示效果，该demo已打包为单独的页面嵌入iframe，核心代码可参考上面的footerToolbar
+    return (
+        <div className="browser-mockup">
+            <iframe
+                src="./demo/footerToolbar.html"
+                height={450}
+                width={'100%'}
+            ></iframe>
         </div>
-        <FooterToolbar>
-          <Button>取消</Button>
-          <Button type="primary" style={{marginLeft: 8}}>保存</Button>
-        </FooterToolbar>
-      </div>
-  }
-  //为了演示效果，该demo已打包为单独的页面嵌入iframe，核心代码可参考上面的footerToolbar
-  return(
-    <div className="browser-mockup">
-      <iframe src="./demo/footerToolbar.html" height={450} width={'100%'}></iframe>
-    </div>
-  )
-
-}
+    );
+};
 ```
 
 ## 在 Layout 中的使用方式
